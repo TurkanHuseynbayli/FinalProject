@@ -1,0 +1,378 @@
+// NAV START
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  color: #666;
+  font-family: "Lato", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  background-color: lightgray;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #434343;
+  font-family: "Lato", sans-serif;
+  margin: 0 0 10px;
+}
+a {
+  color: black;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+a {
+  &::before {
+    transition: all 0.3s ease 0s;
+  }
+}
+h3 {
+  display: block;
+  font-size: 1.17em;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+.fixed {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999999;
+  background-color: white;
+}
+nav {
+  a {
+    img {
+      width: 93px;
+    }
+  }
+}
+.padding-100 {
+  padding: 100px 0px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li a {
+  padding: 20px;
+  color: #233645;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.text {
+  color: #dddddd;
+}
+
+.nav-item {
+  a {
+    &:hover {
+      color: #1ebeb6 !important;
+      transition: 0.4s;
+    }
+  }
+}
+
+.dropdown {
+  &:hover {
+    .dropdown-menu {
+      position: relative;
+      display: block;
+      top: 33px;
+    }
+  }
+}
+
+// NAV END
+//section carousel start
+
+#carouselExampleControls .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.233);
+}
+
+.carousel-control-prev {
+  position: absolute;
+  left: -150px;
+  transition: 0.3s;
+}
+#carousel:hover .carousel-control-prev {
+  position: absolute;
+  left: 0;
+  transition: 0.3s;
+}
+.carousel-control-next {
+  position: absolute;
+  right: -150px;
+  transition: 0.3s;
+}
+#carousel:hover .carousel-control-next {
+  position: absolute;
+  right: 0;
+  transition: 0.3s;
+}
+
+.carousel-item img {
+  position: relative;
+}
+
+.carousel-item {
+  .text-holder {
+    position: absolute;
+    top: 180px;
+    right: 190px;
+    color: white;
+    a {
+      border-color: black;
+      &:hover {
+        background: #c8a165 none repeat scroll;
+        transition: 0.3s;
+      }
+    }
+  }
+}
+
+h4 {
+  font-weight: 600;
+  margin-bottom: 25px;
+  font-size: 22px;
+}
+
+.btn {
+  i {
+    height: 30px;
+    background: #ffffff;
+    color: #1ebeb6;
+    line-height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-left: 0;
+    margin-right: 5px;
+  }
+}
+.btn-success {
+  background-color: #1ebeb6;
+}
+.carousel {
+  img {
+    background-size: cover;
+  }
+}
+
+.carousel-item {
+  h2 {
+    font-weight: 300;
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 25px;
+  }
+}
+
+.carousel-item {
+  a {
+    margin-top: 15px;
+    margin-right: 5px;
+  }
+}
+//section carousel END
+//BANNER AREA START
+.single-banner {
+  position: relative;
+  transition: all 0.5s ease 0s;
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  .pro-label {
+    left: 30px;
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+    border-radius: 5px;
+    color: #fff;
+    height: 25px;
+    line-height: 25px;
+    padding: 0 10px;
+    text-transform: capitalize;
+    background: #c8a165;
+
+    .new-label {
+      background: #c8a165 none repeat scroll 0 0;
+    }
+  }
+  .banner-thumb {
+    display: block;
+  }
+}
+
+.price {
+  color: #434343;
+  font-size: 20px;
+  line-height: 30px;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+  z-index: 9;
+}
+
+.banner-brief {
+  bottom: 20px;
+  left: 30px;
+  position: absolute;
+  .banner-title {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 15px;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+}
+
+.banner-1 {
+  .button-one {
+    background: #efefef none repeat scroll 0 0;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding: 0 15px;
+  }
+  .button-one {
+    bottom: 20px;
+    position: absolute;
+    right: 30px;
+
+    &::before {
+      background: #c8a165 none repeat scroll 0 0;
+      bottom: 0;
+      color: #fff;
+      content: attr(data-text);
+      left: -100%;
+      position: absolute;
+      text-align: center;
+      top: 0;
+      width: 100%;
+      visibility: hidden;
+      z-index: 11;
+    }
+    .button-one {
+      &::after {
+        border: 2px solid #d3d3d3;
+        bottom: 0;
+        content: "";
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+    }
+  }
+}
+//BANNER AREA END
+//FOOTER START
+.footer {
+  background: #eeeeee none repeat scroll 0 0;
+  padding-top: 130px;
+}
+.footer-area {
+  background: #f6f6f6 none repeat scroll 0 0;
+  padding: 120px 0 75px;
+}
+.footer-title {
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 15px;
+  margin-bottom: 25px;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+}
+.title-border {
+  position: relative;
+  &::before {
+    background: #c87065 none repeat scroll 0 0;
+    bottom: 0;
+    content: "";
+    height: 2px;
+    left: 0;
+    position: absolute;
+    width: 50px;
+  }
+}
+
+.footer-contact {
+  li {
+    color: #434343;
+    font-family: "Lato", sans-serif;
+    margin: 0 0 10px;
+
+    display: block;
+    overflow: hidden;
+    padding-bottom: 15px;
+    margin-left: -45px;
+    span {
+      float: left;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 24px;
+      width: 95px;
+    }
+  }
+}
+
+.footer-menu {
+  li {
+    a {
+      color: #666666;
+      line-height: 27px;
+      margin-left: -63px;
+      &:hover {
+        color: #c8a165;
+        text-decoration: none;
+      }
+      i {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+input[type="text"],
+input[type="password"] {
+  background: white none repeat scroll 0 0;
+  border: medium none;
+  box-shadow: none;
+  color: #999;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  outline: none;
+}
+button {
+  .button-one {
+    .submit-btn-4 {
+      padding: 10px;
+    }
+  }
+}
+
+//FOOTER END
