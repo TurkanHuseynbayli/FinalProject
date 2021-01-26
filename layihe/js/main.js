@@ -54,4 +54,19 @@ $(".owl-carousel.owl-theme").owlCarousel({
   },
 });
 
-
+$(".owl-carousel.disc").owlCarousel({
+  loop: true,
+  margin: 0,
+  dotsEach: 2,
+  responsive: {
+    0: {
+      items: 1,
+    },
+    600: {
+      items: 1,
+    },
+    1000: {
+      items: 1,
+    },
+  },
+});
