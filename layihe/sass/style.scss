@@ -15,6 +15,13 @@ img {
   max-width: 100%;
   height: auto;
 }
+.floatleft {
+  float: left;
+}
+.floatright {
+  float: right;
+}
+
 span {
   color: #c8a165 none repeat scroll 0 0;
 }
@@ -594,46 +601,58 @@ a {
 
 //SHOP PAGE START
 //HEADING START
+
 #heading {
-  .heading-banner-area {
-    background: rgba(0, 0, 0, 0) url(img/bg/1.jpg) no-repeat scroll center cover;
-
-    .heading-banner {
-      .heading-banner-title {
-        h2 {
-          color: #fff;
-          font-size: 45px;
-          font-weight: 900;
-          line-height: 33px;
-          margin-bottom: 0;
-          padding: 134px 0 101px;
-          text-align: center;
-          text-transform: uppercase;
-        }
+  .heading-banner {
+    &::before {
+      background: rgba(0, 0, 0, 0.3) none repeat scroll 0 0;
+      content: "";
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+    .heading-banner-title {
+      h2 {
+        position: relative;
+        color: #fff;
+        font-size: 45px;
+        font-weight: 900;
+        line-height: 33px;
+        margin-bottom: 0;
+        padding: 134px 0 101px;
+        text-align: center;
+        text-transform: uppercase;
       }
-      .breadcumbs {
-        ul {
-          overflow: hidden;
-          li {
-            color: #eee;
-            display: inline-block;
+    }
+    .breadcumbs {
+      ul {
+        overflow: hidden;
+        li {
+          &:first-child::after {
+            content: "";
+          }
+        }
+        li {
+          color: #eee;
+          display: inline-block;
 
-            font-size: 14px;
-            font-weight: 700;
-            margin-left: 38px;
-            position: relative;
-            text-transform: uppercase;
-            &::after {
-              color: #fff;
-              content: "/";
-              left: -22px;
-              position: absolute;
-              top: 0;
-            }
-            a {
-              color: #fff;
-              display: block;
-            }
+          font-size: 14px;
+          font-weight: 700;
+          margin-left: 38px;
+          position: relative;
+          text-transform: uppercase;
+          &::after {
+            color: #fff;
+            content: "/";
+            left: -22px;
+            position: absolute;
+            top: 0;
+          }
+          a {
+            color: #fff;
+            display: block;
           }
         }
       }
@@ -642,6 +661,208 @@ a {
 }
 //HEADING END
 //SHOP PAGE END
+
+//SINGLE BLOG AREA START
+#blog {
+  .single-blog {
+    padding: 40px;
+    .blog-photo {
+      position: relative;
+      a {
+        img {
+          width: 100%;
+          transition: all 0.5s ease 0s;
+        }
+      }
+      .like-share {
+        background: rgba(255, 255, 255, 0.2) none repeat scroll 0 0;
+        bottom: 0px !important;
+        padding-left: 20px;
+        visibility: visible;
+        position: absolute;
+        transition: all 0.3s ease 0s;
+        padding: 12px 0;
+        width: 100%;
+
+        a {
+          color: #444;
+          display: inline-block;
+          float: none;
+          font-size: 12px;
+          line-height: 14px;
+          margin-right: 20px;
+        }
+        .fas {
+          padding: 0 8px 0 2px;
+          display: inline-block;
+
+          font-size: inherit;
+        }
+      }
+    }
+    .post-date {
+      border: 1px solid #d6948c;
+      height: 40px;
+      line-height: 38px;
+      text-align: center;
+      width: 40px;
+    }
+    .post-date-2 {
+      background: #fff none repeat scroll 0 0;
+      height: 70px;
+      left: 20px;
+      line-height: inherit;
+      padding: 12px 0 10px;
+      position: absolute;
+      top: 20px;
+      width: 70px;
+      font-size: 21px;
+      .text-dark-red {
+        color: #c87065;
+      }
+    }
+    .blog-info {
+      .post-title {
+        a {
+          font-size: 25px;
+          text-transform: uppercase;
+        }
+      }
+      p {
+        font-weight: 400;
+      }
+      .post-share {
+        span {
+          margin-right: 20px;
+        }
+        a {
+          color: #999;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}
+
+//SINGLE BLOG AREA END
+
+//CONTACT START
+#address {
+  background: white !important;
+  .form {
+    strong {
+      display: block;
+      color: #1ebeb6 !important;
+      margin-top: 5px;
+      font-size: 32px;
+    }
+    .form-control {
+      border: none !important;
+      border-bottom: 1px solid #e7e7e7 !important;
+      padding: 0;
+      border-radius: inherit !important;
+    }
+    textarea {
+      min-height: 150px;
+      border: none !important;
+    }
+    a {
+      border-radius: 30px;
+      padding: 12px 35px;
+    }
+  }
+}
+
+.address-info {
+  position: absolute;
+  left: 30px;
+  bottom: 0;
+  padding: 30px;
+  background: #ffffff;
+  right: 30px;
+  ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    li {
+      margin: 0 30px;
+      h5 {
+        margin-bottom: 20px;
+        i {
+          margin-right: 5px;
+          color: #1ebeb6;
+          font-size: 30px;
+          position: relative;
+          top: 5px;
+        }
+      }
+    }
+  }
+}
+//CONTACT END
+
+//ABOUT AREA START
+#about {
+  background: white;
+
+  .about-brief {
+    margin-left: -200px;
+    margin-top: 40px;
+    min-height: 350px;
+    padding: 40px 30px 30px 40px;
+    background: #f6f6f6;
+
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 28px;
+      &::before {
+        background: #eee none repeat scroll 0 0;
+        bottom: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        width: 50px;
+      }
+    }
+  }
+}
+
+//TEAM SECTION START
+#team {
+  .team-member {
+    .single-member {
+      padding: 30px 0px;
+      transition: all 0.3s ease 0s;
+      color: #666;
+      font-family: "Lato", sans-serif;
+      font-size: 20px;
+
+      &::before {
+        display: none;
+      }
+
+      .text-uppercase {
+        text-transform: uppercase;
+      }
+      .text-gray {
+        color: #999;
+      }
+      p {
+        font-size: 13px;
+      }
+      .team-social {
+        ul {
+          display: flex;
+          padding: 0px;
+        }
+      }
+    }
+  }
+}
+//TEAM SECTION END
+//ABOUT AREA END
 //FOOTER START
 .footer {
   background: #eeeeee none repeat scroll 0 0;
