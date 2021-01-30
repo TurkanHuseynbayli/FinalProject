@@ -1300,6 +1300,27 @@ a {
 }
 
 //SINGLE-PRODUCT-AREA END
+
+//ERROR PAGE START
+
+#error-page {
+  .area-404 {
+    .error-content {
+      &::before {
+        display: none;
+      }
+      img {
+      }
+      .button-one {
+        padding: 12px;
+        &:hover {
+          background: #c8a165;
+        }
+      }
+    }
+  }
+}
+//ERROR END
 //FOOTER START
 .footer {
   background: #eeeeee none repeat scroll 0 0;

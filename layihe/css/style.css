@@ -1333,6 +1333,18 @@ a:hover {
   padding: 10px;
 }
 
+#error-page .area-404 .error-content::before {
+  display: none;
+}
+
+#error-page .area-404 .error-content .button-one {
+  padding: 12px;
+}
+
+#error-page .area-404 .error-content .button-one:hover {
+  background: #c8a165;
+}
+
 .footer {
   background: #eeeeee none repeat scroll 0 0;
   padding-top: 130px;
