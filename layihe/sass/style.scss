@@ -75,7 +75,8 @@ h3 {
 nav {
   a {
     img {
-      width: 93px;
+      width: 133px;
+      height: 63px;
     }
   }
 }
@@ -100,6 +101,7 @@ li a {
 
 .nav-item {
   a {
+    text-transform: uppercase;
     &:hover {
       color: #c8a165 !important;
       transition: 0.4s;
@@ -140,10 +142,11 @@ li a {
           right: 190px;
           color: white;
           h2 {
-            font-weight: 300;
-            font-size: 80px;
+            font-weight: 500;
+            font-size: 67px;
             line-height: 1;
             margin-bottom: 25px;
+            text-transform: uppercase;
           }
           h4 {
             font-weight: 600;
@@ -151,12 +154,20 @@ li a {
             font-size: 22px;
           }
           a {
-            margin-top: 15px;
-            margin-right: 5px;
-            border-color: black;
+            &::after {
+              border: 2px solid #c4bebe;
+              bottom: 0;
+              content: "";
+              left: 0;
+              position: absolute;
+              top: 0;
+              width: 100%;
+              z-index: 1;
+            }
             &:hover {
+              color: white;
               background: #c8a165 none repeat scroll;
-              transition: 0.3s;
+              transition: 0.4s;
             }
           }
         }
@@ -212,6 +223,18 @@ li a {
 .single-banner {
   position: relative;
   transition: all 0.5s ease 0s;
+  &:hover {
+    box-shadow: 1px 8px 15px gray !important;
+    transition: all 0.5s ease 0s;
+  }
+  .button-one {
+    &:hover {
+      background: #c8a165;
+      color: white;
+      transition: 0.4s;
+    }
+  }
+
   img {
     width: 100%;
     max-width: 100%;
@@ -259,6 +282,12 @@ li a {
     line-height: 15px;
     margin-bottom: 5px;
     text-transform: capitalize;
+    a {
+      color: #6a6a6a;
+      span {
+        color: #c8a165;
+      }
+    }
   }
 }
 .banner-thumb {
@@ -275,6 +304,14 @@ li a {
     font-size: 30px;
     font-weight: 900;
     line-height: 40px;
+    a {
+      &:hover {
+        color: #c8a165;
+        transition: 0.4s;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+    }
   }
 }
 
@@ -290,7 +327,8 @@ li a {
 a {
   color: black;
   &:hover {
-    color: rgb(207, 123, 63);
+    color: #c8a165;
+    transition: 0.4s;
     text-decoration: none;
     transition: 0.3s;
   }
@@ -339,15 +377,22 @@ a {
 //BANNER AREA END
 
 //PRODUCT AREA START
+.items {
+  &:hover {
+    box-shadow: 1px 8px 15px gray !important;
+    transition: all 0.5s ease 0s;
+  }
+}
 .text-center {
   position: relative;
   &::before {
     background: #c87065 none repeat scroll 0 0;
     bottom: -6 !important;
-    top: 35px;
+    top: 44px;
     content: "";
     height: 2px;
-    left: 100;
+    left: 50%;
+    transform: translateX(-50%);
     position: absolute;
     width: 50px;
   }
@@ -372,7 +417,7 @@ a {
 .pro-price-2 {
   right: 47px;
   position: absolute;
-  bottom: 489px;
+  bottom: 450px;
   color: red;
   font-size: 21px;
 }
@@ -397,14 +442,38 @@ a {
   background: #f6f6f6 none repeat scroll 0 0;
   margin-top: 15px;
   opacity: 1;
-  position: inherit;
+  position: relative;
   visibility: visible;
   width: calc(100% - 0px);
+  &::before {
+    background: #999 none repeat scroll 0 0;
+    content: "";
+    height: 26px;
+    margin-top: -8px;
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    bottom: 11px;
+    width: 2px;
+  }
   a {
-    i {
-      font-size: 30px;
+    color: #666666;
+    float: left;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    width: 15%;
+    margin-left: 5px;
 
-      padding: 19px;
+    i {
+      font-size: 25px;
+
+      &:hover {
+        color: #c8a165 !important;
+        transition: 0.4s;
+      }
     }
   }
 }
@@ -437,7 +506,7 @@ a {
   height: 5px;
   width: 5px;
   transform: translate(-50%, -50%);
-  background: #1ebeb6;
+  background: #c8a165;
   border-radius: 50%;
 }
 
@@ -445,6 +514,31 @@ a {
 
 //DISCOUNT START
 #discount {
+  background: white;
+  .owl-carousel .owl-dots .owl-dot span {
+    height: 20px;
+    width: 20px;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: lightgray;
+    position: relative;
+    z-index: 1;
+    border: 6px solid white;
+  }
+  .owl-carousel .owl-dots .active span {
+    background: none !important;
+  }
+  .owl-carousel .owl-dots .active span:after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    content: "";
+    height: 5px;
+    width: 5px;
+    transform: translate(-50%, -50%);
+    background: #c8a165;
+    border-radius: 50%;
+  }
   .discount-product {
     img {
       max-width: 100%;
@@ -529,15 +623,29 @@ a {
 
 //PURCHASE START
 #purchase {
+  .product-action {
+    a {
+      &::before {
+        margin-top: -5px;
+        right: -10px;
+      }
+    }
+  }
   .card-content {
     h4 {
       font-size: 16px;
+      a {
+        cursor: pointer;
+      }
     }
   }
   .pro-price-1 {
-    bottom: 331px;
+    bottom: 315px;
 
     right: 10px;
+  }
+  .pro-price-2 {
+    top: 21px;
   }
   .items {
     background: #fff none repeat scroll 0 0;
@@ -566,10 +674,60 @@ a {
 
 //BLOG AREA START
 #blog {
+  .product-action {
+    a {
+      &::before {
+        margin-top: -5px;
+        right: -10px;
+      }
+    }
+  }
+  .card-content {
+    h4 {
+      font-size: 16px;
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+  .pro-price-1 {
+    bottom: 315px;
+
+    right: 10px;
+  }
+  .pro-price-2 {
+    top: 21px;
+  }
+  .items {
+    background: #fff none repeat scroll 0 0;
+    margin-bottom: 30px;
+    padding: 15px 15px 25px;
+    position: relative;
+    bottom: -66px;
+  }
+  #myTab {
+    position: relative;
+    left: 360px;
+    top: 24px;
+  }
+  .tab-menu li.active {
+    &::before {
+      background: #d3b484 none repeat scroll 0 0;
+      bottom: 0;
+      content: "";
+      height: 2px;
+      position: absolute;
+      width: 30px;
+    }
+  }
   .single-blog {
     background: #fff none repeat scroll 0 0;
     padding: 25px;
     transition: all 0.5s ease 0s;
+    &:hover {
+      box-shadow: 1px 8px 15px gray !important;
+      transition: all 0.5s ease 0s;
+    }
     .blog-photo {
       position: relative;
       overflow: hidden;
@@ -577,8 +735,36 @@ a {
         width: 100%;
         transition: all 0.5s ease 0s;
       }
+      .like-share {
+        padding-left: 27px !important;
+        padding: 15px 4px !important;
+        width: 155% !important;
+
+        a {
+          margin-right: 14px !important;
+          i {
+            &:hover {
+              color: #c8a165;
+            }
+          }
+          span {
+            &:hover {
+              color: #d88811;
+            }
+          }
+        }
+      }
     }
     .blog-info {
+      p {
+        margin-top: 11px;
+      }
+      .button-2 {
+        &:hover {
+          color: #c8a165;
+          transition: 0.4s;
+        }
+      }
       .post-meta {
         padding: 30px 0 10px;
         .post-date {
@@ -596,7 +782,7 @@ a {
           padding-left: 10px;
           p {
             position: absolute;
-            bottom: 251px !important;
+            bottom: 215px !important;
             left: 101px !important;
 
             bottom: 203px;
@@ -740,7 +926,7 @@ a {
     .blog-info {
       .post-title {
         a {
-          font-size: 25px;
+          font-size: 20px;
           text-transform: uppercase;
         }
       }
@@ -871,6 +1057,7 @@ a {
   }
 
   .widget-search {
+    margin-top: 67px;
     form {
       input {
         background: #fff none repeat scroll 0 0;
@@ -1001,7 +1188,7 @@ a {
   .form {
     strong {
       display: block;
-      color: #1ebeb6 !important;
+      color: #c8a165 !important;
       margin-top: 5px;
       font-size: 32px;
     }
@@ -1039,7 +1226,7 @@ a {
         margin-bottom: 20px;
         i {
           margin-right: 5px;
-          color: #1ebeb6;
+          color: #c8a165;
           font-size: 30px;
           position: relative;
           top: 5px;
@@ -1087,6 +1274,10 @@ a {
       color: #666;
       font-family: "Lato", sans-serif;
       font-size: 20px;
+      &:hover {
+        box-shadow: 1px 8px 15px gray !important;
+        transition: all 0.5s ease 0s;
+      }
 
       &::before {
         display: none;
@@ -1186,14 +1377,6 @@ a {
         }
       }
 
-      .size-filter {
-        ul {
-          li {
-            float: left;
-            margin: 8px 8px 0 0;
-          }
-        }
-      }
       .single-pro-size {
         .color-title {
           width: 37px;
@@ -1207,47 +1390,11 @@ a {
           }
         }
       }
-      .single-pro-color {
-        ul {
-          display: flex;
-          li {
-            line-height: inherit;
-
-            a {
-              padding: 0 !important;
-              .color {
-                outline: 1px solid #d6b98c;
-                outline-offset: 1px;
-                margin-right: 10px;
-                display: inline-block;
-                height: 13px;
-                margin-right: 20px;
-                width: 13px;
-              }
-              .color-1 {
-                background: #ffa07a !important;
-              }
-              .color-2 {
-                background: #e9967a !important;
-              }
-              .color-7 {
-                background: #c38b4b !important;
-              }
-              .color-3 {
-                background: #fe5858 !important;
-              }
-              .color-4 {
-                background: #00b2ee !important;
-              }
-            }
-          }
-        }
-      }
     }
-  }
-  .active {
-    a {
-      color: #c8a165;
+    .active {
+      a {
+        color: #c8a165;
+      }
     }
   }
 }
@@ -1267,11 +1414,21 @@ a {
     width: 230px;
     width: 45%;
     background: #f6f6f6 none repeat scroll 0 0;
-    margin-top: 15px;
+    margin-top: 70px;
     opacity: 1;
-    position: inherit;
+    position: relative;
     visibility: visible;
     width: calc(100% - 0px);
+    &::before {
+      background: #999 none repeat scroll 0 0;
+      content: "";
+      height: 20px;
+      margin-top: -8px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      width: 2px;
+    }
   }
   a {
     color: #666666;
@@ -1281,20 +1438,14 @@ a {
     line-height: 40px;
     position: relative;
     width: 15%;
-    &::before {
-      background: #999 none repeat scroll 0 0;
-      content: "";
-      height: 16px;
-      margin-top: -8px;
-      position: absolute;
-      right: 0;
-      top: 50%;
-      width: 2px;
-    }
 
     i {
       font-size: 25px;
       padding: 10px;
+      &:hover {
+        color: #c8a165 !important;
+        transition: 0.4s;
+      }
     }
   }
 }
@@ -1398,10 +1549,154 @@ a {
   }
 }
 //ERROR END
+#cart {
+  table {
+    th {
+      background: #f6f6f6 none repeat scroll 0 0;
+      font-weight: 700;
+      padding: 10px 10px;
+      text-align: center;
+      text-transform: uppercase;
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+    td {
+      padding: 49px 30px 0px !important;
+    }
+
+    .products {
+      .product-img {
+        width: 110px;
+        img {
+          width: 100%;
+        }
+        a {
+          display: block;
+        }
+      }
+      .product-info {
+        float: right;
+        margin-top: -101px;
+
+        .post-title {
+          a {
+            text-transform: uppercase;
+            color: #999;
+            &:hover {
+              color: #c8a165 !important;
+              transition: 0.4s;
+            }
+          }
+        }
+      }
+    }
+    .table-price {
+      color: #999;
+      font-size: 16px;
+      font-weight: 900;
+      text-align: center;
+    }
+    .quantity {
+      background: #f6f6f6 none repeat scroll 0 0;
+
+      overflow: hidden;
+      text-align: center;
+      .plus-minus {
+        cursor: pointer;
+
+        font-size: 20px;
+        position: relative;
+        width: 33.3333%;
+        border-right: 5px solid #fff;
+        padding: 10px;
+      }
+      span {
+        font-size: 20px;
+      }
+    }
+    .remove {
+      text-align: center;
+      i {
+        background: #f6f6f6 none repeat scroll 0 0;
+        font-size: 16px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        width: 30px;
+        transition: all 0.3s ease 0s;
+        &:hover {
+          background: #c8a165 none repeat scroll 0 0;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .customer-login {
+    background: #fff none repeat scroll 0 0;
+    padding: 57px;
+    margin: 0px 21px;
+
+    input[type="text"] {
+      background: #f6f6f6 none repeat scroll 0 0;
+      border: medium none;
+      box-shadow: none;
+      color: #999;
+      height: 40px;
+      margin-bottom: 15px;
+      padding: 0 20px;
+      transition: all 0.5s ease 0s;
+      width: 100%;
+      outline: none;
+    }
+    .button-one {
+      border: none;
+    }
+  }
+  .payment-details {
+    table {
+      width: 100%;
+      tr {
+        border-bottom: 1px solid #e5e5e5;
+        &:last-child {
+          border-bottom: 0;
+          td {
+            color: #c87065;
+            padding: 15px 30px 0 !important;
+          }
+        }
+        td {
+          color: #999;
+          font-weight: 700;
+          padding: 7px 30px !important;
+        }
+      }
+    }
+  }
+}
 //FOOTER START
 .footer {
   background: #eeeeee none repeat scroll 0 0;
   padding-top: 130px;
+  .single-footer {
+    .footer-subscribe {
+      form {
+        button {
+          display: inline-block;
+          overflow: hidden;
+          position: relative;
+          padding: 7px 29px;
+          background: white;
+          border: none;
+          text-transform: uppercase;
+          &:hover {
+            background: #c8a165 none repeat scroll;
+            color: white;
+            transition: 0.4s;
+          }
+        }
+      }
+    }
+  }
 }
 .footer-area {
   padding: 120px 0 75px;
@@ -1476,6 +1771,7 @@ input[type="password"] {
   width: 100%;
   outline: none;
 }
+
 button {
   .button-one {
     .submit-btn-4 {

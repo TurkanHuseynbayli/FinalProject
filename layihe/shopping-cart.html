@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Furniture</title>
-    <link rel="shortcut icon" href="img/logo/logo.jpg" type="image/x-icon" />
+    <title>ARMADA</title>
+    <link rel="shortcut icon" href="img/logo/logo2.jpg" type="image/x-icon" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
@@ -58,20 +58,21 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#"><img src="img/logo/logo.jpg" /></a>
+        <a class="navbar-brand" href="index.html"
+          ><img src="img/logo/logo1.jpg"
+        /></a>
 
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
               <a
-                class="active nav-link"
+                class="nav-link"
                 href="#"
                 id="navbarDropdownMenuLink"
                 role="button"
                 data-toggle="dropdown"
                 aria-haspopup="true"
                 aria-expanded="false"
-                style="color: #c8a165"
               >
                 HOME
               </a>
@@ -127,7 +128,7 @@
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                ABOUT
+                ABOUT US
               </a>
             </li>
             <li class="nav-item">
@@ -167,7 +168,7 @@
                   </div>
                   <div class="breadcumbs pb-15">
                     <ul>
-                      <li class="home"><a href="#">Home</a></li>
+                      <li class="home"><a href="index.html">Home</a></li>
                       <li>SHOPPING CART</li>
                     </ul>
                   </div>
@@ -181,74 +182,179 @@
       <section id="cart">
         <div class="container padding-100">
           <div class="row">
-            <table class="table table-dark">
+            <table class="table table-light">
               <thead>
                 <tr>
-                  <th scope="col">Image</th>
-                  <th scope="col">Title</th>
-                  <th scope="col">Count</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Total</th>
-                  <th scope="col">Delete</th>
+                  <th scope="col">PRODUCT</th>
+                  <th scope="col">PRICE</th>
+                  <th scope="col">QUANTITY</th>
+                  <th scope="col">TOTAL</th>
+
+                  <th scope="col">REMOVE</th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td><img src="img/product/4.jpg" width="200" /></td>
+                  <td class="products">
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="single-product.html"
+                          ><img src="img/product/2.jpg" alt=""
+                        /></a>
+                      </div>
+                      <div class="product-info">
+                        <h4 class="post-title">
+                          <a class="text-light-black" href="#"
+                            >dummy product name</a
+                          >
+                        </h4>
+                      </div>
+                    </div>
+                  </td>
 
-                  <td>DUMMY PRODUCT NAME</td>
-                  <td>3</td>
-                  <td>$56.00</td>
-                  <td>$112.00</td>
+                  <td class="table-price">$56.00</td>
                   <td>
-                    <a
-                      class="btn btn-outline-danger"
-                      asp-controller="Home"
-                      asp-action="RemoveItem"
-                      asp-route-id="@pro.Id"
-                      ><i class="fas fa-trash"></i
-                    ></a>
+                    <div class="quantity">
+                      <a href="#" class="plus-minus"
+                        ><i class="fas fa-minus"></i
+                      ></a>
+                      <span>0.2</span>
+                      <a href="#" class="plus-minus">
+                        <i class="fas fa-plus"></i
+                      ></a>
+                    </div>
+                  </td>
+
+                  <td class="table-price">$112.00</td>
+                  <td class="remove">
+                    <a href="#"><i class="fas fa-times"></i></a>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="products">
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="single-product.html"
+                          ><img src="img/product/12.jpg" alt=""
+                        /></a>
+                      </div>
+                      <div class="product-info">
+                        <h4 class="post-title">
+                          <a class="text-light-black" href="#"
+                            >dummy product name</a
+                          >
+                        </h4>
+                      </div>
+                    </div>
+                  </td>
+
+                  <td class="table-price">$56.00</td>
+                  <td>
+                    <div class="quantity">
+                      <a href="#" class="plus-minus"
+                        ><i class="fas fa-minus"></i
+                      ></a>
+                      <span>0.2</span>
+                      <a href="#" class="plus-minus">
+                        <i class="fas fa-plus"></i
+                      ></a>
+                    </div>
+                  </td>
+
+                  <td class="table-price">$112.00</td>
+                  <td class="remove">
+                    <a href="#"><i class="fas fa-times"></i></a>
                   </td>
                 </tr>
                 <tr>
-                  <td><img src="img/product/2.jpg" width="200" /></td>
-
-                  <td>DUMMY PRODUCT NAME</td>
-                  <td>3</td>
-                  <td>$56.00</td>
-                  <td>$112.00</td>
-                  <td>
-                    <a
-                      class="btn btn-outline-danger"
-                      asp-controller="Home"
-                      asp-action="RemoveItem"
-                      asp-route-id="@pro.Id"
-                      ><i class="fas fa-trash"></i
-                    ></a>
+                  <td class="products">
+                    <div class="single-product">
+                      <div class="product-img">
+                        <a href="single-product.html"
+                          ><img src="img/product/7.jpg" alt=""
+                        /></a>
+                      </div>
+                      <div class="product-info">
+                        <h4 class="post-title">
+                          <a class="text-light-black" href="#"
+                            >dummy product name</a
+                          >
+                        </h4>
+                      </div>
+                    </div>
                   </td>
-                </tr>
-                <tr>
-                  <td><img src="img/product/3.jpg" width="200" /></td>
 
-                  <td>DUMMY PRODUCT NAME</td>
-                  <td>3</td>
-                  <td>$56.00</td>
-                  <td>$112.00</td>
+                  <td class="table-price">$56.00</td>
                   <td>
-                    <a
-                      class="btn btn-outline-danger"
-                      asp-controller="Home"
-                      asp-action="RemoveItem"
-                      asp-route-id="@pro.Id"
-                      ><i class="fas fa-trash"></i
-                    ></a>
+                    <div class="quantity">
+                      <a href="#" class="plus-minus"
+                        ><i class="fas fa-minus"></i
+                      ></a>
+                      <span>0.2</span>
+                      <a href="#" class="plus-minus">
+                        <i class="fas fa-plus"></i
+                      ></a>
+                    </div>
+                  </td>
+
+                  <td class="table-price">$112.00</td>
+                  <td class="remove">
+                    <a href="#"><i class="fas fa-times"></i></a>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
+
+          <div class="row">
+            <div class="col-md-6 col-sm-6 padding-100">
+              <div class="customer-login">
+                <h4 class="title-1 title-border text-uppercase mb-3">
+                  coupon discount
+                </h4>
+                <p class="text-gray">Enter your coupon code if you have one!</p>
+                <input type="text" placeholder="Enter your code here." />
+                <button
+                  type="submit"
+                  data-text="apply coupon"
+                  class="button-one submit-button mt-4"
+                >
+                  apply coupon
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 padding-100">
+              <div class="customer-login payment-details">
+                <h4 class="title-1 title-border text-uppercase mb-4">
+                  payment details
+                </h4>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td class="text-left">Cart Subtotal</td>
+                      <td class="text-right">$155.00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-left">Cart Subtotal</td>
+                      <td class="text-right">$15.00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-left">Vat</td>
+                      <td class="text-right">$00.00</td>
+                    </tr>
+                    <tr>
+                      <td class="text-left">Order Total</td>
+                      <td class="text-right">$170.00</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
       <!-- CART END -->
     </main>
     <!-- MAIN END -->
