@@ -5,7 +5,7 @@
 }
 body {
   color: #666;
-  font-family: "Lato", sans-serif;
+
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -325,7 +325,9 @@ li a {
   }
 }
 a {
-  color: black;
+  color: #434343;
+  transition: all 0.3s ease 0s;
+
   &:hover {
     color: #c8a165;
     transition: 0.4s;
@@ -452,7 +454,7 @@ a {
     margin-top: -8px;
     position: absolute;
     left: 50%;
-    -webkit-transform: translateX(-50%);
+
     transform: translateX(-50%);
     bottom: 11px;
     width: 2px;
@@ -623,6 +625,13 @@ a {
 
 //PURCHASE START
 #purchase {
+  .nav {
+    .nav-item {
+      .nav-link {
+        padding: 20px !important;
+      }
+    }
+  }
   .product-action {
     a {
       &::before {
@@ -656,8 +665,11 @@ a {
   }
   #myTab {
     position: relative;
-    left: 360px;
+    left: 300px;
     top: 24px;
+    @media only screen and (max-width: 767px) {
+      left: 0px !important;
+    }
   }
   .tab-menu li.active {
     &::before {
@@ -734,6 +746,7 @@ a {
       img {
         width: 100%;
         transition: all 0.5s ease 0s;
+        height: 133px !important;
       }
       .like-share {
         padding-left: 27px !important;
@@ -781,12 +794,12 @@ a {
         .post-year {
           padding-left: 10px;
           p {
+            @media only screen and (max-width: 767px) {
+              top: 200px !important;
+            }
             position: absolute;
-            bottom: 215px !important;
-            left: 101px !important;
-
-            bottom: 203px;
-            left: 90px;
+            top: 200px !important;
+            left: 100px !important;
           }
         }
       }
@@ -926,6 +939,9 @@ a {
     .blog-info {
       .post-title {
         a {
+          @media only screen and (max-width: 767px) {
+            padding-top: 20px !important;
+          }
           font-size: 20px;
           text-transform: uppercase;
         }
@@ -1549,6 +1565,8 @@ a {
   }
 }
 //ERROR END
+
+//SHOPPING CART START
 #cart {
   table {
     th {
@@ -1603,10 +1621,8 @@ a {
       text-align: center;
       .plus-minus {
         cursor: pointer;
-
         font-size: 20px;
         position: relative;
-        width: 33.3333%;
         border-right: 5px solid #fff;
         padding: 10px;
       }
@@ -1673,6 +1689,8 @@ a {
     }
   }
 }
+
+//SHOPPING CART END
 //FOOTER START
 .footer {
   background: #eeeeee none repeat scroll 0 0;

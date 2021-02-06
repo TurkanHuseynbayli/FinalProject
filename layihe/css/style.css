@@ -6,7 +6,6 @@
 
 body {
   color: #666;
-  font-family: "Lato", sans-serif;
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -339,7 +338,9 @@ li a {
 }
 
 a {
-  color: black;
+  color: #434343;
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
 }
 
 a:hover {
@@ -488,7 +489,7 @@ a:hover {
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
+          transform: translateX(-50%);
   bottom: 11px;
   width: 2px;
 }
@@ -671,6 +672,10 @@ a:hover {
   width: 40px;
 }
 
+#purchase .nav .nav-item .nav-link {
+  padding: 20px !important;
+}
+
 #purchase .product-action a::before {
   margin-top: -5px;
   right: -10px;
@@ -703,8 +708,14 @@ a:hover {
 
 #purchase #myTab {
   position: relative;
-  left: 360px;
+  left: 300px;
   top: 24px;
+}
+
+@media only screen and (max-width: 767px) {
+  #purchase #myTab {
+    left: 0px !important;
+  }
 }
 
 #purchase .tab-menu li.active::before {
@@ -784,6 +795,7 @@ a:hover {
   width: 100%;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
+  height: 133px !important;
 }
 
 #blog .single-blog .blog-photo .like-share {
@@ -837,10 +849,14 @@ a:hover {
 
 #blog .single-blog .blog-info .post-meta .post-year p {
   position: absolute;
-  bottom: 215px !important;
-  left: 101px !important;
-  bottom: 203px;
-  left: 90px;
+  top: 200px !important;
+  left: 100px !important;
+}
+
+@media only screen and (max-width: 767px) {
+  #blog .single-blog .blog-info .post-meta .post-year p {
+    top: 200px !important;
+  }
 }
 
 #blog .single-blog .blog-info p {
@@ -972,6 +988,12 @@ a:hover {
 #blog .single-blog .blog-info .post-title a {
   font-size: 20px;
   text-transform: uppercase;
+}
+
+@media only screen and (max-width: 767px) {
+  #blog .single-blog .blog-info .post-title a {
+    padding-top: 20px !important;
+  }
 }
 
 #blog .single-blog .blog-info p {
@@ -1655,7 +1677,6 @@ a:hover {
   cursor: pointer;
   font-size: 20px;
   position: relative;
-  width: 33.3333%;
   border-right: 5px solid #fff;
   padding: 10px;
 }
