@@ -741,12 +741,12 @@ a {
       transition: all 0.5s ease 0s;
     }
     .blog-photo {
-      position: relative;
+      position: relative !important;
       overflow: hidden;
       img {
-        width: 100%;
+        width: 100% !important;
         transition: all 0.5s ease 0s;
-        height: 133px !important;
+        height: 204px !important;
       }
       .like-share {
         padding-left: 27px !important;
@@ -798,7 +798,7 @@ a {
               top: 200px !important;
             }
             position: absolute;
-            top: 200px !important;
+            top: 265px !important;
             left: 100px !important;
           }
         }
@@ -884,9 +884,10 @@ a {
     .blog-photo {
       position: relative;
       a {
-        img {
+        .photo {
           width: 100%;
           transition: all 0.5s ease 0s;
+          height: 345px !important;
         }
       }
       .like-share {

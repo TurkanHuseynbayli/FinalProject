@@ -787,15 +787,15 @@ a:hover {
 }
 
 #blog .single-blog .blog-photo {
-  position: relative;
+  position: relative !important;
   overflow: hidden;
 }
 
 #blog .single-blog .blog-photo img {
-  width: 100%;
+  width: 100% !important;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
-  height: 133px !important;
+  height: 204px !important;
 }
 
 #blog .single-blog .blog-photo .like-share {
@@ -849,7 +849,7 @@ a:hover {
 
 #blog .single-blog .blog-info .post-meta .post-year p {
   position: absolute;
-  top: 200px !important;
+  top: 265px !important;
   left: 100px !important;
 }
 
@@ -928,10 +928,11 @@ a:hover {
   position: relative;
 }
 
-#blog .single-blog .blog-photo a img {
+#blog .single-blog .blog-photo a .photo {
   width: 100%;
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
+  height: 345px !important;
 }
 
 #blog .single-blog .blog-photo .like-share {
