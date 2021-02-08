@@ -1,0 +1,669 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<!-- MAIN START -->
+<main>
+    <section id="heading">
+        <div class="heading-banner-area overlay-bg"
+             style="
+            background-image: url(img/bg/1.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+          ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-banner">
+                            <div class="heading-banner-title">
+                                <h2>Product List</h2>
+                            </div>
+                            <div class="breadcumbs pb-15">
+                                <ul>
+                                    <li class="home"><a asp-controller="Home" asp-action="Index" >Home</a></li>
+                                    <li>Product List</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--SECTION PURCHASE AREA START-->
+    <section id="blog" class="padding-100">
+        <div class="blog-area blog-2 blog-details-area pt-80 pb-80">
+            <div class="container">
+                <div class="blog">
+                    <div class="row">
+                        <!-- Products start -->
+                        <div class="col-md-9">
+                            <div class="row">
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/2.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail"> DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/3.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/6.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/3.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/7.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/10.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/8.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/11.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/2.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/3.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/6.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                                <div class="col-lg-4">
+                                    <div class="items">
+                                        <div class="card">
+                                            <div class="img-box">
+                                                <span class="pro-label new-label">new</span>
+                                                <span class="pro-price-2 pro-price-1">$ 56.20</span>
+                                                <img  src="~/img/product/3.jpg" alt="" />
+                                            </div>
+                                            <div class="card-content p-2">
+                                                <h4><a asp-controller="Product" asp-action="Detail">DUMMY PRODUCT NAME</a></h4>
+                                                <div class="fix">
+                                                    <span class="pro-rating">
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                        <a href="#"><i class="fas fa-star"></i></a>
+                                                    </span>
+                                                </div>
+                                                <div class="product-action">
+                                                    <a href="#"
+                                                       data-toggle="tooltip"
+                                                       data-placement="top"
+                                                       title="Wishlist">
+                                                        <i class="far fa-heart"></i>
+                                                    </a>
+                                                    <a href="#"
+                                                       data-toggle="modal"
+                                                       data-target="#productModal"
+                                                       title="Quick View">
+                                                        <i class="fas fa-shopping-cart"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- SECTION ITEM END -->
+                                <!-- SECTION ITEM START -->
+                            </div>
+                        </div>
+                        <!-- Products end -->
+                        <div class="col-md-3">
+                            <!-- Widget-Search start -->
+                            <aside class="widget widget-search mb-5">
+                                <form action="#">
+                                    <input type="text" placeholder="Search here..." />
+                                </form>
+                            </aside>
+                            <!-- Widget-search end -->
+                            <!-- Widget-Categories start -->
+                            <aside class="widget widget-categories">
+                                <div class="widget-title">
+                                    <h4>Categories</h4>
+                                </div>
+                                <div id="cat-treeview"
+                                     class="widget-info product-cat boxscrol2">
+                                    <ul>
+                                        <li><a href="#">Chair</a></li>
+                                        <li><a href="#">Furniture</a></li>
+                                        <li><a href="#">Top Brands</a></li>
+                                    </ul>
+                                </div>
+                            </aside>
+                            <!-- Widget-categories end -->
+                            <!-- Widget-product start -->
+                            <aside class="widget widget-product mt-5">
+                                <div class="widget-title">
+                                    <h4>Recent products</h4>
+                                </div>
+                                <div class="widget-info sidebar-product">
+                                    <!-- Single-product start -->
+                                    <div class="single-product col-lg-12">
+                                        <div class="product-img">
+                                            <a asp-controller="Product" asp-action="Detail">
+                                                <img  src="~/img/blog/3.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
+                                            <span>
+                                                <strong>
+                                                    <a class="text-gray" href="#">June 12, 2017</a>
+                                                </strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- Single-product end -->
+                                    <!-- Single-product start -->
+                                    <div class="single-product col-lg-12">
+                                        <div class="product-img">
+                                            <a asp-controller="Product" asp-action="Detail">
+                                                <img  src="~/img/blog/4.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
+                                            <span>
+                                                <strong>
+                                                    <a class="text-gray" href="#">June 12, 2017</a>
+                                                </strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- Single-product end -->
+                                    <!-- Single-product start -->
+                                    <div class="single-product col-lg-12">
+                                        <div class="product-img">
+                                            <a asp-controller="Product" asp-action="Detail">
+                                                <img  src="~/img/blog/5.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
+                                            <span>
+                                                <strong>
+                                                    <a class="text-gray" href="#">June 12, 2017</a>
+                                                </strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- Single-product end -->
+                                    <!-- Single-product start -->
+                                    <div class="single-product col-lg-12">
+                                        <div class="product-img">
+                                            <a asp-controller="Product" asp-action="Detail">
+                                                <img  src="~/img/blog/6.jpg" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
+                                            <span>
+                                                <strong>
+                                                    <a class="text-gray" href="#">June 12, 2017</a>
+                                                </strong>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <!-- Single-product end -->
+                                </div>
+                            </aside>
+                            <!-- Widget-product end -->
+                            <!-- Widget-Size start -->
+                            <aside class="widget widget-comments mt-5 mb-5">
+                                <div class="widget-title">
+                                    <h4>Recent comments</h4>
+                                </div>
+                                <div class="widget-info comments-filter">
+                                    <div class="single-recent-comments">
+                                        <h5><a href="#">Mary Isabella</a></h5>
+                                        <p>
+                                            There are many variations of passag of Lorem Ipsum
+                                            available...
+                                        </p>
+                                    </div>
+                                    <div class="single-recent-comments">
+                                        <h5><a href="#">Michael Charles</a></h5>
+                                        <p>
+                                            There are many variations of passag of Lorem Ipsum
+                                            available...
+                                        </p>
+                                    </div>
+                                    <div class="single-recent-comments">
+                                        <h5><a href="#">David William</a></h5>
+                                        <p>
+                                            There are many variations of passag of Lorem Ipsum
+                                            available...
+                                        </p>
+                                    </div>
+                                    <div class="single-recent-comments">
+                                        <h5><a href="#">Matthew Daniel</a></h5>
+                                        <p>
+                                            There are many variations of passag of Lorem Ipsum
+                                            available...
+                                        </p>
+                                    </div>
+                                </div>
+                            </aside>
+                            <!-- Widget-Size end -->
+                            <!-- Widget-banner start -->
+                            <aside class="widget widget-banner">
+                                <div class="widget-info widget-banner-img">
+                                    <a href="#"><img  src="~/img/banner/5.jpg" alt="" /></a>
+                                </div>
+                            </aside>
+                            <!-- Widget-banner end -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- BLGO-AREA END -->
+    </section>
+    <!--SECTION PURCHASE AREA END-->
+</main>
+<!-- MAIN END -->

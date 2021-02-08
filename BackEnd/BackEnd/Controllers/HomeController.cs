@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BackEnd.Models;
+using BackEnd.DAL;
+using BackEnd.ViewModels;
 
 namespace BackEnd.Controllers
 {
@@ -13,14 +15,22 @@ namespace BackEnd.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly AppDbContext _context;
+        public HomeController(ILogger<HomeController> logger, AppDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
+
 
         public IActionResult Index()
         {
-            return View();
+            HomeVM homeVM = new HomeVM
+            {
+                Sliders = _context.Sliders.ToList(),
+
+            };
+            return View(homeVM);
         }
 
         public IActionResult Privacy()
