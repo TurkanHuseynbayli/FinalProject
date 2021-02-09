@@ -1,0 +1,81 @@
+﻿@model RegisterVM
+@{
+    ViewData["Title"] = "Signup";
+}
+<!-- MAIN START -->
+<main>
+    <section id="heading">
+        <div class="heading-banner-area overlay-bg"
+             style="
+            background-image: url(img/bg/1.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+          ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-banner">
+                            <div class="heading-banner-title">
+                                <h2>REGISTER</h2>
+                            </div>
+                            <div class="breadcumbs pb-15">
+                                <ul>
+                                    <li class="home"><a href="index.html">Home</a></li>
+                                    <li>REGISTER</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- REGISTER-AREA START -->
+    <section id="login">
+        <div class="login-area pt-80 pb-80 padding-100">
+            <div class="container">
+                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+                 <form method="post">
+                    <div class="row">
+                        <div class="col-md-6 offset-md-3">
+                            <div class="customer-login text-left">
+                                <h4 class="title-1 title-border text-uppercase mb-30">
+                                    Registered customers
+                                </h4>
+                                <p class="text-gray">
+                                    If you have an account with us, Please login!
+                                </p>
+                                <input asp-for="Name" placeholder="Name">
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                                <input asp-for="Surname" placeholder="Surname">
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                                <input asp-for="Username" placeholder="Username">
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                                <input asp-for="Email" placeholder="Email">
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                                <input asp-for="Password" placeholder="Password">
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                                <input asp-for="CheckPassword" placeholder="Confirm Password">
+                                <span asp-validation-for="CheckPassword" class="text-danger"></span>
+                                <p>
+                                    <a href="#" class="text-gray">Forget your password?</a>
+                                </p>
+                                <button type="submit"
+                                        data-text="login"
+                                        class="button-one submit-button mt-15">
+                                    register
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- REGISTER-AREA END -->
+</main>
+<!-- MAIN END -->
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+

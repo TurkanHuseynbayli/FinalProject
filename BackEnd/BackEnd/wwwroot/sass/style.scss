@@ -1692,6 +1692,34 @@ a {
 }
 
 //SHOPPING CART END
+//LOGIN START
+#login {
+    .login-area {
+        .customer-login {
+            background: #fff none repeat scroll 0 0;
+            padding: 40px;
+
+            input[type="text"],
+            input[type="password"] {
+                background: #f6f6f6 none repeat scroll 0 0;
+                border: medium none;
+                box-shadow: none;
+                color: #999;
+                height: 40px;
+                margin-bottom: 15px;
+                padding: 0 20px;
+                transition: all 0.5s ease 0s;
+                width: 100%;
+                outline: none;
+            }
+
+            button {
+                border: none;
+            }
+        }
+    }
+}
+//LOGIN END
 //FOOTER START
 .footer {
   background: #eeeeee none repeat scroll 0 0;

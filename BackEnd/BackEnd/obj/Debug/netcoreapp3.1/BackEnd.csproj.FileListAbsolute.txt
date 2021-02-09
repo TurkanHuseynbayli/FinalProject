@@ -134,8 +134,6 @@ C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\net
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.CoreCompileInputs.cache
-C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
@@ -158,3 +156,13 @@ C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\net
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\BackEnd.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Controllers\Index.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\Signup.cshtml.g.cs
