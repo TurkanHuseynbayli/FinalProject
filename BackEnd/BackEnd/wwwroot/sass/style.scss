@@ -15,12 +15,13 @@ body {
   color: #999;
 }
 .submit-button {
-  background: #c87065 none repeat scroll 0 0;
-  color: #fff;
-  height: 35px;
-  line-height: 35px;
-  padding: 0 30px;
-  text-transform: uppercase;
+    background: #c87065 none repeat scroll 0 0;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 30px;
+    text-transform: uppercase;
+    border: none;
 }
 img {
   max-width: 100%;
@@ -300,19 +301,19 @@ li a {
   }
 }
 .banner-3 {
-  .banner-title {
-    font-size: 30px;
-    font-weight: 900;
-    line-height: 40px;
-    a {
-      &:hover {
-        color: #c8a165;
-        transition: 0.4s;
-        text-decoration: none;
-        transition: 0.3s;
-      }
+    .banner-title {
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 40px;
+
+        a {
+            &:hover {
+                color: #c8a165 !important;
+                transition: 0.4s !important;
+                text-decoration: none;
+            }
+        }
     }
-  }
 }
 
 .banner-3 {
@@ -1325,6 +1326,9 @@ a {
 
 #blog .widget-product {
   height: 500px;
+  button{
+      border:none;
+  }
 }
 .widget-info .single-product .product-info {
   float: left;

@@ -4,6 +4,7 @@
   font-family: "Roboto", sans-serif;
 }
 
+
 body {
   color: #666;
   font-size: 13px;
@@ -17,12 +18,13 @@ body {
 }
 
 .submit-button {
-  background: #c87065 none repeat scroll 0 0;
-  color: #fff;
-  height: 35px;
-  line-height: 35px;
-  padding: 0 30px;
-  text-transform: uppercase;
+    background: #c87065 none repeat scroll 0 0;
+    color: #fff;
+    height: 35px;
+    line-height: 35px;
+    padding: 0 30px;
+    text-transform: uppercase;
+    border: none;
 }
 
 img {
@@ -319,14 +321,12 @@ li a {
   line-height: 40px;
 }
 
-.banner-3 .banner-title a:hover {
-  color: #c8a165;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  text-decoration: none;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
+    .banner-3 .banner-title a:hover {
+        color: #c8a165 !important;
+        transition: 0.4s !important;
+        text-decoration: none;
+        
+    }
 
 .banner-3 .banner-brief {
   bottom: auto;

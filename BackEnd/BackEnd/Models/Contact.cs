@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BackEnd.Models
 {
-    public class Category
+    public class Contact
     {
         public int Id { get; set; }
-        public string NameCategory { get; set; }
-        public ICollection<CategoryBlog> CategoryBlogs { get; set; }
-        public ICollection<CategoryProduct> CategoryProducts { get; set; }
-
+        [Required]
+        public string Email { get; set; }
+        public string Phone { get; set; }
+       
     }
 }
