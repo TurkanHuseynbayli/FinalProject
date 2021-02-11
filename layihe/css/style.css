@@ -23,6 +23,7 @@ body {
   line-height: 35px;
   padding: 0 30px;
   text-transform: uppercase;
+  border: none;
 }
 
 img {
@@ -1391,6 +1392,10 @@ a:hover {
   height: 500px;
 }
 
+#blog .widget-product .button-one {
+  border: none;
+}
+
 .widget-info .single-product .product-info {
   float: left;
   padding: 0 0 0 20px;
@@ -1752,6 +1757,31 @@ a:hover {
   color: #999;
   font-weight: 700;
   padding: 7px 30px !important;
+}
+
+#login .login-area .customer-login {
+  background: #fff none repeat scroll 0 0;
+  padding: 40px;
+}
+
+#login .login-area .customer-login input[type="text"],
+#login .login-area .customer-login input[type="password"] {
+  background: #f6f6f6 none repeat scroll 0 0;
+  border: medium none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #999;
+  height: 40px;
+  margin-bottom: 15px;
+  padding: 0 20px;
+  -webkit-transition: all 0.5s ease 0s;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  outline: none;
+}
+
+#login .login-area .customer-login button {
+  border: none;
 }
 
 .footer {
