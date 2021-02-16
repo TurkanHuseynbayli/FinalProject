@@ -12,6 +12,7 @@ namespace BackEnd.Models
         [Required]
         public string Image { get; set; }
         public string Name { get; set; }
+        public int Discount { get; set; }
         public string Description { get; set; }
         [Required, DataType(DataType.DateTime)]
         public DateTime Date { get; set; }

@@ -28,6 +28,20 @@ namespace BackEnd.Controllers
             HomeVM homeVM = new HomeVM
             {
                 Sliders = _context.Sliders.ToList(),
+                Abouts = _context.Abouts.FirstOrDefault(),
+                Banners = _context.Banners.FirstOrDefault(),
+                Blogs = _context.Blogs.ToList(),
+                BlogDetails = _context.BlogDetails.ToList(),
+                Categories = _context.Categories.ToList(),
+                CategoryBlogs = _context.CategoryBlogs.ToList(),
+                CategoryProducts = _context.CategoryProducts.ToList(),
+                Contacts = _context.Contacts.FirstOrDefault(),
+                Discounts = _context.Discounts.ToList(),
+                Members = _context.Members.ToList(),
+                Products = _context.Products.ToList(),
+                RecentProducts = _context.RecentProducts.ToList(),
+                ProductDetails = _context.ProductDetails.ToList(),
+              
 
             };
             return View(homeVM);

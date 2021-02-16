@@ -14,7 +14,7 @@ namespace BackEnd.Models
         public double Price { get; set; }
         public string Name { get; set; }
         public ProductDetail ProductDetail { get; set; }
-         public ICollection<CategoryProduct> CategoryProducts { get; set; }
+        public ICollection<CategoryProduct> CategoryProducts { get; set; }
 
     }
 }

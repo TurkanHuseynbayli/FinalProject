@@ -1,0 +1,43 @@
+﻿  @model List<Blog> 
+ <!-- Single-blog start -->
+@foreach (Blog blog in Model)
+{
+    <div class="col-lg-4 col-md-6 mb-4">
+
+        <div class="single-blog">
+            <div class="blog-photo">
+                <a asp-controller="Blog" asp-action="Detail"><img src="~/img/blog/@blog.Image" alt="" /></a>
+                <div class="like-share fix">
+                    <a href="#"><i class="fas fa-heart"></i><span>89 Like</span></a>
+                    <a href="#">
+                        <i class="fas fa-comment"></i><span>59 Comments</span>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-share-alt"></i><span>29 Share</span>
+                    </a>
+                </div>
+            </div>
+            <div class="blog-info">
+                <div class="post-meta fix">
+                    <div class="post-date floatleft">
+                        <span class="text-dark-red">@blog.Date.Day</span>
+                    </div>
+                    <div class="post-year floatleft">
+                        <p class="text-uppercase text-dark-red mb-0">
+                            @blog.Date.ToString("MMMM"),@blog.Date.Year
+                        </p>
+                        <h4 class="post-title">
+                            <a asp-controller="Blog" asp-action="Detail" tabindex="0">@blog.Name</a>
+                        </h4>
+                    </div>
+                </div>
+                <p>
+                    @blog.Description
+                </p>
+                <a asp-controller="Blog" asp-action="Detail" class="button-2 text-dark-red">Read more...</a>
+            </div>
+        </div>
+
+    </div>
+}
+<!-- Single-blog end -->
