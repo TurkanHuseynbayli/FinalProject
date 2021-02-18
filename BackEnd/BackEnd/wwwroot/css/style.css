@@ -14,7 +14,8 @@ body {
 }
 
 .text-gray {
-  color: #999;
+    color: #999;
+    position: absolute;
 }
 
 .submit-button {
@@ -864,7 +865,8 @@ a:hover {
 }
 
 #blog .single-blog .blog-info .text-dark-red {
-  color: #d6948c;
+    color: #d6948c;
+   
 }
 
 #heading .heading-banner::before {
@@ -1193,7 +1195,7 @@ a:hover {
 }
 
 #blog .widget-product .widget-info .single-product {
-  margin-bottom: 31px;
+  margin-bottom: 64px !important;
   padding: 17px 8px;
 }
 
@@ -1363,6 +1365,15 @@ a:hover {
   -webkit-transition: all 0.5s ease 0s;
   transition: all 0.5s ease 0s;
 }
+    #team .team-member .single-member h3 {
+        color: #666;
+        font-family: sans-serif;
+        font-size: 20px;
+    }
+    #team .team-member .single-member h4 {
+        color: #999;
+        font-size: 13px;
+    }
 
 #team .team-member .single-member::before {
   display: none;

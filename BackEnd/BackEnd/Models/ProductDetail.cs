@@ -10,11 +10,10 @@ namespace BackEnd.Models
     public class ProductDetail
     {
         public int Id { get; set; }
-        [Required]
-        public string Image { get; set; }
-        public double Price { get; set; }
-        public string Name { get; set; }
         public string Description { get; set; }
+        public string Description2 { get; set; }
+        public string Information { get; set; }
+        public string Tags { get; set; }
         [ForeignKey("Product")]
         public int ProductId { get; set; }
         public Product Product { get; set; }

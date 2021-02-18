@@ -1,4 +1,4 @@
-﻿@model HomeVM
+﻿@model AboutVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -75,10 +75,10 @@
                         @foreach (Member member in Model.Members)
                         {
                             <div class="col-lg-3 col-md-3 col-sm-6">
-                                <div class="single-member text-center bg-white mt-25">
+                                <div class="single-member text-center bg-white">
                                     <img src="~/img/team/@member.Image" alt="" />
-                                    <h3 class="text-uppercase mt-20">@member.Name</h3>
-                                    <h4 class="text-uppercase text-gray">Chairman</h4>
+                                    <h3 class="text-uppercase">@member.Name</h3>
+                                    <h4 class="text-uppercase text-gray">@member.Specialty</h4>
                                     <p class="text-gray">
                                        @member.Description
                                     </p>

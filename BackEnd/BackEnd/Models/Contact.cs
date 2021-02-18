@@ -10,6 +10,8 @@ namespace BackEnd.Models
     {
         public int Id { get; set; }
         [Required]
+        public string Image { get; set; }
+        [Required]
         public string Email { get; set; }
         public string Phone { get; set; }
        

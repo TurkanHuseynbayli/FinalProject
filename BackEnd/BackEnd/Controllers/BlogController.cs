@@ -25,17 +25,17 @@ namespace BackEnd.Controllers
             return View();
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int? id)
         {
-            //if (id == null) return NotFound();
-            //HomeVM homeVM = new HomeVM()
-            //{
+            if (id == null) return NotFound();
+            BlogVM blogVM = new BlogVM()
+            {
+                Blogs = _context.Blogs.Include(pro => pro.BlogDetail).OrderByDescending(pro => pro.Id).Take(4).ToList(),
+                Categories = _context.Categories.ToList(),
+                Blog = _context.Blogs.Include(pro => pro.BlogDetail).FirstOrDefault(pro => pro.Id == id)
 
-
-            //    Blogs = _context.Blogs.Include(blg => blg.BlogDetail).ToList()
-
-            //};
-            return View();
+            };
+            return View(blogVM);
         }
     }
 }

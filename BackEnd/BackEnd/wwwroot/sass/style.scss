@@ -6,13 +6,15 @@
 body {
   color: #666;
 
+
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
   background-color: lightgray;
 }
 .text-gray {
-  color: #999;
+    color: #999;
+    position: absolute;
 }
 .submit-button {
     background: #c87065 none repeat scroll 0 0;
@@ -564,6 +566,8 @@ a {
     }
     .text-dark-red {
       color: #c87065;
+
+
     }
   }
   .up-comming-product {
@@ -687,131 +691,155 @@ a {
 
 //BLOG AREA START
 #blog {
-  .product-action {
-    a {
-      &::before {
-        margin-top: -5px;
-        right: -10px;
-      }
-    }
-  }
-  .card-content {
-    h4 {
-      font-size: 16px;
-      a {
-        cursor: pointer;
-      }
-    }
-  }
-  .pro-price-1 {
-    bottom: 315px;
-
-    right: 10px;
-  }
-  .pro-price-2 {
-    top: 21px;
-  }
-  .items {
-    background: #fff none repeat scroll 0 0;
-    margin-bottom: 30px;
-    padding: 15px 15px 25px;
-    position: relative;
-    bottom: -66px;
-  }
-  #myTab {
-    position: relative;
-    left: 360px;
-    top: 24px;
-  }
-  .tab-menu li.active {
-    &::before {
-      background: #d3b484 none repeat scroll 0 0;
-      bottom: 0;
-      content: "";
-      height: 2px;
-      position: absolute;
-      width: 30px;
-    }
-  }
-  .single-blog {
-    background: #fff none repeat scroll 0 0;
-    padding: 25px;
-    transition: all 0.5s ease 0s;
-    &:hover {
-      box-shadow: 1px 8px 15px gray !important;
-      transition: all 0.5s ease 0s;
-    }
-    .blog-photo {
-      position: relative !important;
-      overflow: hidden;
-      img {
-        width: 100% !important;
-        transition: all 0.5s ease 0s;
-        height: 204px !important;
-      }
-      .like-share {
-        padding-left: 27px !important;
-        padding: 15px 4px !important;
-        width: 155% !important;
-
+    .product-action {
         a {
-          margin-right: 14px !important;
-          i {
-            &:hover {
-              color: #c8a165;
+            &::before {
+                margin-top: -5px;
+                right: -10px;
             }
-          }
-          span {
-            &:hover {
-              color: #d88811;
-            }
-          }
         }
-      }
     }
-    .blog-info {
-      p {
-        margin-top: 11px;
-      }
-      .button-2 {
-        &:hover {
-          color: #c8a165;
-          transition: 0.4s;
-        }
-      }
-      .post-meta {
-        padding: 30px 0 10px;
-        .post-date {
-          border: 1px solid #d6948c;
-          height: 40px;
-          line-height: 38px;
-          text-align: center;
-          width: 40px;
-          span {
-            font-size: 20px;
-            font-weight: 700;
-          }
-        }
-        .post-year {
-          padding-left: 10px;
-          p {
-            @media only screen and (max-width: 767px) {
-              top: 200px !important;
+
+    .card-content {
+        h4 {
+            font-size: 16px;
+
+            a {
+                cursor: pointer;
             }
+        }
+    }
+
+    .pro-price-1 {
+        bottom: 315px;
+        right: 10px;
+    }
+
+    .pro-price-2 {
+        top: 21px;
+    }
+
+    .items {
+        background: #fff none repeat scroll 0 0;
+        margin-bottom: 30px;
+        padding: 15px 15px 25px;
+        position: relative;
+        bottom: -66px;
+    }
+
+    #myTab {
+        position: relative;
+        left: 360px;
+        top: 24px;
+    }
+
+    .tab-menu li.active {
+        &::before {
+            background: #d3b484 none repeat scroll 0 0;
+            bottom: 0;
+            content: "";
+            height: 2px;
             position: absolute;
-            top: 265px !important;
-            left: 100px !important;
-          }
+            width: 30px;
         }
-      }
-      p {
-        font-weight: 700;
-      }
-      .text-dark-red {
-        color: #d6948c;
-      }
     }
-  }
+
+    .single-blog {
+        background: #fff none repeat scroll 0 0;
+        padding: 25px;
+        transition: all 0.5s ease 0s;
+
+        &:hover {
+            box-shadow: 1px 8px 15px gray !important;
+            transition: all 0.5s ease 0s;
+        }
+
+        .blog-photo {
+            position: relative !important;
+            overflow: hidden;
+
+            img {
+                width: 100% !important;
+                transition: all 0.5s ease 0s;
+                height: 204px !important;
+            }
+
+            .like-share {
+                padding-left: 27px !important;
+                padding: 15px 4px !important;
+                width: 155% !important;
+
+                a {
+                    margin-right: 14px !important;
+
+                    i {
+                        &:hover {
+                            color: #c8a165;
+                        }
+                    }
+
+                    span {
+                        &:hover {
+                            color: #d88811;
+                        }
+                    }
+                }
+            }
+        }
+
+        .blog-info {
+            p {
+                margin-top: 11px;
+            }
+
+            .button-2 {
+                &:hover {
+                    color: #c8a165;
+                    transition: 0.4s;
+                }
+            }
+
+            .post-meta {
+                padding: 30px 0 10px;
+
+                .post-date {
+                    border: 1px solid #d6948c;
+                    height: 40px;
+                    line-height: 38px;
+                    text-align: center;
+                    width: 40px;
+
+                    span {
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+                }
+
+                .post-year {
+                    padding-left: 10px;
+
+                    p {
+                        @media only screen and (max-width: 767px) {
+                            top: 200px !important;
+                        }
+
+                        position: absolute;
+                        top: 265px !important;
+                        left: 100px !important;
+                    }
+                }
+            }
+
+            p {
+                font-weight: 700;
+            }
+
+            .text-dark-red {
+              
+                color: #d6948c;
+            }
+        }
+    }
 }
 //BLOG AREA END
 
@@ -1139,7 +1167,7 @@ a {
     .widget-info {
       padding: 10px 15px;
       .single-product {
-        margin-bottom: 31px;
+        margin-bottom:64px !important;
         padding: 17px 8px;
         .product-img {
           float: left;
@@ -1285,39 +1313,54 @@ a {
 
 //TEAM SECTION START
 #team {
-  .team-member {
-    .single-member {
-      padding: 30px 0px;
-      transition: all 0.3s ease 0s;
-      color: #666;
-      font-family: "Lato", sans-serif;
-      font-size: 20px;
-      &:hover {
-        box-shadow: 1px 8px 15px gray !important;
-        transition: all 0.5s ease 0s;
-      }
+    .team-member {
+        .single-member {
+            padding: 30px 0px;
+            transition: all 0.3s ease 0s;
+            color: #666;
+            font-family: "Lato", sans-serif;
+            font-size: 20px;
 
-      &::before {
-        display: none;
-      }
+            &:hover {
+                box-shadow: 1px 8px 15px gray !important;
+                transition: all 0.5s ease 0s;
+            }
 
-      .text-uppercase {
-        text-transform: uppercase;
-      }
-      .text-gray {
-        color: #999;
-      }
-      p {
-        font-size: 13px;
-      }
-      .team-social {
-        ul {
-          display: flex;
-          padding: 0px;
+            h3 {
+                color: #666;
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+
+            h4 {
+                color: #999;
+                font-size: 13px;
+            }
+
+            &::before {
+                display: none;
+            }
+
+            .text-uppercase {
+                text-transform: uppercase;
+            }
+
+            .text-gray {
+                color: #999;
+            }
+
+            p {
+                font-size: 13px;
+            }
+
+            .team-social {
+                ul {
+                    display: flex;
+                    padding: 0px;
+                }
+            }
         }
-      }
     }
-  }
 }
 //TEAM SECTION END
 //ABOUT AREA END

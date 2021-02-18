@@ -1,4 +1,4 @@
-﻿@model HomeVM
+﻿@model BlogVM
 @{
     ViewData["Title"] = "Detail";
 }
@@ -39,10 +39,10 @@
                     <div class="row">
                         <!-- Single-blog start -->
                         <div class="col-md-9">
-                            <div class="single-blog mb-30">
+                            <div class="single-blog mb-5">
                                 <div class="blog-photo">
                                     <a href="#">
-                                        <img class="photo"  src="~/img/blog/10.jpg" alt="" />
+                                        <img class="photo"  src="~/img/blog/@Model.Blog.Image" alt="" />
                                     </a>
                                     <div class="like-share fix">
                                         <a href="#"><i class="fas fa-user-alt"></i><span>James</span></a>
@@ -55,46 +55,16 @@
                                         </a>
                                     </div>
                                     <div class="post-date post-date-2">
-                                        <span class="text-dark-red">30</span>
-                                        <span class="text-dark-red text-uppercase">June</span>
+                                        <span class="text-dark-red">@Model.Blog.Date.Day</span>
+                                        <span class="text-dark-red text-uppercase"> @Model.Blog.Date.ToString("MMMM")</span>
                                     </div>
                                 </div>
                                 <div class="blog-info blog-details-info">
                                     <h4 class="post-title post-title-2 mt-4 mb-4">
-                                        <a href="#">Farniture drawing 2017</a>
+                                        <a href="#">@Model.Blog.Name</a>
                                     </h4>
-                                    <p>
-                                        On the other hand, we denounce with righteous
-                                        indignation and dislike men who are so beguiled and
-                                        demoralized by the charms of pleasure of the moment, so
-                                        blinded by desire, that they cannot foresee the pain and
-                                        trouble that are bound to ensue; and equal blame belongs
-                                        to those who fail in their duty through weakness of
-                                        will, which is the same as saying through shrink ing
-                                        from toil and pain. These cases are perfectly simple and
-                                        easy to distinguish. In a free hour. On the other hand,
-                                        we denounce with righteous indignation and dislike men
-                                        who are so beguiled and demoralized by the charms of
-                                        pleasure of the moment, so blinded by desire, that they
-                                        cannot foresee the pain and trouble that are bound to
-                                        ensue; and equal blame belongs to those who fail in
-                                        their duty through weakness of will
-                                    </p>
-                                    <p>
-                                        which is the same as saying through shrink ing from toil
-                                        and pain. These cases are perfectly simple and easy to
-                                        distinguish. In a free hour.On the other hand, we
-                                        denounce with righteous indignation and dislike men who
-                                        are so beguiled and demoralized by the charms of
-                                        pleasure of the moment, so blinded by desire, that they
-                                        cannot foresee the pain and trouble that are bound to
-                                        ensue; and equal blame belongs to those who fail in
-                                        their duty through weakness of will, which is the same
-                                        as saying through shrink ing from toil and pain. These
-                                        cases are perfectly simple and easy to distinguish. In a
-                                        free hour.
-                                    </p>
-                                    <div class="post-share-tag mt-40">
+                                   @Html.Raw(Model.Blog.BlogDetail.Description)
+                                    <div class="post-share-tag">
                                         <div class="post-share floatleft">
                                             <span class="text-uppercase"><strong>Share</strong></span>
                                             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -112,9 +82,9 @@
                                             <a href="#">Table</a>
                                         </div>
                                     </div>
-                                    <div class="author-comments mt-40 mt-5">
+                                    <div class="author-comments mt-5">
                                         <div class="author-photo floatleft">
-                                            <img  src="~/img/reviewer/author.jpg" alt="" />
+                                            <img src="~/img/reviewer/author.jpg" alt="" />
                                         </div>
                                         <div class="author-brief">
                                             <h3 class="font-16px"><strong>Salim Rana</strong></h3>
@@ -139,7 +109,7 @@
                                             <ul class="product-comments">
                                                 <li class="mb-30">
                                                     <div class="pro-reviewer">
-                                                        <img  src="~/img/reviewer/1.jpg" alt="" />
+                                                        <img src="~/img/reviewer/1.jpg" alt="" />
                                                     </div>
                                                     <div class="pro-reviewer-comment">
                                                         <div class="fix">
@@ -169,7 +139,7 @@
                                                 </li>
                                                 <li class="threaded-comments">
                                                     <div class="pro-reviewer">
-                                                        <img  src="~/img/reviewer/1.jpg" alt="" />
+                                                        <img src="~/img/reviewer/1.jpg" alt="" />
                                                     </div>
                                                     <div class="pro-reviewer-comment">
                                                         <div class="fix">
@@ -239,7 +209,7 @@
                         <!-- Single-blog end -->
                         <div class="col-md-3">
                             <!-- Widget-Search start -->
-                            <aside class="widget widget-search mb-5">
+                            <aside class="widget widget-search mt-0 mb-5">
                                 <form action="#">
                                     <input type="text" placeholder="Search here..." />
                                 </form>
@@ -253,9 +223,10 @@
                                 <div id="cat-treeview"
                                      class="widget-info product-cat boxscrol2">
                                     <ul>
-                                        <li><a href="#">Chair</a></li>
-                                        <li><a href="#">Furniture</a></li>
-                                        <li><a href="#">Top Brands</a></li>
+                                        @foreach (Category cg in Model.Categories)
+                                        {
+                                            <li><a href="#">@cg.NameCategory</a></li>
+                                        }
                                     </ul>
                                 </div>
                             </aside>
@@ -267,73 +238,26 @@
                                 </div>
                                 <div class="widget-info sidebar-product">
                                     <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img  src="~/img/blog/3.jpg" alt="" />
-                                            </a>
+                                    @foreach (Blog blogs in Model.Blogs)
+                                    {
+                                        <div class="single-product col-lg-12">
+                                            <div class="product-img">
+                                                <a  asp-controller="Blog" asp-action="Detail" asp-route-id="@blogs.Id">
+                                                    <img src="~/img/blog/@blogs.Image" alt="" />
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h4 class="post-title"><a  asp-controller="Blog" asp-action="Detail" asp-route-id="@blogs.Id">Dummy Blog</a></h4>
+                                                <span>
+                                                    <strong>
+                                                        <a class="text-gray"  asp-controller="Blog" asp-action="Detail" asp-route-id="@blogs.Id">@blogs.Date.Day, @blogs.Date.ToString("MMMM"),@blogs.Date.Year</a>
+                                                    </strong>
+                                                </span>
+                                            </div>
                                         </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
+                                    }
                                     <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img  src="~/img/blog/4.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img  src="~/img/blog/5.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a href="single-product.html">
-                                                <img  src="~/img/blog/6.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
+
                                 </div>
                             </aside>
                             <!-- Widget-product end -->

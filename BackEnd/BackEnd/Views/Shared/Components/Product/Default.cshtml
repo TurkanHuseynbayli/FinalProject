@@ -11,7 +11,7 @@
                     <img src="~/img/product/@product.Image" alt="" />
                 </div>
                 <div class="card-content p-2">
-                    <h4><a asp-controller="Product" asp-action="Detail">@product.Name</a></h4>
+                    <h4><a asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id">@product.Name</a></h4>
                     <div class="fix">
                         <span class="pro-rating">
                             <a href="#"><i class="fas fa-star"></i></a>

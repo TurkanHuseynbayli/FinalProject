@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using BackEnd.Models;
 using BackEnd.DAL;
 using BackEnd.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace BackEnd.Controllers
 {
@@ -23,12 +24,12 @@ namespace BackEnd.Controllers
         }
 
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
+            if (id == null) return NotFound();
             HomeVM homeVM = new HomeVM
             {
                 Sliders = _context.Sliders.ToList(),
-                Abouts = _context.Abouts.FirstOrDefault(),
                 Banners = _context.Banners.FirstOrDefault(),
                 Blogs = _context.Blogs.ToList(),
                 BlogDetails = _context.BlogDetails.ToList(),
@@ -37,12 +38,9 @@ namespace BackEnd.Controllers
                 CategoryProducts = _context.CategoryProducts.ToList(),
                 Contacts = _context.Contacts.FirstOrDefault(),
                 Discounts = _context.Discounts.ToList(),
-                Members = _context.Members.ToList(),
                 Products = _context.Products.ToList(),
-                RecentProducts = _context.RecentProducts.ToList(),
-                ProductDetails = _context.ProductDetails.ToList(),
-              
-
+                Product = _context.Products.Include(pro => pro.ProductDetail).FirstOrDefault(pro => pro.Id == id)
+                
             };
             return View(homeVM);
         }

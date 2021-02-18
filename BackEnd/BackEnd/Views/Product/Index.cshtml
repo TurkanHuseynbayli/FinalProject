@@ -1,4 +1,4 @@
-﻿@model HomeVM
+﻿@model ProductVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -50,10 +50,12 @@
                                                 <div class="img-box">
                                                     <span class="pro-label new-label">new</span>
                                                     <span class="pro-price-2 pro-price-1">$ @product.Price.20</span>
-                                                    <img src="~/img/product/@product.Image" alt="" />
+                                                   
+                                                        <img src="~/img/product/@product.Image" alt="" />
+                                                   
                                                 </div>
                                                 <div class="card-content p-2">
-                                                    <h4><a asp-controller="Product" asp-action="Detail">@product.Name</a></h4>
+                                                    <h4><a asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id">@product.Name</a></h4>
                                                     <div class="fix">
                                                         <span class="pro-rating">
                                                             <a href="#"><i class="fas fa-star"></i></a>
@@ -97,136 +99,24 @@
                             </aside>
                             <!-- Widget-search end -->
                             <!-- Widget-Categories start -->
-                            <aside class="widget widget-categories">
+                            <aside class="widget widget-categories mb-5">
                                 <div class="widget-title">
                                     <h4>Categories</h4>
                                 </div>
                                 <div id="cat-treeview"
                                      class="widget-info product-cat boxscrol2">
                                     <ul>
-                                        <li><a href="#">Chair</a></li>
-                                        <li><a href="#">Furniture</a></li>
-                                        <li><a href="#">Top Brands</a></li>
+                                        @foreach (Category cg in Model.Categories)
+                                        {
+                                            <li><a href="#">@cg.NameCategory</a></li>
+                                        }
                                     </ul>
                                 </div>
                             </aside>
                             <!-- Widget-categories end -->
-                            <!-- Widget-product start -->
-                            <aside class="widget widget-product mt-5">
-                                <div class="widget-title">
-                                    <h4>Recent products</h4>
-                                </div>
-                                <div class="widget-info sidebar-product">
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a asp-controller="Product" asp-action="Detail">
-                                                <img  src="~/img/blog/3.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a asp-controller="Product" asp-action="Detail">
-                                                <img  src="~/img/blog/4.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a asp-controller="Product" asp-action="Detail">
-                                                <img  src="~/img/blog/5.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                    <!-- Single-product start -->
-                                    <div class="single-product col-lg-12">
-                                        <div class="product-img">
-                                            <a asp-controller="Product" asp-action="Detail">
-                                                <img  src="~/img/blog/6.jpg" alt="" />
-                                            </a>
-                                        </div>
-                                        <div class="product-info">
-                                            <h4 class="post-title"><a href="#">Dummy Blog</a></h4>
-                                            <span>
-                                                <strong>
-                                                    <a class="text-gray" href="#">June 12, 2017</a>
-                                                </strong>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <!-- Single-product end -->
-                                </div>
-                            </aside>
-                            <!-- Widget-product end -->
-                            <!-- Widget-Size start -->
-                            <aside class="widget widget-comments mt-5 mb-5">
-                                <div class="widget-title">
-                                    <h4>Recent comments</h4>
-                                </div>
-                                <div class="widget-info comments-filter">
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">Mary Isabella</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">Michael Charles</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">David William</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">Matthew Daniel</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                </div>
-                            </aside>
-                            <!-- Widget-Size end -->
+                           
                             <!-- Widget-banner start -->
-                            <aside class="widget widget-banner">
+                            <aside class="widget widget-banner mt-5">
                                 <div class="widget-info widget-banner-img">
                                     <a href="#"><img  src="~/img/banner/5.jpg" alt="" /></a>
                                 </div>

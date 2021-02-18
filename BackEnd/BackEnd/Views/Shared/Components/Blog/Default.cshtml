@@ -6,7 +6,7 @@
 
         <div class="single-blog">
             <div class="blog-photo">
-                <a asp-controller="Blog" asp-action="Detail"><img src="~/img/blog/@blog.Image" alt="" /></a>
+                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"><img src="~/img/blog/@blog.Image" alt="" /></a>
                 <div class="like-share fix">
                     <a href="#"><i class="fas fa-heart"></i><span>89 Like</span></a>
                     <a href="#">
@@ -34,7 +34,7 @@
                 <p>
                     @blog.Description
                 </p>
-                <a asp-controller="Blog" asp-action="Detail" class="button-2 text-dark-red">Read more...</a>
+                <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id" class="button-2 text-dark-red">Read more...</a>
             </div>
         </div>
 

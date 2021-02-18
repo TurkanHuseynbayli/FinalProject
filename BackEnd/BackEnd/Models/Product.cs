@@ -13,6 +13,8 @@ namespace BackEnd.Models
         public string Image { get; set; }
         public double Price { get; set; }
         public string Name { get; set; }
+        [Required, DataType(DataType.DateTime)]
+        public DateTime Date { get; set; }
         public ProductDetail ProductDetail { get; set; }
         public ICollection<CategoryProduct> CategoryProducts { get; set; }
 

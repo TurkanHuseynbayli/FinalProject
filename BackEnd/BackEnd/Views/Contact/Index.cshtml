@@ -1,4 +1,4 @@
-﻿
+﻿@model Contact
 @{
     ViewData["Title"] = "Index";
 }
@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="img-box animate__animated animate__fadeInUp">
-                        <img class="img-fluid"  src="~/img/contact.jpg" alt="" />
+                        <img class="img-fluid"  src="~/img/@Model.Image" alt="" />
                         <div class="address-info">
                             <ul>
                                 <li>
@@ -48,13 +48,13 @@
                                            style="transform: rotate(-45deg)"></i>
                                         PHONE
                                     </h5>
-                                    <span>+44-20-7328-4499</span>
+                                    <span>@Model.Phone</span>
                                 </li>
                                 <li>
                                     <h5>
                                         <i class="fas fa-envelope-open-text fa-2x"></i> EMAIL
                                     </h5>
-                                    <span>info@healdi.com</span>
+                                    <span>@Model.Email</span>
                                 </li>
                             </ul>
                         </div>
