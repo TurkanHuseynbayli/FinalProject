@@ -167,3 +167,4 @@ C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\net
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Account\Signup.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Blog\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Basket.cshtml.g.cs

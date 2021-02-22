@@ -12,9 +12,12 @@ body {
   line-height: 20px;
   background-color: lightgray;
 }
+.rating-off{
+    display:none;
+}
 .text-gray {
     color: #999;
-    position: absolute;
+    
 }
 .submit-button {
     background: #c87065 none repeat scroll 0 0;
@@ -433,6 +436,7 @@ a {
     color: #c87065;
     font-size: 15px;
     line-height: 28px;
+    
   }
 }
 .card-content {

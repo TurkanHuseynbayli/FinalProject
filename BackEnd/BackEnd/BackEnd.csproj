@@ -5,6 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210219101128_CreateTabList.cs" />
+    <Compile Remove="Migrations\20210219101128_CreateTabList.Designer.cs" />
+    <Compile Remove="Migrations\20210219102706_CreateTabListAdd.cs" />
+    <Compile Remove="Migrations\20210219102706_CreateTabListAdd.Designer.cs" />
+    <Compile Remove="Migrations\20210219102818_CreateTabListAdddd.cs" />
+    <Compile Remove="Migrations\20210219102818_CreateTabListAdddd.Designer.cs" />
+    <Compile Remove="Migrations\20210219103544_CreateTablistsAdd.cs" />
+    <Compile Remove="Migrations\20210219103544_CreateTablistsAdd.Designer.cs" />
+    <Compile Remove="Migrations\20210219104008_CreateTablistsAddTablistId.cs" />
+    <Compile Remove="Migrations\20210219104008_CreateTablistsAddTablistId.Designer.cs" />
+    <Compile Remove="Migrations\20210219104945_CreateTablists.cs" />
+    <Compile Remove="Migrations\20210219104945_CreateTablists.Designer.cs" />
+    <Compile Remove="Migrations\20210219110146_CreateTablistsAdd.cs" />
+    <Compile Remove="Migrations\20210219110146_CreateTablistsAdd.Designer.cs" />
+    <Compile Remove="Migrations\20210219110333_CreateTablistsAddded.cs" />
+    <Compile Remove="Migrations\20210219110333_CreateTablistsAddded.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\js\site.js" />
   </ItemGroup>
 

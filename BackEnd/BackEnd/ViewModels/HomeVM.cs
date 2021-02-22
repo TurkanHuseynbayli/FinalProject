@@ -17,6 +17,7 @@ namespace BackEnd.ViewModels
         public List<CategoryProduct> CategoryProducts { get; set; }
         public Contact Contacts { get; set; }
         public List<Discount> Discounts { get; set; }
+        public List<TabList> TabLists { get; set; }
         public List<Product> Products { get; set; }
         public Product Product { get; set; }
         public List<RecentProduct> RecentProducts { get; set; }

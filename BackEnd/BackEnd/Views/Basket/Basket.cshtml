@@ -1,0 +1,150 @@
+﻿@model List<BasketVM>
+@{
+    ViewData["Title"] = "Basket";
+    int count = Model.Count();
+}
+
+<!-- MAIN START -->
+<main>
+    <section id="heading">
+        <div class="heading-banner-area overlay-bg"
+             style="
+            background-image: url(img/bg/1.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+          ">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="heading-banner">
+                            <div class="heading-banner-title">
+                                <h2>SHOPPING CART</h2>
+                            </div>
+                            <div class="breadcumbs pb-15">
+                                <ul>
+                                    <li class="home"><a asp-controller="Home" asp-action="Index">Home</a></li>
+                                    <li>SHOPPING CART</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CART START -->
+    <section id="cart">
+        <div class="container padding-100">
+            <div class="row">
+                @if (count != 0)
+                {
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">PRODUCT</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">QUANTITY</th>
+                                <th scope="col">TOTAL</th>
+
+                                <th scope="col">REMOVE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (BasketVM pro in Model)
+                            {
+                                <tr>
+                                    <td class="products">
+                                        <div class="single-product">
+                                            <div class="product-img">
+                                                <a asp-controller="Product" asp-action="Detail">
+                                                    <img src="img/product/@pro.Image" alt="" />
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h4 class="post-title">
+                                                    <a class="text-light-black" asp-controller="Product" asp-action="Detail">dummy product name</a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="table-price">$@pro.Price.00</td>
+                                    <td>
+                                        <div class="quantity">
+                                            <a href="#" class="plus-minus">
+                                                <i class="fas fa-minus"></i>
+                                            </a>
+                                            <span>@pro.Count</span>
+                                            <a href="#" class="plus-minus">
+                                                <i class="fas fa-plus"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+
+                                    <td class="table-price">$@ViewBag.Total</td>
+                                    <td class="remove">
+                                        <a asp-controller="Basket" asp-action="RemoveItem" asp-route-id="@pro.Id"><i class="fas fa-times"></i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                    @*<h2>Total:@ViewBag.Total</h2>*@
+                }
+                else
+                {
+                    <h2>Sebet bosdur,<a asp-controller="Home" asp-action="Index">Buyurun mehsullara baxin</a></h2>
+
+                }
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 padding-100">
+                    <div class="customer-login">
+                        <h4 class="title-1 title-border text-uppercase mb-3">
+                            coupon discount
+                        </h4>
+                        <p class="text-gray">Enter your coupon code if you have one!</p>
+                        <input type="text" placeholder="Enter your code here." />
+                        <button type="submit"
+                                data-text="apply coupon"
+                                class="button-one submit-button mt-4">
+                            apply coupon
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-6 padding-100">
+                    <div class="customer-login payment-details">
+                        <h4 class="title-1 title-border text-uppercase mb-4">
+                            payment details
+                        </h4>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="text-left">Cart Subtotal</td>
+                                    <td class="text-right">$155.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Cart Subtotal</td>
+                                    <td class="text-right">$15.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Vat</td>
+                                    <td class="text-right">$00.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left">Order Total</td>
+                                    <td class="text-right">$170.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CART END -->
+</main>
+<!-- MAIN END -->

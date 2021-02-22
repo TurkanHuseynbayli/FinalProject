@@ -12,10 +12,13 @@ body {
   line-height: 20px;
   background-color: lightgray;
 }
+.rating-off {
+    display: none;
+}
 
 .text-gray {
     color: #999;
-    position: absolute;
+  
 }
 
 .submit-button {
@@ -452,10 +455,12 @@ a:hover {
           justify-content: center;
 }
 
-.pro-rating a {
+.pro-rating a{
   color: #c87065;
   font-size: 15px;
   line-height: 28px;
+ 
+
 }
 
 .card-content h4 {

@@ -9,6 +9,7 @@ using BackEnd.Models;
 using BackEnd.DAL;
 using BackEnd.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace BackEnd.Controllers
 {
@@ -24,11 +25,12 @@ namespace BackEnd.Controllers
         }
 
 
-        public IActionResult Index(int? id)
+        public IActionResult Index()
         {
-            if (id == null) return NotFound();
+         
             HomeVM homeVM = new HomeVM
             {
+
                 Sliders = _context.Sliders.ToList(),
                 Banners = _context.Banners.FirstOrDefault(),
                 Blogs = _context.Blogs.ToList(),
@@ -38,12 +40,14 @@ namespace BackEnd.Controllers
                 CategoryProducts = _context.CategoryProducts.ToList(),
                 Contacts = _context.Contacts.FirstOrDefault(),
                 Discounts = _context.Discounts.ToList(),
-                Products = _context.Products.ToList(),
-                Product = _context.Products.Include(pro => pro.ProductDetail).FirstOrDefault(pro => pro.Id == id)
-                
+                Products = _context.Products.Include(tb => tb.TablistProduct).ThenInclude(tb => tb.TabList).Take(10).ToList(),
+                TabLists = _context.TabLists.Include(tb => tb.TablistProduct).ToList(),
+
             };
             return View(homeVM);
         }
+       
+
 
         public IActionResult Privacy()
         {

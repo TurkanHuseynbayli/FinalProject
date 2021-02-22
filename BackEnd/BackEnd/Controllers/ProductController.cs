@@ -21,6 +21,7 @@ namespace BackEnd.Controllers
         {
             ProductVM productVM = new ProductVM
             {
+
                 Categories = _context.Categories.ToList(),
                 Products = _context.Products.Include(cg => cg.ProductDetail).ToList(),
             };

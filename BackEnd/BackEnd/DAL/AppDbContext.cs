@@ -28,6 +28,8 @@ namespace BackEnd.DAL
         public DbSet<ProductDetail> ProductDetails { get; set; }
         public DbSet<RecentProduct> RecentProducts { get; set; }
         public DbSet<About> Abouts { get; set; }
+        public DbSet<TabList> TabLists { get; set; }
+        public DbSet<TablistProduct> TablistProducts { get; set; }
 
     }
 }
