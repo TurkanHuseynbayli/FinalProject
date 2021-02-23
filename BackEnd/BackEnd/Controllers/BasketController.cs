@@ -42,9 +42,10 @@ namespace BackEnd.Controllers
 
             return View(dbBasket);
         }
-        public async Task<IActionResult> AddBasket(int id)
+        public async Task<IActionResult> AddBasket(int? id)
         {
-            Product product = await _context.Products.FindAsync(id);
+            if (id == 0) return NotFound();
+            Product product = await _context.Products.FirstOrDefaultAsync(c=>c.Id==id);
             if (product == null) return NotFound();
             List<BasketVM> basket;
             if (Request.Cookies["basket"] != null)
@@ -60,7 +61,7 @@ namespace BackEnd.Controllers
             {
                 basket.Add(new BasketVM
                 {
-                    Id = id,
+                    Id = (int)id,
                     Count = 1
                 });
             }
@@ -69,7 +70,7 @@ namespace BackEnd.Controllers
                 isExist.Count += 1;
             }
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Basket));
 
         }
 

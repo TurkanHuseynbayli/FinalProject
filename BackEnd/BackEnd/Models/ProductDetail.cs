@@ -14,6 +14,8 @@ namespace BackEnd.Models
         public string Description2 { get; set; }
         public string Information { get; set; }
         public string Tags { get; set; }
+        [Required]
+        public string Rate { get; set; }
         [ForeignKey("Product")]
         public int ProductId { get; set; }
         public Product Product { get; set; }

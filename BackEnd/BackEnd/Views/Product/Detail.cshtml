@@ -54,24 +54,25 @@
                                                     @Model.Product.Name
                                                 </h4>
                                                 <span class="pro-rating floatright">
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#"><i class="fas fa-star"></i></a>
-                                                    <a href="#">
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </a>
-                                                    <a href="#">
-                                                        <i class="fas fa-star-half-alt"></i>
-                                                    </a>
-                                                    <span>( 27 Rating )</span>
+                                                    @if (Model.Product.Rate > 5)
+                                                    {
+                                                        Model.Product.Rate = 5;
+                                                    }
+
+                                                    @for (int i = 1; i <= 5; i++)
+                                                    {
+                                                        <a class='rating-@(i<=Model.Product.Rate?"on":"off")'><i class="fas fa-star"></i></a>
+
+                                                    }
+                                                    <span>( @Model.Product.ProductDetail.Rate )</span>
                                                 </span>
                                             </div>
-                                            <div class="fix mb-20">
-                                                <span class="pro-price mt-5 mb-5">$ @Model.Product.Price.00</span>
+                                            <div class="fix">
+                                                <span class="pro-price">$ @Model.Product.Price.00</span>
                                             </div>
                                             <div class="product-description">
                                                 <p>
-                                                   @Model.Product.ProductDetail.Description
+                                                   @Html.Raw(Model.Product.ProductDetail.Description)
                                                 </p>
                                             </div>
 

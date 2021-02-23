@@ -16,6 +16,7 @@ namespace BackEnd.Models
         public string Description { get; set; }
         [Required, DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
+        public bool isDelete { get; set; }
         public BlogDetail BlogDetail { get; set; }
         public ICollection<CategoryBlog> CategoryBlogs { get; set; }
 

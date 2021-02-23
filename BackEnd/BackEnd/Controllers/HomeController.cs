@@ -41,7 +41,7 @@ namespace BackEnd.Controllers
                 Contacts = _context.Contacts.FirstOrDefault(),
                 Discounts = _context.Discounts.ToList(),
                 Products = _context.Products.Include(tb => tb.TablistProduct).ThenInclude(tb => tb.TabList).Take(10).ToList(),
-                TabLists = _context.TabLists.Include(tb => tb.TablistProduct).ToList(),
+                TabLists = _context.TabLists.Include(tb => tb.TablistProduct).ThenInclude(t=>t.Product).ToList(),
 
             };
             return View(homeVM);

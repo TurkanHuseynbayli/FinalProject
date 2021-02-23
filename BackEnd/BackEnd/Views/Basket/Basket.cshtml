@@ -54,10 +54,10 @@
                             {
                                 <tr>
                                     <td class="products">
-                                        <div class="single-product">
+                                        <div class="single-product mb-5">
                                             <div class="product-img">
                                                 <a asp-controller="Product" asp-action="Detail">
-                                                    <img src="img/product/@pro.Image" alt="" />
+                                                    <img width="200" src="~/img/product/@pro.Image" alt="" />
                                                 </a>
                                             </div>
                                             <div class="product-info">
@@ -90,7 +90,7 @@
 
                         </tbody>
                     </table>
-                    @*<h2>Total:@ViewBag.Total</h2>*@
+                    <h2>Total:@ViewBag.Total</h2>
                 }
                 else
                 {

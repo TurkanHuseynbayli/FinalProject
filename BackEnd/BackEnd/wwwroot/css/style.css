@@ -1463,13 +1463,14 @@ a:hover {
   margin-bottom: 5px;
 }
 
-.product-area .shop-list .product-info .fix .pro-price {
-  color: #c87065;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 28px;
-  margin: 28px;
-}
+    .product-area .shop-list .product-info .fix .pro-price {
+        color: #c87065;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 28px;
+        margin: 28px;
+        display: block;
+    }
 
 .product-area .shop-list .product-info .product-description p {
   font-weight: 400;

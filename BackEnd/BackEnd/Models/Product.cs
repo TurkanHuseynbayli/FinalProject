@@ -18,6 +18,8 @@ namespace BackEnd.Models
         public DateTime Date { get; set; }
         [Required]
         public int Rate { get; set; }
+        public string New { get; set; }
+        public bool IsDeleted { get; set; }
         public ProductDetail ProductDetail { get; set; }
         public ICollection<CategoryProduct> CategoryProducts { get; set; }
         public ICollection<TablistProduct> TablistProduct { get; set; }

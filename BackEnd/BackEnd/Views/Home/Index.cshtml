@@ -25,7 +25,7 @@
                                         @slide.Title
                                     </h4>
                                     <h2 class="animate__animated animate__slideInRight">
-                                       @Html.Raw(slide.SubTitle)
+                                        @Html.Raw(slide.SubTitle)
                                     </h2>
                                     <a class="animate__animated animate__fadeInUp btn btn-md btn-gradient"
                                        href="#">
@@ -35,7 +35,7 @@
                             </div>
                             isFirstSlide = false;
                         }
-                        </div>
+                    </div>
                     <a class="carousel-control-prev"
                        href="#carouselExampleControls"
                        role="button"
@@ -64,10 +64,10 @@
                 <div class="col-lg-5 col-md-5 col-sm-5">
                     <!-- Single-banner start -->
                     <div class="single-banner banner-1 banner-4">
-                        <a class="banner-thumb" asp-controller="Product" asp-action="Detail" asp-route-id="">
-                            <img  src="~/img/banner/@Model.Products.ElementAt(0).Image" alt="" />
+                        <a class="banner-thumb" asp-controller="Product" asp-action="Detail" asp-route-id="@Model.Products.ElementAt(0).Id">
+                            <img src="~/img/banner/@Model.Products.ElementAt(0).Image" alt="" />
                         </a>
-                        <span class="pro-label new-label">new</span>
+                        <span class="pro-label new-label">@Model.Products.ElementAt(0).New</span>
                         <span class="price">$@Model.Products.ElementAt(0).Price.00</span>
                         <div class="banner-brief">
                             <h2 class="banner-title"><a asp-controller="Product" asp-action="Detail">@Model.Products.ElementAt(0).Name</a></h2>
@@ -81,12 +81,12 @@
                     <!-- Single-banner start -->
                     <div class="single-banner banner-3">
                         <a class="banner-thumb" asp-controller="Product" asp-action="Detail">
-                            <img  src="~/img/banner/@Model.Banners.Image" alt="" />
+                            <img src="~/img/banner/@Model.Banners.Image" alt="" />
                         </a>
                         <div class="banner-brief">
                             <h2 class="banner-title">
-                                <a class="text-uppercase"asp-controller="Product" asp-action="Detail">
-                                   @Html.Raw(Model.Banners.Description)
+                                <a class="text-uppercase" asp-controller="Product" asp-action="Detail">
+                                    @Html.Raw(Model.Banners.Description)
                                 </a>
                             </h2>
                         </div>
@@ -128,11 +128,11 @@
                     <div class="div">
                         <div class="owl-carousel disc">
                             @foreach (Blog blog in Model.Blogs)
-                            { 
+                            {
                                 <div class="discount-product">
                                     <div class="row">
                                         <div class="col-lg-5 col-md-5 col-sm-6">
-                                            <a asp-controller="Blog" asp-action="Detail">
+                                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id">
                                                 <img src="~/img/discount/@blog.Image" alt="" />
                                             </a>
                                         </div>
@@ -150,8 +150,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                }
-                           
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -159,7 +159,7 @@
                     <div class="up-comming-product">
                         <div class="up-comming-img">
                             <a href="#">
-                                <img  src="~/img/product/up-comming.jpg" alt="" />
+                                <img src="~/img/product/up-comming.jpg" alt="" />
                             </a>
                         </div>
                         <div class="up-comming-info text-centers">
@@ -204,71 +204,66 @@
                 </div>
             </div>
 
-            <ul class="nav" id="myTab" role="tablist">
+            <ul class="nav " id="myTab" role="tablist">
                 @foreach (TabList tablist in Model.TabLists)
                 {
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link @(isActiveTab?"active show":"")"
-                           id="Arrivals-tab"
+                        <a class="nav-link @(isActiveTab?"active":"")"
+                           id="pane-@tablist.Id-tab"
                            data-toggle="tab"
-                           href="#@tablist.Name"
-                           role="tab"
-                           aria-controls="Arrivals"
-                           aria-selected="true">@tablist.Name</a>
+                           href="#pane-@tablist.Id"
+                           role="tab">
+                            @tablist.Name
+                        </a>
                     </li>
                     isActiveTab = false;
                 }
-                    
-                </ul>
+
+            </ul>
             <div class="tab-content" id="myTabContent">
 
                 @foreach (TabList tablist in Model.TabLists)
                 {
-                    <div class="tab-pane fade show  @(isActivePro ? "active show" : "")"
-                         id="@tablist.Name"
+                    <div class=" tab-pane fade @(isActivePro?"show active":"")"
+                         id="pane-@tablist.Id"
                          role="tabpanel"
-                         aria-labelledby="Arrivals-tab">
+                         >
                         <div class="col-lg-12">
                             <div class="row">
-
-                                @foreach (Product product in Model.Products)
+                                @foreach (TablistProduct product in tablist.TablistProduct)
                                 {
-                                    //if (product.TabListId == product.Id)
-                                    //{
+                                    if (product.TabListId == tablist.Id)
+                                    {
                                         <div class="col-lg-3">
                                             <div class="items">
                                                 <div class="card">
                                                     <div class="img-box">
-                                                        <span class="pro-label new-label">sale</span>
-                                                        <span class="pro-price-2 pro-price-1">$@product.Price.20</span>
-                                                        <img src="~/img/product/@product.Image" alt="" />
+                                                        <span class="pro-label new-label">@product.Product.New</span>
+                                                        <span class="pro-price-2 pro-price-1">$@product.Product.Price.20</span>
+                                                        <img src="~/img/product/@product.Product.Image" alt="" />
                                                     </div>
                                                     <div class="card-content p-2">
-                                                        <h4><a class="#" asp-controller="Product" asp-action="Detail">@product.Name</a></h4>
+                                                        <h4><a class="#" asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id">@product.Product.Name</a></h4>
                                                         <div class="fix">
                                                             <span class="pro-rating">
-                                                                @if (product.Rate > 5)
+                                                                @if (product.Product.Rate > 5)
                                                                 {
-                                                                    product.Rate = 5;
+                                                                    product.Product.Rate = 5;
                                                                 }
 
                                                                 @for (int i = 1; i <= 5; i++)
                                                                 {
-                                                                    <a class='rating-@(i<=product.Rate?"on":"off")'><i class="fas fa-star"></i></a>
+                                                                    <a class='rating-@(i<=product.Product.Rate?"on":"off")'><i class="fas fa-star"></i></a>
 
                                                                 }
                                                             </span>
                                                         </div>
                                                         <div class="product-action">
                                                             <a href="#"
-                                                               data-toggle="tooltip"
-                                                               data-placement="top"
                                                                title="Wishlist">
                                                                 <i class="far fa-heart"></i>
                                                             </a>
-                                                            <a href="#"
-                                                               data-toggle="modal"
-                                                               data-target="#productModal"
+                                                            <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@product.Product.Id"
                                                                title="Quick View">
                                                                 <i class="fas fa-shopping-cart"></i>
                                                             </a>
@@ -277,16 +272,17 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    }
 
-                                    @*}*@
                                 }
+
                             </div>
                         </div>
                     </div>
 
                     isActivePro = false;
                 }
-                </div>
+            </div>
         </div>
     </section>
     <!--SECTION PURCHASE AREA END-->

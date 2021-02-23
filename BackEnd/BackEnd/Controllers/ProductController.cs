@@ -23,7 +23,7 @@ namespace BackEnd.Controllers
             {
 
                 Categories = _context.Categories.ToList(),
-                Products = _context.Products.Include(cg => cg.ProductDetail).ToList(),
+                Products = _context.Products.Include(pro => pro.ProductDetail).OrderByDescending(pro => pro.Id).Take(9).ToList(),
             };
 
             return View(productVM);
