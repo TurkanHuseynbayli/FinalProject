@@ -19,7 +19,7 @@ namespace BackEnd.Controllers
            
             _context = context;
         }
-        public async Task<IActionResult> Basket()
+        public async Task<IActionResult> Index()
         {
             List<BasketVM> dbBasket = new List<BasketVM>();
             ViewBag.Total = 0;
@@ -70,7 +70,7 @@ namespace BackEnd.Controllers
                 isExist.Count += 1;
             }
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
-            return RedirectToAction(nameof(Basket));
+            return RedirectToAction(nameof(Index));
 
         }
 
@@ -83,7 +83,7 @@ namespace BackEnd.Controllers
             basket.Remove(remove);
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
 
-            return RedirectToAction(nameof(Basket));
+            return RedirectToAction(nameof(Index));
         }
     }
 }

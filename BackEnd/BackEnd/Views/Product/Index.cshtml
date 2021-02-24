@@ -77,9 +77,7 @@
                                                            title="Wishlist">
                                                             <i class="far fa-heart"></i>
                                                         </a>
-                                                        <a href="#"
-                                                           data-toggle="modal"
-                                                           data-target="#productModal"
+                                                        <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@product.Id"
                                                            title="Quick View">
                                                             <i class="fas fa-shopping-cart"></i>
                                                         </a>

@@ -56,13 +56,13 @@
                                     <td class="products">
                                         <div class="single-product mb-5">
                                             <div class="product-img">
-                                                <a asp-controller="Product" asp-action="Detail">
+                                                <a asp-controller="Product" asp-action="Detail"  asp-route-id="@pro.Id">
                                                     <img width="200" src="~/img/product/@pro.Image" alt="" />
                                                 </a>
                                             </div>
                                             <div class="product-info">
                                                 <h4 class="post-title">
-                                                    <a class="text-light-black" asp-controller="Product" asp-action="Detail">dummy product name</a>
+                                                    <a class="text-light-black" asp-controller="Product" asp-action="Detail" asp-route-id="@pro.Id">dummy product name</a>
                                                 </h4>
                                             </div>
                                         </div>

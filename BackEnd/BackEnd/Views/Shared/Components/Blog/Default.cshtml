@@ -27,7 +27,7 @@
                             @blog.Date.ToString("MMMM"),@blog.Date.Year
                         </p>
                         <h4 class="post-title">
-                            <a asp-controller="Blog" asp-action="Detail" tabindex="0">@blog.Name</a>
+                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@blog.Id"  tabindex="0">@blog.Name</a>
                         </h4>
                     </div>
                 </div>

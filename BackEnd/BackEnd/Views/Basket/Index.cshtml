@@ -1,6 +1,7 @@
-﻿
+﻿@model List<BasketVM>
 @{
-    ViewData["Title"] = "Basket";
+    ViewData["Title"] = "Index";
+    int count = Model.Count();
 }
 
 <!-- MAIN START -->
@@ -35,123 +36,67 @@
     <section id="cart">
         <div class="container padding-100">
             <div class="row">
-                <table class="table table-light">
-                    <thead>
-                        <tr>
-                            <th scope="col">PRODUCT</th>
-                            <th scope="col">PRICE</th>
-                            <th scope="col">QUANTITY</th>
-                            <th scope="col">TOTAL</th>
+                @if (count != 0)
+                {
+                    <table class="table table-light">
+                        <thead>
+                            <tr>
+                                <th scope="col">PRODUCT</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">QUANTITY</th>
+                                <th scope="col">TOTAL</th>
 
-                            <th scope="col">REMOVE</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="products">
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a asp-controller="Product" asp-action="Detail">
-                                            <img src="img/product/2.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h4 class="post-title">
-                                            <a class="text-light-black" asp-controller="Product" asp-action="Detail">dummy product name</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </td>
+                                <th scope="col">REMOVE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (BasketVM pro in Model)
+                            {
+                                <tr>
+                                    <td class="products">
+                                        <div class="single-product mb-5">
+                                            <div class="product-img">
+                                                <a asp-controller="Product" asp-action="Detail" asp-route-id="@pro.Id">
+                                                    <img width="200" src="~/img/product/@pro.Image" alt="" />
+                                                </a>
+                                            </div>
+                                            <div class="product-info">
+                                                <h4 class="post-title">
+                                                    <a class="text-light-black" asp-controller="Product" asp-action="Detail" asp-route-id="@pro.Id">dummy product name</a>
+                                                </h4>
+                                            </div>
+                                        </div>
+                                    </td>
 
-                            <td class="table-price">$56.00</td>
-                            <td>
-                                <div class="quantity">
-                                    <a href="#" class="plus-minus">
-                                        <i class="fas fa-minus"></i>
-                                    </a>
-                                    <span>0.2</span>
-                                    <a href="#" class="plus-minus">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
+                                    <td class="table-price">$@pro.Price.00</td>
+                                    <td>
+                                        <div class="quantity">
+                                            <a href="#" class="plus-minus">
+                                                <i class="fas fa-minus"></i>
+                                            </a>
+                                            <span>@pro.Count</span>
+                                            <a href="#" class="plus-minus">
+                                                <i class="fas fa-plus"></i>
+                                            </a>
+                                        </div>
+                                    </td>
 
-                            <td class="table-price">$112.00</td>
-                            <td class="remove">
-                                <a href="#"><i class="fas fa-times"></i></a>
-                            </td>
-                        </tr>
+                                    <td class="table-price">$@ViewBag.Total</td>
+                                    <td class="remove">
+                                        <a asp-controller="Basket" asp-action="RemoveItem" asp-route-id="@pro.Id"><i class="fas fa-times"></i></a>
+                                    </td>
+                                </tr>
+                            }
 
-                        <tr>
-                            <td class="products">
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a asp-controller="Product" asp-action="Detail">
-                                            <img src="img/product/12.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h4 class="post-title">
-                                            <a class="text-light-black" asp-controller="Product" asp-action="Detail">dummy product name</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </td>
+                        </tbody>
+                    </table>
+                    <h2>Total:@ViewBag.Total</h2>
+                }
+                else
+                {
+                    <h2>Sebet bosdur,<a asp-controller="Home" asp-action="Index">Buyurun mehsullara baxin</a></h2>
 
-                            <td class="table-price">$56.00</td>
-                            <td>
-                                <div class="quantity">
-                                    <a href="#" class="plus-minus">
-                                        <i class="fas fa-minus"></i>
-                                    </a>
-                                    <span>0.2</span>
-                                    <a href="#" class="plus-minus">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-
-                            <td class="table-price">$112.00</td>
-                            <td class="remove">
-                                <a href="#"><i class="fas fa-times"></i></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="products">
-                                <div class="single-product">
-                                    <div class="product-img">
-                                        <a asp-controller="Product" asp-action="Detail">
-                                            <img src="img/product/7.jpg" alt="" />
-                                        </a>
-                                    </div>
-                                    <div class="product-info">
-                                        <h4 class="post-title">
-                                            <a class="text-light-black" asp-controller="Product" asp-action="Detail">dummy product name</a>
-                                        </h4>
-                                    </div>
-                                </div>
-                            </td>
-
-                            <td class="table-price">$56.00</td>
-                            <td>
-                                <div class="quantity">
-                                    <a href="#" class="plus-minus">
-                                        <i class="fas fa-minus"></i>
-                                    </a>
-                                    <span>0.2</span>
-                                    <a href="#" class="plus-minus">
-                                        <i class="fas fa-plus"></i>
-                                    </a>
-                                </div>
-                            </td>
-
-                            <td class="table-price">$112.00</td>
-                            <td class="remove">
-                                <a href="#"><i class="fas fa-times"></i></a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                }
             </div>
 
             <div class="row">

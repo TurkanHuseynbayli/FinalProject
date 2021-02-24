@@ -3,7 +3,7 @@
 @{
     ViewData["Title"] = "Default";
    
-    int rateCount = 0;
+   
 }
 
 @foreach (Product product in Model)
@@ -41,8 +41,6 @@
                     </a>
                     <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@product.Id"
                        class="cart"
-                       data-toggle="modal"
-                       data-target="#productModal"
                        title="Quick View">
                         <i class="fas fa-shopping-cart"></i>
                     </a>

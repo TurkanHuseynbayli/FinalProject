@@ -70,22 +70,22 @@
                         <span class="pro-label new-label">@Model.Products.ElementAt(0).New</span>
                         <span class="price">$@Model.Products.ElementAt(0).Price.00</span>
                         <div class="banner-brief">
-                            <h2 class="banner-title"><a asp-controller="Product" asp-action="Detail">@Model.Products.ElementAt(0).Name</a></h2>
+                            <h2 class="banner-title"><a asp-controller="Product" asp-action="Detail" asp-route-id="@Model.Products.ElementAt(0).Id">@Model.Products.ElementAt(0).Name</a></h2>
                             <p class="mb-0">Furniture</p>
                         </div>
-                        <a href="#" class="button-one font-16px" data-text="Buy now">Buy now</a>
+                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@Model.Products.ElementAt(0).Id" class="button-one font-16px" data-text="Buy now">Buy now</a>
                     </div>
                     <!-- Single-banner end -->
                 </div>
                 <div class="col-lg-7 col-md-7 col-sm-7">
                     <!-- Single-banner start -->
                     <div class="single-banner banner-3">
-                        <a class="banner-thumb" asp-controller="Product" asp-action="Detail">
+                        <a class="banner-thumb" asp-controller="Product" asp-action="Detail" asp-route-id="@Model.Products.ElementAt(3).Id">
                             <img src="~/img/banner/@Model.Banners.Image" alt="" />
                         </a>
                         <div class="banner-brief">
                             <h2 class="banner-title">
-                                <a class="text-uppercase" asp-controller="Product" asp-action="Detail">
+                                <a class="text-uppercase" asp-controller="Product" asp-action="Detail"  asp-route-id="@Model.Products.ElementAt(3).Id">
                                     @Html.Raw(Model.Banners.Description)
                                 </a>
                             </h2>
