@@ -41,5 +41,13 @@ namespace BackEnd.Controllers
             };
             return View(productVM);
         }
+
+        public IActionResult ProductSearch(string search)
+        {
+
+            List<Product> product = _context.Products.Where(pro => pro.IsDeleted == false).Where(pro => pro.Name.Contains(search)).ToList();
+
+            return PartialView("_ProductSearchPartial", product);
+        }
     }
 }

@@ -41,92 +41,94 @@
                         <!-- Products start -->
                         <div class="col-md-9">
                             <div class="row">
-                                <!-- SECTION ITEM START -->
-                                @foreach (Product product in Model.Products)
-                                {
-                                    <div class="col-lg-4">
-                                        <div class="items">
-                                            <div class="card">
-                                                <div class="img-box">
-                                                    <span class="pro-label new-label">new</span>
-                                                    <span class="pro-price-2 pro-price-1">$ @product.Price.20</span>
-                                                   
+                                <div class="row" id="new-products"></div>
+                                <div class="row" id="old-products">
+                                    <!-- SECTION ITEM START -->
+                                    @foreach (Product product in Model.Products)
+                                    {
+                                        <div class="col-lg-4">
+                                            <div class="items">
+                                                <div class="card">
+                                                    <div class="img-box">
+                                                        <span class="pro-label new-label">@product.New</span>
+                                                        <span class="pro-price-2 pro-price-1">$ @product.Price.20</span>
+
                                                         <img src="~/img/product/@product.Image" alt="" />
-                                                   
-                                                </div>
-                                                <div class="card-content p-2">
-                                                    <h4><a asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id">@product.Name</a></h4>
-                                                    <div class="fix">
-                                                        <span class="pro-rating">
-                                                            @if (product.Rate > 5)
-                                                            {
-                                                                product.Rate = 5;
-                                                            }
 
-                                                            @for (int i = 1; i <= 5; i++)
-                                                            {
-                                                                <a class='rating-@(i<=product.Rate?"on":"off")'><i class="fas fa-star"></i></a>
-
-                                                            }
-                                                        </span>
                                                     </div>
-                                                    <div class="product-action">
-                                                        <a href="#"
-                                                           data-toggle="tooltip"
-                                                           data-placement="top"
-                                                           title="Wishlist">
-                                                            <i class="far fa-heart"></i>
-                                                        </a>
-                                                        <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@product.Id"
-                                                           title="Quick View">
-                                                            <i class="fas fa-shopping-cart"></i>
-                                                        </a>
+                                                    <div class="card-content p-2">
+                                                        <h4><a asp-controller="Product" asp-action="Detail" asp-route-id="@product.Id">@product.Name</a></h4>
+                                                        <div class="fix">
+                                                            <span class="pro-rating">
+                                                                @if (product.Rate > 5)
+                                                                {
+                                                                    product.Rate = 5;
+                                                                }
+
+                                                                @for (int i = 1; i <= 5; i++)
+                                                                {
+                                                                    <a class='rating-@(i<=product.Rate?"on":"off")'><i class="fas fa-star"></i></a>
+
+                                                                }
+                                                            </span>
+                                                        </div>
+                                                        <div class="product-action">
+                                                            <a href="#"
+                                                               data-toggle="tooltip"
+                                                               data-placement="top"
+                                                               title="Wishlist">
+                                                                <i class="far fa-heart"></i>
+                                                            </a>
+                                                            <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@product.Id"
+                                                               title="Quick View">
+                                                                <i class="fas fa-shopping-cart"></i>
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                }
-                                <!-- SECTION ITEM END -->
+                                    }
+                                    <!-- SECTION ITEM END -->
 
-
+                                 </div>
+                                </div>
                             </div>
-                        </div>
                         <!-- Products end -->
                         <div class="col-md-3">
                             <!-- Widget-Search start -->
                             <aside class="widget widget-search mb-5">
-                                <form action="#">
-                                    <input type="text" placeholder="Search here..." />
+                                <form id="product-search" method="post">
+                                    <input type="text" placeholder="Search here..." id="product-search-input" name="search" />
                                 </form>
                             </aside>
-                            <!-- Widget-search end -->
-                            <!-- Widget-Categories start -->
-                            <aside class="widget widget-categories mb-5">
-                                <div class="widget-title">
-                                    <h4>Categories</h4>
-                                </div>
-                                <div id="cat-treeview"
-                                     class="widget-info product-cat boxscrol2">
-                                    <ul>
-                                        @foreach (Category cg in Model.Categories)
-                                        {
-                                            <li><a href="#">@cg.NameCategory</a></li>
-                                        }
-                                    </ul>
-                                </div>
-                            </aside>
-                            <!-- Widget-categories end -->
-                           
-                            <!-- Widget-banner start -->
-                            <aside class="widget widget-banner mt-5">
-                                <div class="widget-info widget-banner-img">
-                                    <a href="#"><img  src="~/img/banner/5.jpg" alt="" /></a>
-                                </div>
-                            </aside>
-                            <!-- Widget-banner end -->
+                        
+                                <!-- Widget-search end -->
+                                <!-- Widget-Categories start -->
+                                <aside class="widget widget-categories mb-5">
+                                    <div class="widget-title">
+                                        <h4>Categories</h4>
+                                    </div>
+                                    <div id="cat-treeview"
+                                         class="widget-info product-cat boxscrol2">
+                                        <ul>
+                                            @foreach (Category cg in Model.Categories)
+                                            {
+                                                <li><a href="#">@cg.NameCategory</a></li>
+                                            }
+                                        </ul>
+                                    </div>
+                                </aside>
+                                <!-- Widget-categories end -->
+                                <!-- Widget-banner start -->
+                                <aside class="widget widget-banner mt-5">
+                                    <div class="widget-info widget-banner-img">
+                                        <a href="#"><img src="~/img/banner/5.jpg" alt="" /></a>
+                                    </div>
+                                </aside>
+                                <!-- Widget-banner end -->
+                            </div>
                         </div>
-                    </div>
                 </div>
             </div>
         </div>

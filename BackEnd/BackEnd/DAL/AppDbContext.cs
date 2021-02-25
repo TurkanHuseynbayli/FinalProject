@@ -31,5 +31,7 @@ namespace BackEnd.DAL
         public DbSet<TabList> TabLists { get; set; }
         public DbSet<TablistProduct> TablistProducts { get; set; }
 
+    
+
     }
 }

@@ -1,0 +1,38 @@
+﻿@model Slider
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Slider</h4>
+            <div class="col-md-6 grid-margin stretch-card">
+
+                <img src="~/img/slider/@Model.Image" width="200" />
+            </div>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.Photo"></label>
+                    <input asp-for="@Model.Photo" accept="image/*" class="form-control">
+                    <span class="text-danger" asp-validation-for="@Model.Photo"></span>
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" class="form-control" accept="image/*" placeholder="Title">
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <label asp-for="SubTitle"></label>
+                    <input asp-for="SubTitle" class="form-control" placeholder="SubTitle">
+                    <span asp-validation-for="SubTitle" class="text-danger"></span>
+                </div>
+               
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+
+}
+

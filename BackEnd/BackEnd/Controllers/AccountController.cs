@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.DAL;
+using BackEnd.Extensions;
 using BackEnd.Models;
 using BackEnd.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -102,13 +103,13 @@ namespace BackEnd.Controllers
             return RedirectToAction("Index", "Home");
         }
         #region Create User Roles
-        //public async Task CreateUserRole()
-        //{
-        //    if (!(await _roleManager.RoleExistsAsync(Roles.Admin.ToString())))
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
-        //    if (!(await _roleManager.RoleExistsAsync(Roles.Member.ToString())))
-        //        await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
-        //}
+        public async Task CreateUserRole()
+        {
+            if (!(await _roleManager.RoleExistsAsync(Roles.Admin.ToString())))
+                await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Admin.ToString() });
+            if (!(await _roleManager.RoleExistsAsync(Roles.Member.ToString())))
+                await _roleManager.CreateAsync(new IdentityRole { Name = Roles.Member.ToString() });
+        }
         #endregion
 
 

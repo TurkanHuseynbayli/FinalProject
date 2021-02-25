@@ -168,3 +168,15 @@ C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\net
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Blog\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Product\Default.cshtml.g.cs
 C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Basket.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductSearchPartial.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Shared\_AdminLayout.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewImports.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\_ViewStart.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Shared\_Validation.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Index.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Create.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Detail.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Update.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ProductsSearchPartial.cshtml.g.cs
+C:\Users\admin\Desktop\code academiya\FinalProject\BackEnd\BackEnd\obj\Debug\netcoreapp3.1\Razor\Areas\AdminPanel\Views\Slider\Delete.cshtml.g.cs
