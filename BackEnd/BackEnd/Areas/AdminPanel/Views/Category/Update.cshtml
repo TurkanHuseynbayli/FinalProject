@@ -1,35 +1,24 @@
 ﻿@model Category
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Update";
 }
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Create Category</h4>
-
+            <h4 class="card-title">Update Category</h4>
             <form class="forms-sample" method="post">
                 <div class="form-group">
-                    <label asp-for="@Model.NameCategory">Category Name</label>
+                    <label asp-for="@Model.NameCategory">Update Name</label>
                     <input asp-for="@Model.NameCategory" class="form-control" placeholder="Name">
                     <span class="text-danger" asp-validation-for="@Model.NameCategory"></span>
                 </div>
-
-                
-
+              
 
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                <a class="btn btn-light" asp-action="Index">Cancel</a>
+                <a asp-action="Index" class="btn btn-light">Update</a>
             </form>
         </div>
     </div>
 </div>
-
-@section Scripts{
-    <partial name="_Validation" />
-   
-}
-
-
-
 

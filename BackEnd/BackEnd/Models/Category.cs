@@ -10,6 +10,7 @@ namespace BackEnd.Models
     {
         public int Id { get; set; }
         public string NameCategory { get; set; }
+        public bool IsDeleted { get; set; }
         public ICollection<CategoryBlog> CategoryBlogs { get; set; }
         public ICollection<CategoryProduct> CategoryProducts { get; set; }
 
