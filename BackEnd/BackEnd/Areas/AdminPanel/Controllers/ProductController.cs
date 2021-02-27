@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BackEnd.DAL;
+using BackEnd.Extensions;
 using BackEnd.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -69,22 +71,21 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             #region Images
             if (!product.Photo.IsImage())
             {
-                ModelState.AddModelError("Photos", $"{course.Photo.FileName} - not image type");
-                return View(newCourse);
+                ModelState.AddModelError("Photos", $"{product.Photo.FileName} - not image type");
+                return View(newProduct);
             }
 
-            string folder = Path.Combine("img", "course");
-            string fileName = await course.Photo.SaveImageAsync(_env.WebRootPath, folder);
+            string folder = Path.Combine("img", "product");
+            string fileName = await product.Photo.SaveImageAsync(_env.WebRootPath, folder);
             if (fileName == null)
             {
                 return Content("Error");
             }
-            newCourse.Image = fileName;
+            newProduct.Image = fileName;
             #endregion
 
             #region Many to Many
-            List<CategoryCourse> categoryCourses = new List<CategoryCourse>();
-            List<TagCourse> tagCourses = new List<TagCourse>();
+            List<CategoryProduct> categoryProducts = new List<CategoryProduct>();
 
             if (CategId.Count == 0)
             {
@@ -94,59 +95,35 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
             foreach (var item in CategId)
             {
-                CategoryCourse categoryCourse = new CategoryCourse()
+                CategoryProduct categoryProduct = new CategoryProduct()
                 {
-                    CourseId = newCourse.Id,
-                    CategoriesId = item
+                    ProductId = newProduct.Id,
+                    CategoryId = item
                 };
-                categoryCourses.Add(categoryCourse);
+                categoryProducts.Add(categoryProduct);
             }
 
-            if (TagId.Count == 0)
-            {
-                ModelState.AddModelError("", "Tag cannot be empty");
-                return View();
-            }
+          
 
-            foreach (var item in TagId)
-            {
-                TagCourse tagCourse = new TagCourse()
-                {
-                    CourseId = newCourse.Id,
-                    TagsId = item
-                };
-                tagCourses.Add(tagCourse);
-            }
+       
             #endregion
-            #region Courses
-            newCourse.CategoryCourses = categoryCourses;
-            newCourse.TagCourses = tagCourses;
-            course.CreatedTime = DateTime.Now;
-            newCourse.CreatedTime = course.CreatedTime;
-            await _context.Courses.AddAsync(newCourse);
+            #region Products
+            newProduct.CategoryProducts = categoryProducts;
+            product.Date = DateTime.Now;
+            newProduct.Date = product.Date;
+            await _context.Products.AddAsync(newProduct);
             await _context.SaveChangesAsync();
             #endregion
-            #region CourseDetail
-            newCourseDetail.AboutCourseDescription = course.CourseDetail.AboutCourseDescription;
-            newCourseDetail.HowToApplyExplaining = course.CourseDetail.HowToApplyExplaining;
-            newCourseDetail.CertificationExplain = course.CourseDetail.CertificationExplain;
-            newCourseDetail.Starts = course.CourseDetail.Starts;
-            newCourseDetail.Duration = course.CourseDetail.Duration;
-            newCourseDetail.ClassDuration = course.CourseDetail.ClassDuration;
-            newCourseDetail.SkillLevel = course.CourseDetail.SkillLevel;
-            newCourseDetail.Language = course.CourseDetail.Language;
-            newCourseDetail.StudentsCount = course.CourseDetail.StudentsCount;
-            newCourseDetail.StudentsCount = course.CourseDetail.StudentsCount;
-            newCourseDetail.Assesments = course.CourseDetail.Assesments;
-            newCourseDetail.CoursePrice = course.CourseDetail.CoursePrice;
-            newCourseDetail.CourseId = newCourse.Id;
-            await _context.AddAsync(newCourseDetail);
+            #region ProductDetail
+            newProductDetail.Description = product.ProductDetail.Description;
+          
+            await _context.AddAsync(newProductDetail);
             await _context.SaveChangesAsync();
             #endregion
 
            
 
-            //return Json(newCourse);
+       
             return RedirectToAction(nameof(Index));
         }
         #endregion

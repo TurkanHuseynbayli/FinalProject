@@ -1,0 +1,29 @@
+﻿@model Banner
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <table class="table table-striped table-light">
+        <thead>
+            <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Description</th>
+                <th scope="col">Settings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img width="200" style="width:200px !important;height:200px !important" src="~/img/banner/@Model.Image" /></td>
+                <td>@Html.Raw(Model.Description)</td>
+                <td>
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <div class="row justify-content-center mt-4">
+        <a class="btn btn-pinterest" asp-controller="Banner" asp-action="Update" asp-route-id="@Model.Id">Update</a>
+    </div>
+</div>
+

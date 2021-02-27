@@ -1,0 +1,48 @@
+﻿@model Member
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Member</h4>
+
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="@Model.Photos"></label>
+                    <input asp-for="@Model.Photos" accept="image/*" class="form-control">
+                    <span class="text-danger" asp-validation-for="@Model.Photos"></span>
+                    <label asp-for="Name"></label>
+                    <input asp-for="Name" class="form-control" accept="image/*" placeholder="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <label asp-for="Specialty"></label>
+                    <input asp-for="Specialty" class="form-control" placeholder="Specialty">
+                    <span asp-validation-for="Specialty" class="text-danger"></span>
+                    <label asp-for="Description"></label>
+                    <input asp-for="Description" class="form-control" placeholder="Description">
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+
+                <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                <a class="btn btn-light" asp-action="Index">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_Validation" />
+
+}
+<script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#Description'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
+
+

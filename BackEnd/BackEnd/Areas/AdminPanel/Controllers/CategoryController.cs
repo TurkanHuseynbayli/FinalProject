@@ -59,7 +59,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             return View(category);
         }
 
-        public async Task<IActionResult> Delete(int? id)
+        public IActionResult Delete(int? id)
         {
             if (id == null) return NotFound();
             Category category = _context.Categories.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.Id == id);
@@ -74,11 +74,11 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             if (id == null) return NotFound();
             Category category = _context.Categories.Where(c => c.IsDeleted == false).Include(c => c.CategoryProducts).ThenInclude(c=>c.Product).FirstOrDefault(c => c.Id == id);
             if (category == null) return NotFound();
-
-            //_context.Categories.Remove(category);
-            //await _context.SaveChangesAsync();
-
             category.IsDeleted = true;
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+
+           
             //foreach (Product pro in category.CategoryProducts.)
             //{
             //    //pro.DeletedTime = DateTime.Now;
