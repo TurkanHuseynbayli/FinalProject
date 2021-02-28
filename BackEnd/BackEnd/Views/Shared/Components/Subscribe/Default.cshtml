@@ -1,0 +1,24 @@
+﻿@model SubscribedEmail
+@{
+    ViewData["Title"] = "Default";
+}
+
+<div class="col-lg-4">
+    <div class="single-footer">
+        <h3 class="footer-title title-border">Email Newsletters</h3>
+        <div class="footer-subscribe">
+            <form asp-controller="Login" asp-action="Subscribe" method="post" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                <div class="form-group">
+                    <input asp-for="@Model.Email" name="Email" class="email" id="mce-EMAIL" placeholder="Enter your e-mail address" required>
+                    <span asp-validation-for="@Model.Email"></span>
+                </div>
+                <button class="button-one submit-btn-4"
+                        type="submit"
+                        data-text="Subscribe">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+

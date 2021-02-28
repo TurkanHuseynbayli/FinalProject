@@ -114,5 +114,33 @@ namespace BackEnd.Controllers
         #endregion
 
 
+        public IActionResult Subscribe()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Subscribe(SubscribedEmail subscribedEmail)
+        {
+            if (ModelState.IsValid)
+            {
+                SubscribedEmail subscribed = new SubscribedEmail();
+                subscribed.Email = subscribedEmail.Email.Trim().ToLower();
+                bool isExist = _context.SubscribedEmails
+                      .Any(e => e.Email.Trim().ToLower() == subscribedEmail.Email.Trim().ToLower());
+                if (isExist)
+                {
+                    ModelState.AddModelError("", "This email already subscribed");
+                }
+                else
+                {
+                    await _context.SubscribedEmails.AddAsync(subscribed);
+                    await _context.SaveChangesAsync();
+                }
+
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
     }
 }

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using BackEnd.DAL;
 using BackEnd.Extensions;
@@ -130,5 +132,34 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             return RedirectToAction(nameof(Index));
         }
         #endregion
+
+        //SEND EMAIL 
+
+        public void SendEmail(string email, string subject, string htmlMessage)
+        {
+            System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential()
+                {
+                    UserName = "turkanhuseyinbeyli@gmail.com",
+                    Password = "eti228"
+                }
+            };
+            MailAddress fromEmail = new MailAddress("turkanhuseyinbeyli@gmail.com", "Turkan Huseynbayli");
+            MailAddress toEmail = new MailAddress(email, "Turkan Huseynbayli");
+            MailMessage message = new MailMessage()
+            {
+                From = fromEmail,
+                Subject = subject,
+                Body = htmlMessage
+            };
+            message.To.Add(toEmail);
+            client.Send(message);
+        }
     }
 }

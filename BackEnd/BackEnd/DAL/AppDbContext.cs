@@ -1,4 +1,5 @@
 ﻿using BackEnd.Models;
+using BackEnd.ViewModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -30,8 +31,8 @@ namespace BackEnd.DAL
         public DbSet<About> Abouts { get; set; }
         public DbSet<TabList> TabLists { get; set; }
         public DbSet<TablistProduct> TablistProducts { get; set; }
+        public DbSet<SubscribedEmail> SubscribedEmails { get; set; }
 
-    
 
     }
 }
