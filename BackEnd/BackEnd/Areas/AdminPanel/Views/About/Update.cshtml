@@ -11,7 +11,7 @@
                 <div class="col-md-8 offset-md-2 mb-3">
                     <img src="~/img/bg/@Model.Image" alt="Alternate Text" />
                 </div>
-           
+
 
                 <div class="form-row">
                     <div class="form-group col-md-8 offset-md-2">
@@ -47,7 +47,7 @@
 
 <script src="https://cdn.ckeditor.com/ckeditor5/23.1.0/classic/ckeditor.js"></script>
 <script>
-   
+
     ClassicEditor
         .create(document.querySelector('#Description'))
         .catch(error => {
@@ -68,3 +68,8 @@
         });
     });
 </script>
+
+@section Scripts{
+    <partial name="_Validation" />
+
+}

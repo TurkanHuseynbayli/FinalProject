@@ -54,3 +54,23 @@
     </div>
 </div>
 
+<nav class="navigation d-flex justify-content-center" aria-label="Page navigation example">
+    <ul class="pagination">
+        @for (int i = 1; i <= ViewBag.PageCount; i++)
+        {
+            if (i == ViewBag.Page)
+            {
+                <li class="page-item disabled">
+                    <a class="page-link d-flex justify-content-center" style="padding:17px;" asp-area="AdminPanel" asp-controller="Product" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            else
+            {
+                <li class="page-item">
+                    <a class="page-link" style="padding:17px" asp-controller="Blog" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+
+        }
+    </ul>
+</nav>

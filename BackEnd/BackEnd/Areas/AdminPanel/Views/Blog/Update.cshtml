@@ -22,7 +22,7 @@
                         <textarea asp-for="@Model.BlogDetail.Description"> </textarea>
                         <span class="text-danger" asp-validation-for="@Model.BlogDetail.Description"></span>
                     </div>
-                  
+
                 </div>
 
                 <div class="text-center mb-2">
@@ -82,5 +82,10 @@
         });
     });
 </script>
+
+@section Scripts{
+    <partial name="_Validation" />
+
+}
 
 

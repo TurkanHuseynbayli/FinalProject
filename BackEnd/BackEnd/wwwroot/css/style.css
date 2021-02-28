@@ -12,7 +12,18 @@ body {
   line-height: 20px;
   background-color: lightgray;
 }
-.rating-off {
+.navigation {
+    margin-top: 63px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+    .navigation ul li a:hover {
+        color: white;
+        background: #c8a165 none repeat scroll !important;
+        transition: 0.4s;
+    }
+        .rating-off {
     display: none;
 }
 

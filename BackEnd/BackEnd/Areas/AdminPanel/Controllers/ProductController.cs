@@ -27,11 +27,14 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             _env = env;
             _configuration = configuration;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page = 1)
         {
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Products
+              .Where(pro => pro.IsDeleted == false).Count() / 9);
+            ViewBag.Page = page;
             List<Product> products = _context.Products.Where(cr => cr.IsDeleted == false)
                  .Include(cr => cr.ProductDetail).Include(cr => cr.CategoryProducts).ThenInclude(cr => cr.Category)
-                 .OrderByDescending(cr => cr.Date).OrderByDescending(pro => pro.Id).Take(10).ToList();
+                 .OrderByDescending(cr => cr.Date).OrderByDescending(pro => pro.Id).Skip(((int)page - 1) * 3).Take(5).ToList();
             return View(products);
         }
 

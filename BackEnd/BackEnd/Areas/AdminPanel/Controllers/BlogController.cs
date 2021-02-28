@@ -28,10 +28,13 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             _context = context;
             _env = env;
         }
-        public IActionResult Index()
+        public IActionResult Index(int? page = 1)
         {
+            ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Products
+             .Where(pro => pro.IsDeleted == false).Count() / 9);
+            ViewBag.Page = page;
             List<Blog> blogs = _context.Blogs.Where(blg => blg.isDelete == false)
-               .Include(blg => blg.BlogDetail).OrderByDescending(blg => blg.Date).ToList();
+               .Include(blg => blg.BlogDetail).OrderByDescending(blg => blg.Date).Skip(((int)page - 1) * 3).Take(4).ToList();
             return View(blogs);
         }
         public async Task<IActionResult> Detail(int? id)
@@ -188,7 +191,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             }
             else
                 blog.isDelete = false;
-
+            await _context.AddAsync(blog);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
