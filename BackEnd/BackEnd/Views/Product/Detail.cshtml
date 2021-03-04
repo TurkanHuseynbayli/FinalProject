@@ -78,16 +78,14 @@
 
                                             <div class="actions">
                                                 <div class="product-action">
-                                                    <a href="#"
-                                                       data-toggle="tooltip"
-                                                       data-placement="top"
+                                                    <a asp-controller="Favorite" asp-action="AddFavorite" asp-route-id="@Model.Product.ProductDetail.Id"
+                                                      
                                                        title="Wishlist">
                                                         <i class="far fa-heart"></i>
                                                     </a>
 
                                                     <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@Model.Product.ProductDetail.Id"
-                                                       data-toggle="tooltip"
-                                                       data-placement="top"
+                                                  
                                                        title="Add To Cart">
                                                         <i class="fas fa-cart-plus"></i>
                                                     </a>
@@ -308,7 +306,7 @@
                                     <ul>
                                         @foreach (Category cg in Model.Categories)
                                         {
-                                            <li><a href="#">@cg.NameCategory</a></li>
+                                            <li><a asp-action="FilterCategory" asp-route-id="@cg.Id">@cg.NameCategory</a></li>
                                         }
                                     </ul>
                                 </div>

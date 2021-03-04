@@ -33,9 +33,8 @@
                     </span>
                 </div>
                 <div class="product-action">
-                    <a href="#"
-                       data-toggle="tooltip"
-                       data-placement="top"
+                    <a asp-controller="Favorite" asp-action="AddFavorite" asp-route-id="@product.Id"
+                      
                        title="Wishlist">
                         <i class="far fa-heart"></i>
                     </a>

@@ -22,16 +22,16 @@
                             <h3 class="footer-title title-border">accounts</h3>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="#"><i class="far fa-dot-circle"></i>My Account</a>
+                                    <a  asp-area="AdminPanel" asp-controller="Dashboard" asp-action="Index"><i class="far fa-dot-circle"></i>My Account</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="far fa-dot-circle"></i>My Wishlist</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="far fa-dot-circle"></i>My Cart</a>
+                                    <a asp-controller="Basket" asp-action="Index"><i class="far fa-dot-circle"></i>My Cart</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="far fa-dot-circle"></i>Sign In</a>
+                                    <a asp-controller="Account" asp-action="Signup"><i class="far fa-dot-circle"></i>Sign In</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="far fa-dot-circle"></i>Check out</a>
@@ -44,7 +44,7 @@
                             <h3 class="footer-title title-border">shipping</h3>
                             <ul class="footer-menu">
                                 <li>
-                                    <a href="#"><i class="far fa-dot-circle"></i>New Products</a>
+                                    <a asp-controller="Product" asp-action="Index"><i class="far fa-dot-circle"></i>New Products</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="far fa-dot-circle"></i>Top Sellers</a>
@@ -89,7 +89,7 @@
                     <div class="col-sm-6">
                         <div class="copyright">
                             <p class="mb-0">
-                                &copy; <a href="#" target="_blank">DevItems </a> 2017. All
+                                &copy; <a href="#" target="_blank">DevItems </a> 2021. All
                                 Rights Reserved.
                             </p>
                         </div>

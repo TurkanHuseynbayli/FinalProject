@@ -33,7 +33,7 @@ namespace BackEnd.Controllers
 
                 Sliders = _context.Sliders.ToList(),
                 Banners = _context.Banners.FirstOrDefault(),
-                Blogs = _context.Blogs.ToList(),
+                Blogs = _context.Blogs.Take(4).ToList(),
                 BlogDetails = _context.BlogDetails.ToList(),
                 Categories = _context.Categories.ToList(),
                 CategoryBlogs = _context.CategoryBlogs.ToList(),

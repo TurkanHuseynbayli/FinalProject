@@ -10,7 +10,9 @@
            
             <form class="forms-sample" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-
+                    <div class="col-md-8 offset-md-2 mb-3">
+                        <img src="~/img/team/@Model.Image" alt="Alternate Text" />
+                    </div>
                     <label asp-for="Name"></label>
                     <input asp-for="Name" class="form-control" accept="image/*" placeholder="Name">
                     <span asp-validation-for="Name" class="text-danger"></span>
