@@ -7,6 +7,7 @@ using System.Net.Mail;
 using System.Threading.Tasks;
 using BackEnd.DAL;
 using BackEnd.Extensions;
+using BackEnd.Helpers;
 using BackEnd.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
@@ -41,6 +42,99 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         }
 
         #region Create
+        //public IActionResult Create()
+        //{
+        //    ViewBag.Categ = _context.Categories.ToList();
+        //    return View();
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Create(Product product, List<int> CategId)
+        //{
+        //    ViewBag.Categ = _context.Categories.ToList();
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View();
+        //    }
+
+        //    bool isExist = _context.Products.Where(cr => cr.IsDeleted == false)
+        //        .Any(cr => cr.Name == product.Name);
+
+        //    if (isExist)
+        //    {
+        //        ModelState.AddModelError("Product.Name", "This name already exist");
+        //        return View();
+        //    }
+
+        //    Product newProduct = new Product
+        //    {
+        //        Name = product.Name,
+        //        Price = product.Price,
+        //    };
+
+        //    ProductDetail newProductDetail = new ProductDetail();
+
+        //    #region Images
+        //    if (!product.Photo.IsImage())
+        //    {
+        //        ModelState.AddModelError("Photos", $"{product.Photo.FileName} - not image type");
+        //        return View(newProduct);
+        //    }
+
+        //    string folder = Path.Combine("img", "product");
+        //    string fileName = await product.Photo.SaveImageAsync(_env.WebRootPath, folder);
+        //    if (fileName == null)
+        //    {
+        //        return Content("Error");
+        //    }
+        //    newProduct.Image = fileName;
+        //    #endregion
+
+        //    #region Many to Many
+        //    List<CategoryProduct> categoryProducts = new List<CategoryProduct>();
+
+        //    if (CategId.Count == 0)
+        //    {
+        //        ModelState.AddModelError("", "Category cannot be empty");
+        //        return View();
+        //    }
+
+        //    foreach (var item in CategId)
+        //    {
+        //        CategoryProduct categoryProduct = new CategoryProduct()
+        //        {
+        //            ProductId = newProduct.Id,
+        //            CategoryId = item
+        //        };
+        //        categoryProducts.Add(categoryProduct);
+        //    }
+
+
+
+
+        //    #endregion
+        //    #region Products
+        //    newProduct.CategoryProducts = categoryProducts;
+        //    product.Date = DateTime.Now;
+        //    newProduct.Date = product.Date;
+        //    await _context.Products.AddAsync(newProduct);
+        //    await _context.SaveChangesAsync();
+        //    #endregion
+        //    #region ProductDetail
+        //    newProductDetail.Description = product.ProductDetail.Description;
+
+        //    await _context.AddAsync(newProductDetail);
+        //    await _context.SaveChangesAsync();
+        //    #endregion
+
+
+
+
+        //    return RedirectToAction(nameof(Index));
+        //}
+        #endregion
+
         public IActionResult Create()
         {
             ViewBag.Categ = _context.Categories.ToList();
@@ -49,47 +143,51 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product product, List<int> CategId)
+        public async Task<IActionResult> Create(Product products, List<int> CategId)
         {
             ViewBag.Categ = _context.Categories.ToList();
-            //if (!ModelState.IsValid)
-            //{
-            //    return View();
-            //}
+            Product newProduct = new Product();
+            ProductDetail newProductDetail = new ProductDetail();
 
-            bool isExist = _context.Products.Where(cr => cr.IsDeleted == false)
-                .Any(cr => cr.Name == product.Name);
 
-            if (isExist)
+            if (products.Name == null)
             {
-                ModelState.AddModelError("Product.Name", "This name already exist");
+                ModelState.AddModelError("Name", "Name cannot be empty");
                 return View();
             }
 
-            Product newProduct = new Product
+            if (products.Photo == null)
             {
-                Name = product.Name,
-            };
+                ModelState.AddModelError("Photo", "Image cannot be empty");
+                return View();
+            }
 
-            ProductDetail newProductDetail = new ProductDetail();
 
-            #region Images
-            if (!product.Photo.IsImage())
+
+
+            if (!products.Photo.IsImage())
             {
-                ModelState.AddModelError("Photos", $"{product.Photo.FileName} - not image type");
+                ModelState.AddModelError("Photos", $"{products.Photo.FileName} - not image type");
                 return View(newProduct);
             }
 
             string folder = Path.Combine("img", "product");
-            string fileName = await product.Photo.SaveImageAsync(_env.WebRootPath, folder);
+            string fileName = await products.Photo.SaveImageAsync(_env.WebRootPath, folder);
             if (fileName == null)
             {
                 return Content("Error");
             }
-            newProduct.Image = fileName;
-            #endregion
 
-            #region Many to Many
+            newProduct.Image = fileName;
+            newProduct.Name = products.Name;
+            newProduct.Price = products.Price;
+            newProduct.Date = products.Date;
+            await _context.AddAsync(newProduct);
+            await _context.SaveChangesAsync();
+
+
+            newProductDetail.Description = products.ProductDetail.Description;
+
             List<CategoryProduct> categoryProducts = new List<CategoryProduct>();
 
             if (CategId.Count == 0)
@@ -108,30 +206,157 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 categoryProducts.Add(categoryProduct);
             }
 
-          
-
-       
-            #endregion
-            #region Products
             newProduct.CategoryProducts = categoryProducts;
-            product.Date = DateTime.Now;
-            newProduct.Date = product.Date;
-            await _context.Products.AddAsync(newProduct);
-            await _context.SaveChangesAsync();
-            #endregion
-            #region ProductDetail
-            newProductDetail.Description = product.ProductDetail.Description;
-          
+            newProductDetail.ProductId = newProduct.Id;
             await _context.AddAsync(newProductDetail);
             await _context.SaveChangesAsync();
+
+
+
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+        public async Task<IActionResult> Detail(int? id)
+        {
+            Product product = await _context.Products.Include(blg => blg.ProductDetail).FirstOrDefaultAsync(blg => blg.Id == id);
+            return View(product);
+        }
+
+        #region Update
+        public IActionResult Update(int? id)
+        {
+            ViewBag.Categ = _context.Categories.ToList();
+
+            Product products = _context.Products.Include(blg => blg.ProductDetail).FirstOrDefault(blg => blg.Id == id);
+            return View(products);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Update(int? id, Product product)
+        {
+            ViewBag.Categ = _context.Categories.ToList();
+            if (id == null) return NotFound();
+
+
+            Product productOld = await _context.Products.Include(c => c.ProductDetail).FirstOrDefaultAsync(c => c.Id == id);
+            Product isExist = _context.Products.Where(cr => cr.IsDeleted == false).FirstOrDefault(cr => cr.Id == id);
+            bool exist = _context.Products.Where(cr => cr.IsDeleted == false).Any(cr => cr.Name == product.Name);
+
+            if (exist)
+            {
+                if (isExist.Name != product.Name)
+                {
+                    ModelState.AddModelError("Name", "This name already has. Please write another name");
+                    return View(productOld);
+                }
+            }
+
+            if (product == null) return Content("Null");
+            if (product.Photo != null)
+            {
+                if (!product.Photo.IsImage())
+                {
+                    ModelState.AddModelError("Photo", $"{product.Photo.FileName} - not image type");
+                    return View(productOld);
+                }
+
+                string folder = Path.Combine("img", "product");
+                string fileName = await product.Photo.SaveImageAsync(_env.WebRootPath, folder);
+                if (fileName == null)
+                {
+                    return Content("Error");
+                }
+
+                Helper.DeleteImage(_env.WebRootPath, folder, productOld.Image);
+                productOld.Image = fileName;
+            }
+
+
+            #region Update line
+            productOld.Name = product.Name;
+            productOld.Price = product.Price;
+
+            productOld.ProductDetail.Description = product.ProductDetail.Description;
             #endregion
 
-           
+            await _context.SaveChangesAsync();
 
-       
             return RedirectToAction(nameof(Index));
         }
         #endregion
+
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+            Product product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+            int count = _context.Products.Count();
+            if (count == 1)
+            {
+                return Content("sile bilmezsiz");
+            }
+            return View(product);
+
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [ActionName("Delete")]
+        public async Task<IActionResult> DeletePost(int? id)
+        {
+
+            if (id == null) return NotFound();
+            Product product = _context.Products.FirstOrDefault(c => c.Id == id);
+            if (product == null) return NotFound();
+            int count = _context.Products.Count();
+            if (count == 1)
+            {
+                return Content("sile bilmezsiz");
+            }
+            bool isDeleted = Helper.DeleteImage(_env.WebRootPath, "img", product.Image);
+            if (!isDeleted)
+            {
+                ModelState.AddModelError(" ", "Some problem exists");
+            }
+
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
+        }
+
+
+
+        //public async Task<IActionResult> Delete(int? id)
+        //{
+        //    if (id == null) return NotFound();
+        //    Product product = await _context.Products.FindAsync(id);
+        //    if (product == null) return NotFound();
+        //    return View(product);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //[ActionName("Delete")]
+        //public async Task<IActionResult> DeletePost(int? id)
+        //{
+        //    if (id == null) return RedirectToAction("Index", "Error"); ;
+        //    Product product = _context.Products.FirstOrDefault(c => c.Id == id);
+        //    if (product == null) return RedirectToAction("Index", "Error"); ;
+
+        //    if (!product.IsDeleted)
+        //    {
+        //        product.IsDeleted = true;
+        //        product.Date = DateTime.Now;
+        //    }
+        //    else
+        //        product.IsDeleted = false;
+        //    await _context.AddAsync(product);
+        //    await _context.SaveChangesAsync();
+        //    return RedirectToAction(nameof(Index));
+        //}
 
         //SEND EMAIL 
 

@@ -172,30 +172,40 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             if (id == null) return NotFound();
             Blog blog = await _context.Blogs.FindAsync(id);
             if (blog == null) return NotFound();
+            int count = _context.Blogs.Count();
+            if (count == 1)
+            {
+                return Content("sile bilmezsiz");
+            }
             return View(blog);
-        }
 
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Delete")]
         public async Task<IActionResult> DeletePost(int? id)
         {
-            if (id == null) return RedirectToAction("Index", "Error"); ;
-            Blog blog = _context.Blogs.FirstOrDefault(c => c.Id == id);
-            if (blog == null) return RedirectToAction("Index", "Error"); ;
 
-            if (!blog.isDelete)
+            if (id == null) return NotFound();
+            Blog blog = _context.Blogs.FirstOrDefault(c => c.Id == id);
+            if (blog == null) return NotFound();
+            int count = _context.Blogs.Count();
+            if (count == 1)
             {
-                blog.isDelete = true;
-                blog.Date = DateTime.Now;
+                return Content("sile bilmezsiz");
             }
-            else
-                blog.isDelete = false;
-            await _context.AddAsync(blog);
+            bool isDeleted = Helper.DeleteImage(_env.WebRootPath, "img", blog.Image);
+            if (!isDeleted)
+            {
+                ModelState.AddModelError(" ", "Some problem exists");
+            }
+
+            _context.Blogs.Remove(blog);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
         }
 
-       
+
     }
 }
