@@ -21,6 +21,18 @@
     <Compile Remove="Migrations\20210219110146_CreateTablistsAdd.Designer.cs" />
     <Compile Remove="Migrations\20210219110333_CreateTablistsAddded.cs" />
     <Compile Remove="Migrations\20210219110333_CreateTablistsAddded.Designer.cs" />
+    <Compile Remove="Migrations\20210222105732_ProductRate.cs" />
+    <Compile Remove="Migrations\20210222105732_ProductRate.Designer.cs" />
+    <Compile Remove="Migrations\20210222125756_CreateIsDeleted.cs" />
+    <Compile Remove="Migrations\20210222125756_CreateIsDeleted.Designer.cs" />
+    <Compile Remove="Migrations\20210222150602_AddProductDetailRate.cs" />
+    <Compile Remove="Migrations\20210222150602_AddProductDetailRate.Designer.cs" />
+    <Compile Remove="Migrations\20210223131341_AddProductNew.cs" />
+    <Compile Remove="Migrations\20210223131341_AddProductNew.Designer.cs" />
+    <Compile Remove="Migrations\20210226142005_CreateCategoryIsDeleted.cs" />
+    <Compile Remove="Migrations\20210226142005_CreateCategoryIsDeleted.Designer.cs" />
+    <Compile Remove="Migrations\20210228143514_CreateSubscribed.cs" />
+    <Compile Remove="Migrations\20210228143514_CreateSubscribed.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

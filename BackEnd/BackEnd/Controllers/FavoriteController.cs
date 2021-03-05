@@ -33,7 +33,6 @@ namespace BackEnd.Controllers
                     pro.Price = dbProduct.Price*pro.Count;
                     pro.Image = dbProduct.Image;
                     pro.New = dbProduct.New;
-                    pro.Rate = dbProduct.Rate;
                     dbBasket.Add(pro);
                     ViewBag.Total += pro.Price;
                 }

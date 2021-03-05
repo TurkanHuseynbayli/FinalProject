@@ -52,10 +52,10 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         public async Task<IActionResult> Create(Product product, List<int> CategId)
         {
             ViewBag.Categ = _context.Categories.ToList();
-            if (!ModelState.IsValid)
-            {
-                return View();
-            }
+            //if (!ModelState.IsValid)
+            //{
+            //    return View();
+            //}
 
             bool isExist = _context.Products.Where(cr => cr.IsDeleted == false)
                 .Any(cr => cr.Name == product.Name);

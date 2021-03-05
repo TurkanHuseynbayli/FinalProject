@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BackEnd.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20210226142005_CreateCategoryIsDeleted")]
-    partial class CreateCategoryIsDeleted
+    [Migration("20210305102640_DeleteRate1")]
+    partial class DeleteRate1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -370,9 +370,6 @@ namespace BackEnd.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("Rate")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.ToTable("Products");
@@ -396,10 +393,6 @@ namespace BackEnd.Migrations
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Rate")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tags")
                         .HasColumnType("nvarchar(max)");
@@ -494,6 +487,28 @@ namespace BackEnd.Migrations
                     b.HasIndex("TabListId");
 
                     b.ToTable("TablistProducts");
+                });
+
+            modelBuilder.Entity("BackEnd.ViewModels.SubscribedEmail", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("DeletedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("HasDeleted")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SubscribedEmails");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

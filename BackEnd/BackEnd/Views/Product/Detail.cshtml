@@ -53,7 +53,7 @@
                                                 <h4 class="post-title floatleft">
                                                     @Model.Product.Name
                                                 </h4>
-                                                <span class="pro-rating floatright">
+                                                @*<span class="pro-rating floatright">
                                                     @if (Model.Product.Rate > 5)
                                                     {
                                                         Model.Product.Rate = 5;
@@ -65,10 +65,10 @@
 
                                                     }
                                                     <span>( @Model.Product.ProductDetail.Rate )</span>
-                                                </span>
+                                                </span>*@
                                             </div>
                                             <div class="fix">
-                                                <span class="pro-price">$ @Model.Product.Price.00</span>
+                                                <span class="pro-price">$ @Model.Product.Price</span>
                                             </div>
                                             <div class="product-description">
                                                 <p>

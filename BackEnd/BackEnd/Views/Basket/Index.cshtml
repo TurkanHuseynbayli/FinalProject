@@ -68,20 +68,20 @@
                                         </div>
                                     </td>
 
-                                    <td class="table-price">$@pro.Price.00</td>
+                                    <td class="table-price">$@ViewBag.SinglePrice</td>
                                     <td>
                                         <div class="quantity">
-                                            <a href="#" class="plus-minus">
+                                            <a asp-controller="Basket" asp-action="RemoveCount" asp-route-id="@pro.Id" class="plus-minus">
                                                 <i class="fas fa-minus"></i>
                                             </a>
                                             <span>@pro.Count</span>
-                                            <a href="#" class="plus-minus">
+                                            <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@pro.Id" class="plus-minus">
                                                 <i class="fas fa-plus"></i>
                                             </a>
                                         </div>
                                     </td>
 
-                                    <td class="table-price">$@ViewBag.Total</td>
+                                    <td class="table-price">$@pro.Price</td>
                                     <td class="remove">
                                         <a asp-controller="Basket" asp-action="RemoveItem" asp-route-id="@pro.Id"><i class="fas fa-times"></i></a>
                                     </td>
@@ -90,59 +90,59 @@
 
                         </tbody>
                     </table>
-                    <h2>Total:@ViewBag.Total</h2>
-                }
-                else
-                {
-                    <h2>Sebet bosdur,<a asp-controller="Home" asp-action="Index">Buyurun mehsullara baxin</a></h2>
+                    <div class="col-lg-12 text-right mt-3" >
+                        <h2>Total:@ViewBag.Total</h2>
+                        </div>
+                        }
+                        else
+                        {
+                        <div class="col-lg-12 text-center">
+                            <h2>Sebet bosdur,<a asp-controller="Product" asp-action="Index">Buyurun mehsullara baxin</a></h2>
+                        </div>
+                        }
+                    </div>
 
-                }
-            </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 padding-100">
+                            <div class="customer-login">
+                                <h4 class="title-1 title-border text-uppercase mb-3">
+                                    coupon discount
+                                </h4>
+                                <p class="text-gray">Enter your coupon code if you have one!</p>
+                                <input type="text" placeholder="Enter your code here." />
+                                <button type="submit"
+                                        data-text="apply coupon"
+                                        class="button-one submit-button mt-4">
+                                    apply coupon
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 padding-100">
+                            <div class="customer-login payment-details">
+                                <h4 class="title-1 title-border text-uppercase mb-4">
+                                    payment details
+                                </h4>
+                                <table>
+                                    <tbody>
 
-            <div class="row">
-                <div class="col-md-6 col-sm-6 padding-100">
-                    <div class="customer-login">
-                        <h4 class="title-1 title-border text-uppercase mb-3">
-                            coupon discount
-                        </h4>
-                        <p class="text-gray">Enter your coupon code if you have one!</p>
-                        <input type="text" placeholder="Enter your code here." />
-                        <button type="submit"
-                                data-text="apply coupon"
-                                class="button-one submit-button mt-4">
-                            apply coupon
-                        </button>
+                                        <tr>
+                                            <td class="text-left">Cart Subtotal</td>
+                                            <td class="text-right">$@ViewBag.Total</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Vat</td>
+                                            <td class="text-right">$00.00</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">Order Total</td>
+                                            <td class="text-right">@ViewBag.Total</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-sm-6 padding-100">
-                    <div class="customer-login payment-details">
-                        <h4 class="title-1 title-border text-uppercase mb-4">
-                            payment details
-                        </h4>
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td class="text-left">Cart Subtotal</td>
-                                    <td class="text-right">$@ViewBag.Total</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Cart Subtotal</td>
-                                    <td class="text-right">$@ViewBag.Total</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Vat</td>
-                                    <td class="text-right">$00.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-left">Order Total</td>
-                                    <td class="text-right">$170.00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- CART END -->

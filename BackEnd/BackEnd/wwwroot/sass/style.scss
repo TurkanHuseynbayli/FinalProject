@@ -30,6 +30,11 @@ body {
         }
     }
 }
+.pagination {
+    position: relative;
+    top: 29px;
+    left: 328px;
+}
 .rating-off{
     display:none;
 }
@@ -441,11 +446,11 @@ a {
   }
 }
 .pro-price-2 {
-  right: 47px;
-  position: absolute;
-  bottom: 450px;
-  color: red;
-  font-size: 21px;
+    right: 47px;
+    position: absolute;
+    bottom: 430px;
+    color: red;
+    font-size: 21px;
 }
 .pro-rating {
   display: flex;
@@ -1749,7 +1754,6 @@ a {
         }
 
         .quantity {
-            background: #f6f6f6 none repeat scroll 0 0;
             overflow: hidden;
             text-align: center;
 

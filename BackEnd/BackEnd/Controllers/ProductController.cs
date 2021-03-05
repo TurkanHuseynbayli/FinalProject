@@ -63,7 +63,7 @@ namespace BackEnd.Controllers
         public IActionResult ProductSearch(string search)
         {
 
-            List<Product> product = _context.Products.Where(pro => pro.IsDeleted == false).Where(pro => pro.Name.Contains(search)).ToList();
+            List<Product> product = _context.Products.Where(pro => pro.Name.Contains(search) && pro.IsDeleted ==false).ToList();
 
             return PartialView("_ProductSearchPartial", product);
         }

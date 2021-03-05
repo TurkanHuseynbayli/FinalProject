@@ -71,22 +71,3 @@ $(".owl-carousel.disc").owlCarousel({
   },
 });
 
-let productInput;
-$(document).on('keyup', `#product-search-input`, function () {
-
-    productInput = $(this).val().trim();
-    $("#new-products").empty();
-    $("#old-products").css("display", "block")
-    if (productInput.length > 0) {
-        $("#old-products").css("display", "none")
-        $.ajax({
-            url: '/Product/ProductSearch/',
-            data: { "search": productInput },
-            type: 'Get',
-            success: function (res) {
-                $("#new-products").append(res)
-            }
-        })
-    }
-
-})

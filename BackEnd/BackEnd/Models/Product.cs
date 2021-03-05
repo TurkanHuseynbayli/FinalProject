@@ -20,8 +20,6 @@ namespace BackEnd.Models
         public string Name { get; set; }
         [Required, DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
-        [Required]
-        public int Rate { get; set; }
         public string New { get; set; }
         public bool IsDeleted { get; set; }
         public ProductDetail ProductDetail { get; set; }

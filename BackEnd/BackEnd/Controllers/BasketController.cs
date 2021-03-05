@@ -23,6 +23,7 @@ namespace BackEnd.Controllers
         {
             List<BasketVM> dbBasket = new List<BasketVM>();
             ViewBag.Total = 0;
+            ViewBag.SinglePrice = 0;
             if (Request.Cookies["basket"] != null)
             {
 
@@ -31,6 +32,7 @@ namespace BackEnd.Controllers
                 foreach (BasketVM pro in basket)
                 {
                     Product dbProduct = await _context.Products.FindAsync(pro.Id);
+                    ViewBag.SinglePrice = dbProduct.Price;
                     pro.Price = dbProduct.Price * pro.Count;
                     pro.Image = dbProduct.Image;
                     dbBasket.Add(pro);
@@ -74,13 +76,36 @@ namespace BackEnd.Controllers
 
         }
 
+        public IActionResult RemoveCount(int? id)
+        {
+            List<BasketVM> basket = new List<BasketVM>();
+
+            basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
+            //BasketVM remove = basket.FirstOrDefault(p => p.Id == id);
+            
+            BasketVM isExist = basket.FirstOrDefault(p => p.Id == id);
+            if (isExist.Count>1)
+            {
+                isExist.Count--;
+                
+            }
+            else
+            {
+                basket.Remove(isExist);
+            }
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
+
+            return RedirectToAction(nameof(Index));
+        }
         public IActionResult RemoveItem(int? id)
         {
             List<BasketVM> basket = new List<BasketVM>();
 
             basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
             BasketVM remove = basket.FirstOrDefault(p => p.Id == id);
+          
             basket.Remove(remove);
+           
             Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
 
             return RedirectToAction(nameof(Index));
