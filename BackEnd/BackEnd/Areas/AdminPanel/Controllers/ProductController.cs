@@ -9,6 +9,7 @@ using BackEnd.DAL;
 using BackEnd.Extensions;
 using BackEnd.Helpers;
 using BackEnd.Models;
+using BackEnd.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         }
         public IActionResult Index(int? page = 1)
         {
+          
             ViewBag.PageCount = Decimal.Ceiling((decimal)_context.Products
               .Where(pro => pro.IsDeleted == false).Count() / 9);
             ViewBag.Page = page;
@@ -40,112 +42,20 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                  .OrderByDescending(cr => cr.Date).OrderByDescending(pro => pro.Id).Skip(((int)page - 1) * 3).Take(5).ToList();
             return View(products);
         }
-
-        #region Create
-        //public IActionResult Create()
-        //{
-        //    ViewBag.Categ = _context.Categories.ToList();
-        //    return View();
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create(Product product, List<int> CategId)
-        //{
-        //    ViewBag.Categ = _context.Categories.ToList();
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View();
-        //    }
-
-        //    bool isExist = _context.Products.Where(cr => cr.IsDeleted == false)
-        //        .Any(cr => cr.Name == product.Name);
-
-        //    if (isExist)
-        //    {
-        //        ModelState.AddModelError("Product.Name", "This name already exist");
-        //        return View();
-        //    }
-
-        //    Product newProduct = new Product
-        //    {
-        //        Name = product.Name,
-        //        Price = product.Price,
-        //    };
-
-        //    ProductDetail newProductDetail = new ProductDetail();
-
-        //    #region Images
-        //    if (!product.Photo.IsImage())
-        //    {
-        //        ModelState.AddModelError("Photos", $"{product.Photo.FileName} - not image type");
-        //        return View(newProduct);
-        //    }
-
-        //    string folder = Path.Combine("img", "product");
-        //    string fileName = await product.Photo.SaveImageAsync(_env.WebRootPath, folder);
-        //    if (fileName == null)
-        //    {
-        //        return Content("Error");
-        //    }
-        //    newProduct.Image = fileName;
-        //    #endregion
-
-        //    #region Many to Many
-        //    List<CategoryProduct> categoryProducts = new List<CategoryProduct>();
-
-        //    if (CategId.Count == 0)
-        //    {
-        //        ModelState.AddModelError("", "Category cannot be empty");
-        //        return View();
-        //    }
-
-        //    foreach (var item in CategId)
-        //    {
-        //        CategoryProduct categoryProduct = new CategoryProduct()
-        //        {
-        //            ProductId = newProduct.Id,
-        //            CategoryId = item
-        //        };
-        //        categoryProducts.Add(categoryProduct);
-        //    }
-
-
-
-
-        //    #endregion
-        //    #region Products
-        //    newProduct.CategoryProducts = categoryProducts;
-        //    product.Date = DateTime.Now;
-        //    newProduct.Date = product.Date;
-        //    await _context.Products.AddAsync(newProduct);
-        //    await _context.SaveChangesAsync();
-        //    #endregion
-        //    #region ProductDetail
-        //    newProductDetail.Description = product.ProductDetail.Description;
-
-        //    await _context.AddAsync(newProductDetail);
-        //    await _context.SaveChangesAsync();
-        //    #endregion
-
-
-
-
-        //    return RedirectToAction(nameof(Index));
-        //}
-        #endregion
-
+      
         public IActionResult Create()
         {
             ViewBag.Categ = _context.Categories.ToList();
+            ViewBag.Lists = _context.TabLists.ToList();
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Product products, List<int> CategId)
+        public async Task<IActionResult> Create(Product products, List<int> CategId, List<int> ListsId)
         {
             ViewBag.Categ = _context.Categories.ToList();
+            ViewBag.Lists = _context.TabLists.ToList();
             Product newProduct = new Product();
             ProductDetail newProductDetail = new ProductDetail();
 
@@ -195,6 +105,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 ModelState.AddModelError("", "Category cannot be empty");
                 return View();
             }
+           
 
             foreach (var item in CategId)
             {
@@ -204,6 +115,32 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                     CategoryId = item
                 };
                 categoryProducts.Add(categoryProduct);
+            }
+            List<TablistProduct> tablistProducts = new List<TablistProduct>();
+
+            if (ListsId.Count == 0)
+            {
+                ModelState.AddModelError("", "List cannot be empty");
+                return View();
+            }
+
+            foreach (var item in ListsId)
+            {
+                TablistProduct tablistProduct = new TablistProduct()
+                {
+                    ProductId = newProduct.Id,
+                    TabListId = item
+                };
+                tablistProducts.Add(tablistProduct);
+            }
+            
+
+            //SEND EMAIL 
+
+            List<SubscribedEmail> emails = _context.SubscribedEmails.Where(e => e.HasDeleted == false).ToList();
+            foreach (SubscribedEmail email in emails)
+            {
+                SendEmail(email.Email, "Yeni bir product yaradildi.", "<h1>Yeni bir product yaradildi</h1>");
             }
 
             newProduct.CategoryProducts = categoryProducts;
@@ -228,6 +165,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         public IActionResult Update(int? id)
         {
             ViewBag.Categ = _context.Categories.ToList();
+            ViewBag.Lists = _context.TabLists.ToList();
 
             Product products = _context.Products.Include(blg => blg.ProductDetail).FirstOrDefault(blg => blg.Id == id);
             return View(products);
@@ -237,6 +175,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         public async Task<IActionResult> Update(int? id, Product product)
         {
             ViewBag.Categ = _context.Categories.ToList();
+            ViewBag.Lists = _context.TabLists.ToList();
             if (id == null) return NotFound();
 
 
@@ -319,6 +258,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             if (!isDeleted)
             {
                 ModelState.AddModelError(" ", "Some problem exists");
+              
             }
 
             _context.Products.Remove(product);
@@ -329,36 +269,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
 
 
 
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null) return NotFound();
-        //    Product product = await _context.Products.FindAsync(id);
-        //    if (product == null) return NotFound();
-        //    return View(product);
-        //}
-
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //[ActionName("Delete")]
-        //public async Task<IActionResult> DeletePost(int? id)
-        //{
-        //    if (id == null) return RedirectToAction("Index", "Error"); ;
-        //    Product product = _context.Products.FirstOrDefault(c => c.Id == id);
-        //    if (product == null) return RedirectToAction("Index", "Error"); ;
-
-        //    if (!product.IsDeleted)
-        //    {
-        //        product.IsDeleted = true;
-        //        product.Date = DateTime.Now;
-        //    }
-        //    else
-        //        product.IsDeleted = false;
-        //    await _context.AddAsync(product);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
-        //SEND EMAIL 
+       
 
         public void SendEmail(string email, string subject, string htmlMessage)
         {
@@ -371,11 +282,11 @@ namespace BackEnd.Areas.AdminPanel.Controllers
                 UseDefaultCredentials = false,
                 Credentials = new NetworkCredential()
                 {
-                    UserName = "turkanhuseyinbeyli@gmail.com",
-                    Password = "eti228"
+                    UserName = "turkanhuseynbayli@gmail.com",
+                    Password = "12345@Tt"
                 }
             };
-            MailAddress fromEmail = new MailAddress("turkanhuseyinbeyli@gmail.com", "Turkan Huseynbayli");
+            MailAddress fromEmail = new MailAddress("turkanhuseynbayli@gmail.com", "Turkan Huseynbayli");
             MailAddress toEmail = new MailAddress(email, "Turkan Huseynbayli");
             MailMessage message = new MailMessage()
             {

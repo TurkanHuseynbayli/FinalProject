@@ -30,7 +30,7 @@ namespace BackEnd.Controllers
                 foreach (FavoriteVM pro in favorite)
                 {
                     Product dbProduct = await _context.Products.FindAsync(pro.Id);
-                    pro.Price = dbProduct.Price*pro.Count;
+                    pro.Price = dbProduct.Price;
                     pro.Image = dbProduct.Image;
                     pro.New = dbProduct.New;
                     dbBasket.Add(pro);

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using BackEnd.DAL;
 using BackEnd.Extensions;
@@ -140,6 +142,39 @@ namespace BackEnd.Controllers
 
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult SendMessage(CommentVM comment)
+        {
+            if (ModelState.IsValid)
+            {
+                System.Net.Mail.SmtpClient client = new System.Net.Mail.SmtpClient()
+                {
+                    Host = "smtp.gmail.com",
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+                    Credentials = new NetworkCredential()
+                    {
+                        UserName = comment.Email,
+                        Password = comment.Password
+                    }
+                };
+                MailAddress fromEmail = new MailAddress(comment.Email, comment.Name);
+                MailAddress toEmail = new MailAddress("turkanhuseynbayli@gmail.com", comment.Name);
+                MailMessage message = new MailMessage()
+                {
+                    From = fromEmail,
+                    Body = comment.Message
+                };
+                message.To.Add(toEmail);
+                client.Send(message);
+            }
+            return RedirectToAction("Index", "Home");
+
         }
 
     }

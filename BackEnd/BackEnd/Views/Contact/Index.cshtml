@@ -39,7 +39,7 @@
             <div class="row">
                 <div class="col-lg-7">
                     <div class="img-box animate__animated animate__fadeInUp">
-                        <img class="img-fluid"  src="~/img/contact/@Model.Image" alt="" />
+                        <img class="img-fluid" src="~/img/contact/@Model.Image" alt="" />
                         <div class="address-info">
                             <ul>
                                 <li>
@@ -60,66 +60,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-5">
-                    <div class="form animate__animated animate__fadeInLeft">
-                        <h2>Need help?</h2>
-                        <strong style="font-size: 32px; color: #c8a165">Let's ask your questions</strong>
-                        <form class="contact-form" method="POST">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <input class="form-control"
-                                               type="text"
-                                               id="name"
-                                               name="name"
-                                               placeholder="Name"
-                                               style="border: none; border-bottom: 1px solid #e7e7e7" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input class="form-control"
-                                               type="email"
-                                               id="email"
-                                               name="email"
-                                               placeholder="Email *"
-                                               style="border: none; border-bottom: 1px solid #e7e7e7" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <input class="form-control"
-                                               type="text"
-                                               id="phone"
-                                               name="phone"
-                                               placeholder="Phone"
-                                               style="border: none; border-bottom: 1px solid #e7e7e7" />
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group comment">
-                                        <textarea class="form-control"
-                                                  style="
-                            min-height: 150px;
-                            border: none;
-                            border-bottom: 1px solid #e7e7e7;
-                          "
-                                                  id="comment"
-                                                  name="comment"
-                                                  placeholder="Tell Us About Project * "></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <a class="btn btn-md"
-                                       style="background-color: #c8a165; color: white"
-                                       href="#">
-                                        Send Message
-                                    </a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                @await Component.InvokeAsync("SendMessage")
             </div>
         </div>
     </section>

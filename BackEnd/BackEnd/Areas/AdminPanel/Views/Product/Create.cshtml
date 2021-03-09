@@ -10,7 +10,7 @@
             <form method="post" enctype="multipart/form-data">
                 <div class="form-row">
                     <div class="form-group col-md-8 offset-md-2">
-                        <label asp-for="@Model.Name">Title</label>
+                        <label asp-for="@Model.Name">Name</label>
                         <input required asp-for="@Model.Name" class="form-control" placeholder="Name">
                         <span class="text-danger" asp-validation-for="@Model.Name"></span>
                     </div>
@@ -19,9 +19,10 @@
                 <div class="form-row">
                     <div class="form-group col-md-8 offset-md-2">
                         <label asp-for="@Model.Price">Price</label>
-                        <input required asp-for="@Model.Price" class="form-control" placeholder="Name">
+                        <input type="number" min="0" max="100" required asp-for="@Model.Price" class="form-control" placeholder="Price">
                         <span class="text-danger" asp-validation-for="@Model.Price"></span>
                     </div>
+                  
                 </div>
 
                 <div class="form-row">
@@ -60,9 +61,21 @@
                                 </label>
                             </div>
                         }
-                    </div>
 
                     </div>
+                    <div class="col-md-6">
+                        <h4 class="text-info">Tablist</h4>
+                        @foreach (TabList categories in ViewBag.Lists)
+                        {
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="ListsId" value="@categories.Id">
+                                <label class="form-check-label">
+                                    @categories.Name
+                                </label>
+                            </div>
+                        }
+                    </div>
+                </div>
                     <div class="form-row">
                         <div class="form-group col-md-8 offset-md-2">
                             <label asp-for="@Model.Date"></label>

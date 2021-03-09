@@ -1,0 +1,67 @@
+﻿@model CommentVM
+@{
+    ViewData["Title"] = "Default";
+}
+
+<div class="col-lg-5">
+    <div class="form animate__animated animate__fadeInLeft">
+        <h2 class="mb-4">Need help?</h2>
+        <strong class="mb-5" style="font-size: 32px; color: #c8a165">Let's ask your questions</strong>
+        <form class="contact-form mt-4" method="post" asp-controller="Account" asp-action="SendMessage">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="form-group">
+                        <input class="form-control"
+                               
+                               id="name"
+                               asp-for="@Model.Name"
+                               placeholder="Name"
+                               style="border: none; border-bottom: 1px solid #e7e7e7" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <input class="form-control"
+                             
+                               id="email"
+                               asp-for="@Model.Email"
+                               placeholder="Email *"
+                               style="border: none; border-bottom: 1px solid #e7e7e7" />
+                    </div>
+                </div>
+               
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <input class="form-control"
+                               
+                              
+                               asp-for="@Model.Password"
+                               placeholder="Password"
+                               style="border: none; border-bottom: 1px solid #e7e7e7" />
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="form-group comment">
+                        <textarea class="form-control"
+                                  style="
+                            min-height: 150px;
+                            border: none;
+                            border-bottom: 1px solid #e7e7e7;
+                          "
+                                  id="comment"
+                                  asp-for="@Model.Message"
+                                  placeholder="Tell Us About Project * "></textarea>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-md"
+                       style="background-color: #c8a165; color: white"
+                       >
+                        Send Message
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

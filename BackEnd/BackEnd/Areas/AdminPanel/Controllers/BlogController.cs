@@ -186,7 +186,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         public async Task<IActionResult> DeletePost(int? id)
         {
 
-            if (id == null) return NotFound();
+            if (id == null) return RedirectToAction("Index", "Error");
             Blog blog = _context.Blogs.FirstOrDefault(c => c.Id == id);
             if (blog == null) return NotFound();
             int count = _context.Blogs.Count();
