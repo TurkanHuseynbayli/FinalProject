@@ -15,5 +15,6 @@ namespace BackEnd.ViewModels
         [Required, DataType(DataType.Password)]
         public string Password { get; set; }
         public string Message { get; set; }
+        public string Text { get; set; }
     }
 }

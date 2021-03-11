@@ -23,6 +23,7 @@ namespace BackEnd.Models
         public bool isDelete { get; set; }
         public BlogDetail BlogDetail { get; set; }
         public ICollection<CategoryBlog> CategoryBlogs { get; set; }
+        public List<BlogComment> BlogComments { get; set; }
 
     }
 }

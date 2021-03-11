@@ -71,7 +71,7 @@
                                     <td class="table-price">$@ViewBag.SinglePrice</td>
                                     <td>
                                         <div class="quantity">
-                                            <a asp-controller="Basket" asp-action="RemoveCount" asp-route-id="@pro.Id" class="plus-minus">
+                                            <a id="remove" asp-controller="Basket" asp-action="RemoveCount" asp-route-id="@pro.Id" class="plus-minus">
                                                 <i class="fas fa-minus"></i>
                                             </a>
                                             <span>@pro.Count</span>
@@ -83,7 +83,7 @@
 
                                     <td class="table-price">$@pro.Price</td>
                                     <td class="remove">
-                                        <a asp-controller="Basket" asp-action="RemoveItem" asp-route-id="@pro.Id"><i class="fas fa-times"></i></a>
+                                        <a id="removeItem" asp-controller="Basket" asp-action="RemoveItem" asp-route-id="@pro.Id"><i class="fas fa-times"></i></a>
                                     </td>
                                 </tr>
                             }

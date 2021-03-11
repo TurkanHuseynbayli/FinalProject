@@ -176,6 +176,30 @@ namespace BackEnd.Controllers
             return RedirectToAction("Index", "Home");
 
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<JsonResult> LeaveComment(CommentVM model)
+        {
+            JsonResult result = new JsonResult(0);
+           // try
+           // {
+           //     var comment = new Comment();
+           //     comment.Text = model.Text;
+           //     comment.TimeStamp = DateTime.Now;
+
+           //     var res=await _context.Comments.AddAsync(comment);
+           //     await _context.SaveChangesAsync();
+
+           //     result.Data = new { Success = res };
+           // }
+           //catch (Exception ex)
+           // {
+           //     result.Data = new { Success = false, SendMessage = ex.Message };
+           // }
+
+            
+            return result;
+        }
 
     }
 }

@@ -32,6 +32,8 @@ namespace BackEnd.DAL
         public DbSet<TabList> TabLists { get; set; }
         public DbSet<TablistProduct> TablistProducts { get; set; }
         public DbSet<SubscribedEmail> SubscribedEmails { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<BlogComment> BlogComments { get; set; }
 
 
     }

@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using BackEnd.DAL;
+using BackEnd.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -7,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace BackEnd.Extensions
 {
+   
     public static class Extension
     {
+     
         public static bool IsImage(this IFormFile photo)
         {
             return photo.ContentType.Contains("image/");
@@ -28,6 +33,8 @@ namespace BackEnd.Extensions
             }
             return fileName;
         }
+
+
     }
     public enum Roles
     {
