@@ -34,6 +34,7 @@ namespace BackEnd.DAL
         public DbSet<SubscribedEmail> SubscribedEmails { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<BlogComment> BlogComments { get; set; }
+        public DbSet<ProductComment> ProductComments { get; set; }
 
 
     }

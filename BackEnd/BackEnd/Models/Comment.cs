@@ -13,5 +13,6 @@ namespace BackEnd.Models
         public string Text { get; set; }
         public DateTime TimeStamp { get; set; }
         public List<BlogComment> BlogComments { get; set; }
+        public List<ProductComment> ProductComments { get; set; }
     }
 }

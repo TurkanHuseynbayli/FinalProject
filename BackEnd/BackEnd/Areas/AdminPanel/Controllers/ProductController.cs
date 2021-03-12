@@ -245,25 +245,41 @@ namespace BackEnd.Areas.AdminPanel.Controllers
         [ActionName("Delete")]
         public async Task<IActionResult> DeletePost(int? id)
         {
-
             if (id == null) return NotFound();
-            Product product = _context.Products.FirstOrDefault(c => c.Id == id);
+            Product product = _context.Products.Where(c => c.IsDeleted == false).FirstOrDefault(c => c.Id == id);
             if (product == null) return NotFound();
-            int count = _context.Products.Count();
-            if (count == 1)
-            {
-                return Content("sile bilmezsiz");
-            }
-            bool isDeleted = Helper.DeleteImage(_env.WebRootPath, "img", product.Image);
-            if (!isDeleted)
-            {
-                ModelState.AddModelError(" ", "Some problem exists");
-              
-            }
-
+            product.IsDeleted = true;
+            product.Date = DateTime.Now;
             _context.Products.Remove(product);
             await _context.SaveChangesAsync();
+
+
+            //foreach (Product pro in product.TablistProduct)
+            //{
+            //    pro.DeletedTime = DateTime.Now;
+            //    pro.IsDeleted = true;
+            //}
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
+            //if (id == null) return NotFound();
+            //Product product = _context.Products.FirstOrDefault(c => c.Id == id);
+            //if (product == null) return NotFound();
+            //int count = _context.Products.Count();
+            //if (count == 1)
+            //{
+            //    return Content("sile bilmezsiz");
+            //}
+            //bool isDeleted = Helper.DeleteImage(_env.WebRootPath, "img", product.Image);
+            //if (!isDeleted)
+            //{
+            //    ModelState.AddModelError(" ", "Some problem exists");
+
+            //}
+
+            //_context.Products.Remove(product);
+            //await _context.SaveChangesAsync();
+            //return RedirectToAction(nameof(Index));
 
         }
 

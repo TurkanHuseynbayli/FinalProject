@@ -64,43 +64,7 @@
                                         <a href="#">@Model.Blog.Name</a>
                                     </h4>
                                     @Html.Raw(Model.Blog.BlogDetail.Description)
-                                    <div class="post-share-tag">
-                                        <div class="post-share floatleft">
-                                            <span class="text-uppercase"><strong>Share</strong></span>
-                                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-                                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                                            <a href="#"><i class="fab fa-vimeo-v"></i></a>
-
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
-                                        </div>
-                                        <div class="post-share post-tag floatright">
-                                            <span class="text-uppercase"><strong>tags</strong></span>
-                                            <a href="#">Chair</a>
-                                            <a href="#">Furniture</a>
-                                            <a href="#">Light</a>
-                                            <a href="#">Table</a>
-                                        </div>
-                                    </div>
-                                    <div class="author-comments mt-5">
-                                        <div class="author-photo floatleft">
-                                            <img src="~/img/reviewer/author.jpg" alt="" />
-                                        </div>
-                                        <div class="author-brief">
-                                            <h3 class="font-16px"><strong>Salim Rana</strong></h3>
-                                            <p>
-                                                No one rejects, dislikes, or avoids pleasure itself,
-                                                because it is pleasure, but because those who do not
-                                                know how to pursue pleasure rationally encounter
-                                                conseques ences that are extremely painful. Nor
-                                                again is there anyone who loves or pursues or
-                                                desires to obtain pain of itself, because it is
-                                                pain, but because occasionally car mstances occur in
-                                                which toil and pain can procure him some great
-                                                pleasure.
-                                            </p>
-                                        </div>
-                                    </div>
+                                   
                                     <div class="pro-reviews d-flex flex-column">
                                         <div class="leave-review">
                                             <h3 class="tab-title title-border mb-5 mt-5">
@@ -170,27 +134,29 @@
                                             <ul class="product-comments">
                                                 @foreach (BlogComment bc in Model.BlogComments)
                                                 {
-                                                    <li class="mb-30 col-12">
+                                                <li class="mb-30 col-12">
+                                                    <div class="pro-reviewer">
+                                                        <img src="~/admin/images/faces/user.png" alt="" />
+                                                    </div>
 
-
-                                                        <div class="pro-reviewer-comment">
-                                                            <div class="fix">
-                                                                <div class="floatleft mbl-center">
-                                                                    <h5 class="text-uppercase mb-0">
-                                                                        <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
-                                                                    </h5>
-                                                                    <p class="reply-date">
-                                                                        @bc.Comment.TimeStamp.ToString("f");
-                                                                    </p>
-                                                                </div>
+                                                    <div class="pro-reviewer-comment">
+                                                        <div class="fix">
+                                                            <div class="floatleft mbl-center">
+                                                                <h5 class="text-uppercase mb-0">
+                                                                    <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
+                                                                </h5>
+                                                                <p class="reply-date">
+                                                                    @bc.Comment.TimeStamp.ToString("f");
+                                                                </p>
                                                             </div>
-                                                            <p class="mb-0">
-                                                                @bc.Comment.Text
-                                                            </p>
                                                         </div>
+                                                        <p class="mb-0">
+                                                            @bc.Comment.Text
+                                                        </p>
+                                                    </div>
 
 
-                                                    </li>
+                                                </li>
                                                 }
 
                                             </ul>
@@ -202,13 +168,7 @@
                         </div>
                         <!-- Single-blog end -->
                         <div class="col-md-3">
-                            <!-- Widget-Search start -->
-                            <aside class="widget widget-search mt-0 mb-5">
-                                <form action="#">
-                                    <input type="text" placeholder="Search here..." />
-                                </form>
-                            </aside>
-                            <!-- Widget-search end -->
+                            
                             <!-- Widget-Categories start -->
                             <aside class="widget widget-categories mb-30">
                                 <div class="widget-title">
@@ -219,7 +179,7 @@
                                     <ul>
                                         @foreach (Category cg in Model.Categories)
                                         {
-                                            <li><a href="#">@cg.NameCategory</a></li>
+                                            <li><a asp-action="FilterCategory" asp-route-id="@cg.Id">@cg.NameCategory</a></li>
                                         }
                                     </ul>
                                 </div>
@@ -260,42 +220,67 @@
                                 <div class="widget-title">
                                     <h4>Recent comments</h4>
                                 </div>
-                                <div class="widget-info comments-filter">
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">Mary Isabella</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">Michael Charles</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">David William</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                    <div class="single-recent-comments">
-                                        <h5><a href="#">Matthew Daniel</a></h5>
-                                        <p>
-                                            There are many variations of passag of Lorem Ipsum
-                                            available...
-                                        </p>
-                                    </div>
-                                </div>
+                                <ul class="product-comments">
+                                    @foreach (BlogComment bc in Model.BlogComments)
+                                    {
+                                        <li class="mb-30 col-12">
+                                            
+
+                                            <div class="pro-reviewer-comment">
+                                                <div class="fix">
+                                                    <div class="floatleft mbl-center">
+                                                        <h5 class="text-uppercase mb-3 mt-3">
+                                                            <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
+                                                        </h5>
+                                                       
+                                                    </div>
+                                                </div>
+                                                <p class=" mt-2 mb-2 pb-3">
+                                                    @bc.Comment.Text
+                                                </p>
+                                            </div>
+
+
+                                        </li>
+                                    }
+
+                                </ul>
+                                @*<div class="widget-info comments-filter">
+            <div class="single-recent-comments">
+                <h5><a href="#">Mary Isabella</a></h5>
+                <p>
+                    There are many variations of passag of Lorem Ipsum
+                    available...
+                </p>
+            </div>
+            <div class="single-recent-comments">
+                <h5><a href="#">Michael Charles</a></h5>
+                <p>
+                    There are many variations of passag of Lorem Ipsum
+                    available...
+                </p>
+            </div>
+            <div class="single-recent-comments">
+                <h5><a href="#">David William</a></h5>
+                <p>
+                    There are many variations of passag of Lorem Ipsum
+                    available...
+                </p>
+            </div>
+            <div class="single-recent-comments">
+                <h5><a href="#">Matthew Daniel</a></h5>
+                <p>
+                    There are many variations of passag of Lorem Ipsum
+                    available...
+                </p>
+            </div>
+        </div>*@
                             </aside>
                             <!-- Widget-Size end -->
                             <!-- Widget-banner start -->
                             <aside class="widget widget-banner">
                                 <div class="widget-info widget-banner-img">
-                                    <a href="#"><img src="~/img/banner/5.jpg" alt="" /></a>
+                                    <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.Blog.Id"><img src="~/img/banner/@Model.Blogs.FirstOrDefault().Image" alt="" /></a>
                                 </div>
                             </aside>
                             <!-- Widget-banner end -->

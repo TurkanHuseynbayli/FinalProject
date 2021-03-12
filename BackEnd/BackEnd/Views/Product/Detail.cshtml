@@ -78,13 +78,13 @@
 
                                             <div class="actions">
                                                 <div class="product-action">
-                                                    <a asp-controller="Favorite" asp-action="AddFavorite" asp-route-id="@Model.Product.ProductDetail.Id"
+                                                    <a asp-controller="Favorite" asp-action="AddFavorite" asp-route-id="@Model.Product.Id"
                                                       
                                                        title="Wishlist">
                                                         <i class="far fa-heart"></i>
                                                     </a>
 
-                                                    <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@Model.Product.ProductDetail.Id"
+                                                    <a asp-controller="Basket" asp-action="AddBasket" asp-route-id="@Model.Product.Id"
                                                   
                                                        title="Add To Cart">
                                                         <i class="fas fa-cart-plus"></i>
@@ -151,113 +151,103 @@
                                                  id="v-pills-profile"
                                                  role="tabpanel"
                                                  aria-labelledby="v-pills-profile-tab">
-                                                <div class="pro-reviews mt-60">
-                                                    <div class="customer-review mb-60">
-                                                        <h3 class="tab-title title-border mb-5 mt-5">
-                                                            Customer comments
-                                                        </h3>
-                                                        <ul class="product-comments">
-                                                            <li class="mb-30">
-                                                                <div class="pro-reviewer">
-                                                                    <img  src="~/img/reviewer/1.jpg" alt="" />
-                                                                </div>
-                                                                <div class="pro-reviewer-comment">
-                                                                    <div class="fix">
-                                                                        <div class="floatleft mbl-center">
-                                                                            <h5 class="text-uppercase mb-0">
-                                                                                <strong>Gerald Barnes</strong>
-                                                                            </h5>
-                                                                            <p class="reply-date">
-                                                                                27 Jun, 2017 at 2:30pm
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="comment-reply floatright">
-                                                                            <a href="#">
-                                                                                <i class="fas fa-reply"></i>
-                                                                            </a>
-                                                                            <a href="#">
-                                                                                <i class="fas fa-window-close"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <p class="mb-0">
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipiscing elit. Integer accumsan
-                                                                        egestas elese ifend. Phasellus a felis
-                                                                        at est bibendum feugiat ut eget eni
-                                                                        Praesent et messages in con sectetur
-                                                                        posuere dolor non.
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                            <li class="threaded-comments">
-                                                                <div class="pro-reviewer">
-                                                                    <img  src="~/img/reviewer/1.jpg" alt="" />
-                                                                </div>
-                                                                <div class="pro-reviewer-comment">
-                                                                    <div class="fix">
-                                                                        <div class="floatleft mbl-center">
-                                                                            <h5 class="text-uppercase mb-0">
-                                                                                <strong>Gerald Barnes</strong>
-                                                                            </h5>
-                                                                            <p class="reply-date">
-                                                                                27 Jun, 2017 at 2:30pm
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="comment-reply floatright">
-                                                                            <a href="#">
-                                                                                <i class="fas fa-reply"></i>
-                                                                            </a>
-                                                                            <a href="#">
-                                                                                <i class="fas fa-window-close"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                    <p class="mb-0">
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipiscing elit. Integer accumsan
-                                                                        egestas elese ifend. Phasellus a felis
-                                                                        at est bibendum feugiat ut eget eni
-                                                                        Praesent et messages in con sectetur
-                                                                        posuere dolor non.
-                                                                    </p>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
+                                                <div class="pro-reviews d-flex flex-column">
                                                     <div class="leave-review">
                                                         <h3 class="tab-title title-border mb-5 mt-5">
                                                             Leave your reviw
                                                         </h3>
                                                         <div class="reply-box">
-                                                            <form action="#">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <input type="text"
-                                                                               placeholder="Your name here..."
-                                                                               name="name" />
+                                                            <div asp-validation-summary="ModelOnly"></div>
+                                                            @if (!User.Identity.IsAuthenticated)
+                                                            {
+                                                                <form id="commentForm" asp-controller="Product" asp-action="AddComment" asp-route-id="@Model.Product.Id">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <input type="text"
+                                                                                   placeholder="Your name here..."
+                                                                                   name="name" />
+                                                                            <span class="text-danger" for="name"></span>
+
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <input type="text"
+                                                                                   placeholder="Your surname here..."
+                                                                                   name="surname" />
+                                                                            <span class="text-danger" name="surname"></span>
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="col-md-6">
-                                                                        <input type="text"
-                                                                               placeholder="Your email here..."
-                                                                               name="email" />
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <textarea class="custom-textarea"
+                                                                                      name="review"
+                                                                                      placeholder="Your review here..."></textarea>
+                                                                            <span class="text-danger" for="review"></span>
+
+                                                                            <button type="submit" id="btnComment"
+                                                                                    data-text="submit review"
+                                                                                    class="button-one submit-button mt-5">
+                                                                                submit review
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    <div class="col-md-12">
-                                                                        <textarea class="custom-textarea"
-                                                                                  name="message"
-                                                                                  placeholder="Your review here..."></textarea>
-                                                                        <button type="submit"
-                                                                                data-text="submit review"
-                                                                                class="button-one submit-button mt-5">
-                                                                            submit review
-                                                                        </button>
+                                                                </form>
+                                                            }
+                                                            else
+                                                            {
+                                                                <form id="commentForm" asp-controller="Product" asp-action="AddComment" asp-route-id="@Model.Product.Id">
+                                                                    <div class="row">
+                                                                        <div class="col-md-12">
+                                                                            <textarea class="custom-textarea"
+                                                                                      name="review"
+                                                                                      placeholder="Your review here..."></textarea>
+                                                                            <span class="text-danger" name="review"></span>
+
+                                                                            <button type="submit" id="btnComment"
+                                                                                    data-text="submit review"
+                                                                                    class="button-one submit-button mt-5">
+                                                                                submit review
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </form>
+                                                                </form>
+                                                            }
                                                         </div>
                                                     </div>
+                                                    <div class="customer-review col-12">
+                                                        <h3 class="tab-title title-border mb-5 mt-5">
+                                                            Customer comments
+                                                        </h3>
+                                                        <ul class="product-comments">
+                                                            @foreach (ProductComment bc in Model.ProductComments)
+                                                            {
+                                                            <li class="mb-30 col-12">
+                                                                <div class="pro-reviewer">
+                                                                    <img src="~/admin/images/faces/user.png" alt="" />
+                                                                </div>
+
+                                                                <div class="pro-reviewer-comment">
+                                                                    <div class="fix">
+                                                                        <div class="floatleft mbl-center">
+                                                                            <h5 class="text-uppercase mb-0">
+                                                                                <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
+                                                                            </h5>
+                                                                            <p class="reply-date">
+                                                                                @bc.Comment.TimeStamp.ToString("f");
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <p class="mb-0">
+                                                                        @bc.Comment.Text
+                                                                    </p>
+                                                                </div>
+
+
+                                                            </li>
+                                                            }
+
+                                                        </ul>
+                                                    </div>
+
                                                 </div>
                                             </div>
                                             <div class="tab-pane fade"
@@ -289,13 +279,7 @@
                         </div>
                         <!-- Single-blog end -->
                         <div class="col-md-3">
-                            <!-- Widget-Search start -->
-                            <aside class="widget widget-search mt-0 mb-5">
-                                <form action="#">
-                                    <input type="text" placeholder="Search here..." />
-                                </form>
-                            </aside>
-                            <!-- Widget-search end -->
+                          
                             <!-- Widget-Categories start -->
                             <aside class="widget widget-categories mb-30">
                                 <div class="widget-title">

@@ -25,6 +25,7 @@ namespace BackEnd.Models
         public ProductDetail ProductDetail { get; set; }
         public ICollection<CategoryProduct> CategoryProducts { get; set; }
         public ICollection<TablistProduct> TablistProduct { get; set; }
+        public List<ProductComment> ProductComments { get; set; }
 
 
     }

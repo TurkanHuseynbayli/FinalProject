@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using BackEnd.DAL;
 using BackEnd.Models;
 using BackEnd.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,9 +14,12 @@ namespace BackEnd.Controllers
     public class ProductController : Controller
     {
         private readonly AppDbContext _context;
-        public ProductController(AppDbContext context)
+        private readonly UserManager<AppUser> _userManager;
+        
+        public ProductController(AppDbContext context, UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
         public IActionResult Index(int? page = 1)
         {
@@ -50,12 +54,13 @@ namespace BackEnd.Controllers
         public IActionResult Detail(int? id)
         {
             if (id == null) return NotFound();
+            TempData["BlogId"] = (int)id;
             ProductVM productVM = new ProductVM()
             {
                 Products= _context.Products.Include(pro => pro.ProductDetail).OrderByDescending(pro => pro.Id).Take(4).ToList(),
                 Categories = _context.Categories.ToList(),
-                Product= _context.Products.Include(pro => pro.ProductDetail).FirstOrDefault(pro => pro.Id == id)
-
+                Product= _context.Products.Include(pro => pro.ProductDetail).FirstOrDefault(pro => pro.Id == id),
+                ProductComments = _context.ProductComments.Where(b => b.ProductId == id).Include(b => b.Comment).ToList(),
             };
             return View(productVM);
         }
@@ -66,6 +71,53 @@ namespace BackEnd.Controllers
             List<Product> product = _context.Products.Where(pro => pro.Name.Contains(search) && pro.IsDeleted ==false).ToList();
 
             return PartialView("_ProductSearchPartial", product);
+        }
+
+        public async Task<IActionResult> AddComment(string name, string surname, string review, int? id)
+        {
+
+            if (id == null) return NotFound();
+            if (review == null)
+            {
+                ModelState.AddModelError("", "Text cannot be empty");
+                return RedirectToAction("Detail", "Product", new { id });
+            }
+            ProductComment productComment = new ProductComment();
+            Comment comment = new Comment();
+            if (!User.Identity.IsAuthenticated)
+            {
+                if (name == null)
+                {
+                    ModelState.AddModelError("", "Name cannot be empty");
+                    return RedirectToAction("Detail", "Product", new { id });
+                }
+
+                if (surname == null)
+                {
+                    ModelState.AddModelError("", "Surname cannot be empty");
+                    return RedirectToAction("Detail", "Product", new { id });
+                }
+
+                comment.Name = name;
+                comment.Surname = surname;
+
+            }
+            else
+            {
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
+                comment.Name = user.Name;
+                comment.Surname = user.Surname;
+
+            }
+            comment.Text = review;
+            comment.TimeStamp = DateTime.Now;
+            await _context.Comments.AddAsync(comment);
+            await _context.SaveChangesAsync();
+            productComment.CommentId = comment.Id;
+            productComment.ProductId = (int)id;
+            await _context.ProductComments.AddAsync(productComment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Detail", "Product", new { id });
         }
     }
 }
