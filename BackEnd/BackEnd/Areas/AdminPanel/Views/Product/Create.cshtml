@@ -22,7 +22,7 @@
                         <input type="number" min="0" max="100" required asp-for="@Model.Price" class="form-control" placeholder="Price">
                         <span class="text-danger" asp-validation-for="@Model.Price"></span>
                     </div>
-                  
+
                 </div>
 
                 <div class="form-row">
@@ -33,6 +33,7 @@
                     </div>
 
                 </div>
+               
 
                 <div class="text-center mb-2">
                     <h3 class="mb-3">Add Image</h3>
@@ -64,7 +65,7 @@
 
                     </div>
                     <div class="col-md-6">
-                        <h4 class="text-info">Tablist</h4>
+                        <h4 class="text-info">Lists</h4>
                         @foreach (TabList categories in ViewBag.Lists)
                         {
                             <div class="form-check">
@@ -76,18 +77,18 @@
                         }
                     </div>
                 </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-8 offset-md-2">
-                            <label asp-for="@Model.Date"></label>
-                            <input asp-for="@Model.Date" class="form-control">
-                            <span class="text-danger" asp-validation-for="@Model.Date"></span>
-                        </div>
+                <div class="form-row">
+                    <div class="form-group col-md-8 offset-md-2">
+                        <label asp-for="@Model.Date"></label>
+                        <input asp-for="@Model.Date" class="form-control">
+                        <span class="text-danger" asp-validation-for="@Model.Date"></span>
                     </div>
+                </div>
 
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-success">Create</button>
-                        <a asp-action="Index" class="btn btn-info">Close</a>
-                    </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Create</button>
+                    <a asp-action="Index" class="btn btn-info">Close</a>
+                </div>
             </form>
         </div>
     </div>

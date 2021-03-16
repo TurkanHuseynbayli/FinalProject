@@ -92,6 +92,7 @@ namespace BackEnd.Areas.AdminPanel.Controllers
             newProduct.Name = products.Name;
             newProduct.Price = products.Price;
             newProduct.Date = products.Date;
+            newProduct.New = products.New;
             await _context.AddAsync(newProduct);
             await _context.SaveChangesAsync();
 

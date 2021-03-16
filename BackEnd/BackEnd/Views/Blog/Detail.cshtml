@@ -64,14 +64,14 @@
                                         <a href="#">@Model.Blog.Name</a>
                                     </h4>
                                     @Html.Raw(Model.Blog.BlogDetail.Description)
-                                   
+
                                     <div class="pro-reviews d-flex flex-column">
                                         <div class="leave-review">
                                             <h3 class="tab-title title-border mb-5 mt-5">
                                                 Leave your reviw
                                             </h3>
                                             <div class="reply-box">
-                                                <div asp-validation-summary="ModelOnly"></div>
+                                                <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                                                 @if (!User.Identity.IsAuthenticated)
                                                 {
                                                     <form id="commentForm" asp-controller="Blog" asp-action="AddComment" asp-route-id="@Model.Blog.Id">
@@ -80,7 +80,7 @@
                                                                 <input type="text"
                                                                        placeholder="Your name here..."
                                                                        name="name" />
-                                                                <span class="text-danger" for="name"></span>
+                                                                <span class="text-danger" name="name"></span>
 
                                                             </div>
                                                             <div class="col-md-6">
@@ -95,7 +95,7 @@
                                                                 <textarea class="custom-textarea"
                                                                           name="review"
                                                                           placeholder="Your review here..."></textarea>
-                                                                <span class="text-danger" for="review"></span>
+                                                                <span class="text-danger" name="review"></span>
 
                                                                 <button type="submit" id="btnComment"
                                                                         data-text="submit review"
@@ -134,29 +134,29 @@
                                             <ul class="product-comments">
                                                 @foreach (BlogComment bc in Model.BlogComments)
                                                 {
-                                                <li class="mb-30 col-12">
-                                                    <div class="pro-reviewer">
-                                                        <img src="~/admin/images/faces/user.png" alt="" />
-                                                    </div>
-
-                                                    <div class="pro-reviewer-comment">
-                                                        <div class="fix">
-                                                            <div class="floatleft mbl-center">
-                                                                <h5 class="text-uppercase mb-0">
-                                                                    <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
-                                                                </h5>
-                                                                <p class="reply-date">
-                                                                    @bc.Comment.TimeStamp.ToString("f");
-                                                                </p>
-                                                            </div>
+                                                    <li class="mb-30 col-12">
+                                                        <div class="pro-reviewer">
+                                                            <img src="~/admin/images/faces/user.png" alt="" />
                                                         </div>
-                                                        <p class="mb-0">
-                                                            @bc.Comment.Text
-                                                        </p>
-                                                    </div>
+
+                                                        <div class="pro-reviewer-comment">
+                                                            <div class="fix">
+                                                                <div class="floatleft mbl-center">
+                                                                    <h5 class="text-uppercase mb-0">
+                                                                        <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
+                                                                    </h5>
+                                                                    <p class="reply-date">
+                                                                        @bc.Comment.TimeStamp.ToString("f");
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <p class="mb-0">
+                                                                @bc.Comment.Text
+                                                            </p>
+                                                        </div>
 
 
-                                                </li>
+                                                    </li>
                                                 }
 
                                             </ul>
@@ -168,7 +168,7 @@
                         </div>
                         <!-- Single-blog end -->
                         <div class="col-md-3">
-                            
+
                             <!-- Widget-Categories start -->
                             <aside class="widget widget-categories mb-30">
                                 <div class="widget-title">
@@ -224,57 +224,24 @@
                                     @foreach (BlogComment bc in Model.BlogComments)
                                     {
                                         <li class="mb-30 col-12">
-                                            
-
                                             <div class="pro-reviewer-comment">
                                                 <div class="fix">
                                                     <div class="floatleft mbl-center">
                                                         <h5 class="text-uppercase mb-3 mt-3">
                                                             <strong>@bc.Comment.Name @bc.Comment.Surname</strong>
                                                         </h5>
-                                                       
+
                                                     </div>
                                                 </div>
                                                 <p class=" mt-2 mb-2 pb-3">
                                                     @bc.Comment.Text
                                                 </p>
                                             </div>
-
-
                                         </li>
                                     }
 
                                 </ul>
-                                @*<div class="widget-info comments-filter">
-            <div class="single-recent-comments">
-                <h5><a href="#">Mary Isabella</a></h5>
-                <p>
-                    There are many variations of passag of Lorem Ipsum
-                    available...
-                </p>
-            </div>
-            <div class="single-recent-comments">
-                <h5><a href="#">Michael Charles</a></h5>
-                <p>
-                    There are many variations of passag of Lorem Ipsum
-                    available...
-                </p>
-            </div>
-            <div class="single-recent-comments">
-                <h5><a href="#">David William</a></h5>
-                <p>
-                    There are many variations of passag of Lorem Ipsum
-                    available...
-                </p>
-            </div>
-            <div class="single-recent-comments">
-                <h5><a href="#">Matthew Daniel</a></h5>
-                <p>
-                    There are many variations of passag of Lorem Ipsum
-                    available...
-                </p>
-            </div>
-        </div>*@
+
                             </aside>
                             <!-- Widget-Size end -->
                             <!-- Widget-banner start -->
@@ -293,3 +260,6 @@
     </section>
 </main>
 <!-- MAIN END -->
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

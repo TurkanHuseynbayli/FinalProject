@@ -161,16 +161,16 @@
                 <div class="col-lg-4">
                     <div class="up-comming-product">
                         <div class="up-comming-img">
-                            <a href="#">
+                            <a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.BlogDetails.FirstOrDefault().Id">
                                 <img src="~/img/product/up-comming.jpg" alt="" />
                             </a>
                         </div>
                         <div class="up-comming-info text-centers">
                             <div class="up-comming-brief">
-                                <h4 class="post-title"><a href="#">Indoor Furniture</a></h4>
-                                <h4 class="comming-pro-price">$ 200.00</h4>
+                                <h4 class="post-title"><a asp-controller="Blog" asp-action="Detail" asp-route-id="@Model.BlogDetails.FirstOrDefault().Id">Indoor Furniture</a></h4>
+                                <h4 class="comming-pro-price mt-3">$ 200.00</h4>
                             </div>
-                            <div class="count-down">
+                            @*<div class="count-down">
                                 <div data-countdown="2021/01/26">
                                     <span class="cdown days">
                                         <span class="time-count">0 </span>
@@ -186,7 +186,7 @@
                                         <p>Min</p>
                                     </span>
                                 </div>
-                            </div>
+                            </div>*@
                         </div>
                     </div>
                 </div>
